@@ -1,0 +1,145 @@
+/* Glowing Title Styles */
+.blog-title {
+    text-align: center;
+    margin: 120px 0 50px 0; /* Increased top margin to create space below navbar */
+    font-size: 3em;
+    animation: glow 1.5s ease-in-out infinite alternate;
+    color: #fff;
+    padding-top: 30px; /* Additional padding for extra spacing */
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0ff;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #0ff, 0 0 40px #0ff;
+    }
+}
+/* Card Container Styles */
+/* Card Styles */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px 35px; /* Increased horizontal padding */
+    width: 320px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-left: 20px; 
+}
+
+/* Card Title Styles */
+.card h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    padding-left: 15px; /* Add left padding to title */
+    font-size: 1.4em;
+}
+
+/* Card Description Styles */
+.card-description {
+    color: #ccc;
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin: 15px 0;
+    padding-left: 15px; /* Add left padding to description */
+    text-align: justify;
+}
+
+/* Glass effect animation */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+    transform: rotate(0deg);
+    animation: glassRotate 15s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes glassRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 15px 45px rgba(0, 255, 255, 0.2);
+}
+
+/* Enhanced Button Styles */
+.card-btn {
+    display: block;
+    width: 145px;
+    margin: 20px auto 0;
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #00ffff, #00bfff, #0077ff);
+    background-size: 200% auto;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.5s;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+}
+
+/* Button hover effect */
+.card-btn:hover {
+    background-position: right center;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.4);
+}
+
+.card-btn:active {
+    transform: translateY(0);
+}
+
+/* Button shine effect */
+.card-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(transparent, rgba(255,255,255,0.3), transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+.card-btn:active {
+    transform: translateY(0);
+}
+
+@media screen and (max-width: 768px) {
+    .card-container {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
