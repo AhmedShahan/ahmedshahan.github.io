@@ -1,0 +1,241 @@
+/* Workshop Section Styles */
+.workshop-section {
+    padding: 100px 50px;
+    min-height: 100vh;
+    background: var(--bg-color);
+}
+
+/* Enhanced Animated Title */
+.animated-title {
+    font-size: 4em;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 800;
+}
+
+.animated-title {
+    background: linear-gradient(
+        45deg,
+        #ff6b6b,
+        #4ecdc4,
+        #ff6b6b,
+        #4ecdc4
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 300%;
+    animation: animateText 5s linear infinite;
+    filter: drop-shadow(0 0 2px rgba(255, 107, 107, 0.5));
+}
+
+@keyframes animateText {
+    0% {
+        background-position: 0% 50%;
+        filter: drop-shadow(0 0 2px rgba(255, 107, 107, 0.5));
+    }
+    50% {
+        background-position: 100% 50%;
+        filter: drop-shadow(0 0 2px rgba(78, 205, 196, 0.5));
+    }
+    100% {
+        background-position: 0% 50%;
+        filter: drop-shadow(0 0 2px rgba(255, 107, 107, 0.5));
+    }
+}
+
+/* Card Container */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+/* Card Styling */
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    animation: cardFadeIn 0.5s ease-in-out;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.card-content h3 {
+    color: var(--main-color);
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.card-content p {
+    color: var(--text-color);
+    margin-bottom: 25px;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+/* Enhanced Button Styling */
+.see-more {
+    background: var(--main-color);
+    color: #fff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1em;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    z-index: 2;
+}
+
+.see-more span {
+    position: relative;
+    z-index: 1;
+}
+
+.card:hover .see-more {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Button Gradient Effect */
+.see-more::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        #ff6b6b,
+        #4ecdc4,
+        #ff6b6b,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.7s;
+    z-index: 0;
+}
+
+.see-more:hover::before {
+    left: 100%;
+}
+
+/* Card Bottom Gradient */
+.card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(
+        45deg,
+        #ff6b6b,
+        #4ecdc4,
+        var(--main-color)
+    );
+    transition: height 0.4s ease;
+    opacity: 0;
+    z-index: 0;
+}
+
+.card:hover::after {
+    height: 35%;
+    opacity: 0.3;
+}
+
+/* Button Hover State */
+.see-more:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    padding: 12px 35px;
+}
+
+.see-more:hover span {
+    letter-spacing: 2px;
+}
+
+/* Animations */
+@keyframes cardFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adding animation delay for cascade effect */
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.3s; }
+.card:nth-child(3) { animation-delay: 0.5s; }
+
+/* Glowing effect for button on hover */
+@keyframes glowing {
+    0% { box-shadow: 0 0 5px #ff6b6b; }
+    50% { box-shadow: 0 0 20px #4ecdc4; }
+    100% { box-shadow: 0 0 5px #ff6b6b; }
+}
+
+.see-more:hover {
+    animation: glowing 2s infinite;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .workshop-section {
+        padding: 50px 20px;
+    }
+
+    .animated-title {
+        font-size: 2.5em;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}
