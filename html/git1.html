@@ -14,7 +14,26 @@
 <body>
     <!-- Same Header as before -->
     <header class="header">
-        <!-- Your existing header code -->
+        <a href="../index.html" class="logo">Shahan.</a>
+        <nav class="navbar">
+            <a href="../index.html" style="--i:1">Home</a>
+            <div class="dropdown">
+                <a href="#" style="--i:2" class="dropbtn">My Works</a>
+                <div class="dropdown-content">
+                    <a href="research.html">My Research</a>
+                    <a href="#">Projects</a>
+                </div>
+            </div>
+            <a href="workshop.html" style="--i:3" class="active">Workshops</a>
+            <a href="#" style="--i:4">Portfolio</a>
+            <div class="dropdown">
+                <a href="#" style="--i:5" class="dropbtn">Blog</a>
+                <div class="dropdown-content">
+                    <a href="#">Technical Blog</a>
+                    <a href="#">Non Technical Blog</a>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <section class="workshop-details">
@@ -34,7 +53,20 @@
 
             <div class="organizers">
                 <h3>Organized by:</h3>
-                <p>IEEE North South University Student Branch & IEEE NSU Industry Application Society in collaboration with IEEE NSU Robotics & Automation Society</p>
+                <div class="organizer-list">
+                    <div class="organizer-item">
+                        <i class="fas fa-university"></i>
+                        <span>IEEE North South University Student Branch</span>
+                    </div>
+                    <div class="organizer-item">
+                        <i class="fas fa-industry"></i>
+                        <span>IEEE NSU Industry Application Society</span>
+                    </div>
+                    <div class="organizer-item">
+                        <i class="fas fa-robot"></i>
+                        <span>IEEE NSU Robotics & Automation Society</span>
+                    </div>
+                </div>
             </div>
 
             <div class="description">
