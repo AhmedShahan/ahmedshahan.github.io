@@ -135,41 +135,138 @@
 
 .gallery-container {
     position: relative;
-    margin: 2rem 0;
+    margin: 2rem auto;
+    width: 533px;
+    height: 200px;
     overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery-wrapper {
+    width: 100%;
+    height: 100%;
     display: flex;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease-in-out;
 }
 
 .gallery-wrapper img {
     width: 100%;
-    height: 400px;
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
+/* Hover effects */
+.gallery-container:hover {
+    transform: scale(1.8);
+    z-index: 100;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Navigation Buttons as Icons */
 .nav-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.5);
-    border: none;
     color: white;
-    padding: 1rem;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    z-index: 10;
+    transition: all 0.3s ease;
+    z-index: 101;
+}
+
+.nav-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
 }
 
 .prev-btn {
-    left: 0;
+    left: 10px;
+}
+
+.prev-btn::before {
+    content: '‹';
+    font-weight: bold;
 }
 
 .next-btn {
-    right: 0;
+    right: 10px;
 }
 
+.next-btn::before {
+    content: '›';
+    font-weight: bold;
+}
+
+/* Hide navigation buttons by default and show on container hover */
+.nav-btn {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.gallery-container:hover .nav-btn {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Optional: Add smooth transition when returning to normal size */
+.gallery-container {
+    will-change: transform;
+    transform-origin: center center;
+}
+
+/* Optional: Add overlay effect on hover */
+.gallery-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.3s ease;
+}
+
+.gallery-container:hover::after {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Hide scrollbar */
+.gallery-wrapper {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.gallery-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gallery-container {
+        width: 250px;
+        height: 150px;
+    }
+
+    .gallery-container:hover {
+        transform: scale(1.5);
+    }
+
+    .nav-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
+}
 /* Optional: Add hover effect to the card */
 .detail-card:hover::before {
     animation: borderFlow 4s linear infinite; /* Speed up animation on hover */
