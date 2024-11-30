@@ -172,14 +172,15 @@
     /* Add these properties for fixed height */
     height: 200px; /* Set your desired fixed height */
     /* overflow-y: auto; Enable vertical scrolling */
-    overflow:hidden
+    overflow:hidden;
+    padding-bottom: 1.2px;
 }
 
 .card-title {
     font-family: 'Bangla', sans-serif;
     color: #e8b7d4;
     margin-bottom: 1rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
     /* display: flex; */
 
