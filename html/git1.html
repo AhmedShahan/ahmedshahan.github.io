@@ -73,19 +73,33 @@
                 <!-- Add your workshop description here -->
                 <p><br> September 24, 2023, I served as an Instructor for a workshop titled "GitHub Basics: Building Your Coding Portfolio" at North South University. This event, organized by the IEEE North South University Student Branch and the IEEE NSU Industry Application Society, focused on fundamental GitHub skills. I provided hands-on training to participants, aiming to enhance their ability to manage and showcase their coding projects effectively. The workshop emphasized practical applications and best practices, empowering students to create and maintain impressive coding portfolios.</p>
             </div>
-
             <div class="materials">
-                <h3>Materials</h3>
-                <div class="resource-buttons">
-                    <button class="resource-btn" data-resource="../resources/Git & Github.pptx">Open PDF</button>
-                    <button class="resource-btn" data-resource="../resources/Git & Github.pptx">Open PowerPoint</button>
-                </div>
+                <h3><br><br>Materials</h3>
+                <button id="openPdfBtn" onclick="openPdf()" class="material-btn">
+                    <i class="fas fa-file-pdf"></i>
+                    All the Git Command
+                </button>
+                <button id="openPptBtn" onclick="openPpt()" class="material-btn">
+                    <i class="fas fa-file-powerpoint"></i>
+                    Explain Git in PPT
+                </button>
             </div>
-
-            <div class="event-posts">
-                <h3>Event Posts</h3>
-                <!-- Add your event posts here -->
-            </div>
+<div class="social-links">
+    <!-- Website Link -->
+    <a href="https://ieeensusb.org/events/105/" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-globe"></i>
+    </a>
+    
+    <!-- Facebook Link - Updated with your provided URL -->
+    <a href="https://www.facebook.com/events/1467706310676854?acontext=%7B%22event_action_history%22%3A[%7B%22mechanism%22%3A%22attachment%22%2C%22surface%22%3A%22newsfeed%22%7D]%2C%22ref_notif_type%22%3Anull%7D" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-facebook"></i>
+    </a>
+    
+    <!-- Event Link -->
+    <a href="https://www.facebook.com/ieeensuiassbc/posts/pfbid0sEKXAZAtcWuaCvGtLrG7CxwRzkPDxfWKtHb1j6iNRt2J4vo6jhMEqFrWEfLGHH5El">
+        <i class="fas fa-calendar-alt"></i>
+    </a>
+</div>
 
             <div class="gallery">
                 <h3>Gallery</h3>
@@ -124,7 +138,17 @@
             </div>
         </div>
     </section>
-
     <script src="../js/gallery.js"></script>
+    <script src="../js/resources.js"></script>
+        <script>
+        function openPdf() {
+            window.open('../resources/git command.pdf', '_blank');
+        }
+
+        function openPpt() {
+            window.open('../resources/Git & Github.pdf', '_blank');
+        }
+
+    </script>
 </body>
 </html>
