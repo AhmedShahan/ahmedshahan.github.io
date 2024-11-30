@@ -1,3 +1,6 @@
+@import url('https://fonts.maateen.me/bangla/font.css');
+
+
 /* Main container styles */
 @keyframes zoomIn {
     from {
@@ -146,80 +149,111 @@
     filter: drop-shadow(0 0 10px #00abf0);
 }
 
+
+
+
 /* Grid layout */
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    padding: 20px;
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+    grid-template-columns: repeat(4, 1fr); /* This creates 3 equal columns */
+    gap: 2rem;
+    padding: 2rem;
 }
 
-/* Card styles */
 .card {
-    background: rgba(0, 0, 0, 0.1);
-    border: 2px solid #00abf0;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 171, 240, 0.2);
+    background: #055b56;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
+    position: relative;
 }
 
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(0, 171, 240, 0.4);
+.card-title {
+    font-family: 'Bangla', sans-serif;
+    color: #e8b7d4;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
-/* Card title */
-.card h3 {
-    color: #00abf0;
-    margin-bottom: 15px;
-    font-size: 1.5em;
-}
-
-/* Card description */
 .card-description {
-    color: #ededed;
-    height: 80px;
-    overflow: hidden;
-    transition: height 0.3s ease;
+    color: #adc6e5;
+    line-height: 1.6;
+    margin-bottom: 1rem;
 }
 
-.card:hover .card-description {
-    height: auto;
-}
-
-/* Button group */
 .button-group {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
     display: flex;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Button styles */
 .btn {
-    padding: 8px 20px;
+    flex: 1;
+    padding: 0.8rem;
     border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
     font-weight: 600;
+    transition: transform 0.2s ease;
 }
 
 .btn-medium {
-    background-color: #02b875;
+    background: #2ecc71;
     color: white;
 }
 
 .btn-web {
-    background-color: #00abf0;
+    background: #3498db;
     color: white;
 }
 
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 171, 240, 0.3);
+/* Hover effects */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
+
+.card:hover .button-group {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card {
+        margin: 0 1rem;
+    }
+}
+
 
 /* Responsive design */
 @media (max-width: 768px) {
