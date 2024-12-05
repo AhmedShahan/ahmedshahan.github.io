@@ -4,19 +4,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Shahan's Portfolio</title>
-    <link rel="stylesheet" href="first.css">
+    <style>
+        body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: black;
+}
+
+#videoBackground {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    opacity: 0.7;
+}
+
+.overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    color: white;
+    z-index: 10;
+    /* Increased font size */
+    font-size: 4rem; 
+    opacity: 0; /* Initially hidden */
+    transform: scale(0.8); /* Initially smaller */
+    transition: all 0.5s ease; /* Smooth transition for all properties */
+}
+
+.overlay.show {
+    opacity: 1;
+    transform: scale(1);
+    /* Smooth transition for opacity and transform */
+    transition: opacity 0.5s ease, transform 0.5s ease; 
+}
+
+.welcome-text {
+    font-size: 3rem; /* Increased font size */
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.zoom-in {
+    animation: zoomIn 0.5s forwards;
+}
+
+.dissolve-out {
+    animation: dissolveOut 0.5s forwards;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes dissolveOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+}
+    </style>
 </head>
 <body>
-    <div class="welcome-container">
-        <div class="animation-container">
-            <div class="circle"></div>
-        </div>
-        <div class="text-container">
-            <h1 class="welcome-text">Welcome</h1>
-            <h2 class="portfolio-text">to Shahan's Portfolio</h2>
-        </div>
+    <video id="videoBackground" autoplay muted loop>
+        <source src="picture/video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div id="welcomeOverlay" class="overlay">
+        <div id="welcomeText" class="welcome-text">Welcome to</div>
     </div>
 
-    <script src="first.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+    const welcomeOverlay = document.getElementById('welcomeOverlay');
+    const welcomeText = document.getElementById('welcomeText');
+    const proceedButton = document.createElement('button'); // Create the button element
+
+    proceedButton.textContent = 'Proceed';
+    proceedButton.style.display = 'none'; // Initially hidden
+    proceedButton.style.marginTop = '20px'; // Add some margin
+    welcomeOverlay.appendChild(proceedButton); // Add button to the overlay
+
+    // Show the overlay first
+    welcomeOverlay.classList.add('show');
+
+    await new Promise(resolve => setTimeout(resolve, 500)); // Delay before text animation
+
+    // First overlay: "Welcome to"
+    welcomeText.classList.add('zoom-in');
+
+    await new Promise(resolve => setTimeout(resolve, 3000));
+
+    // Dissolve first overlay and show second overlay
+    welcomeText.classList.add('dissolve-out');
+
+    await new Promise(resolve => setTimeout(resolve, 500));
+    welcomeText.textContent = "Shahan's Portfolio";
+    welcomeText.classList.remove('dissolve-out');
+    welcomeText.classList.add('zoom-in');
+
+    // Show proceed button after animation
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    proceedButton.style.display = 'block';
+
+    proceedButton.addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
+});
+    </script>
 </body>
 </html>

@@ -1,73 +1,147 @@
-body, html {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    perspective: 1000px;
+}
+
+.scene {
+    position: absolute;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000;
-    overflow: hidden;
-    font-family: 'Arial', sans-serif;
+    transform-style: preserve-3d;
 }
 
-.welcome-container {
-    text-align: center;
+.robot {
+    position: absolute;
+    bottom: -20%;
+    left: -20%;
+    transform-style: preserve-3d;
+    animation: robotMove 3s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
+
+.robot-body {
     position: relative;
+    width: 200px;
+    height: 250px;
+    transform-style: preserve-3d;
 }
 
-.animation-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.circle {
+.robot-head {
+    position: absolute;
+    top: -50px;
+    left: 50px;
     width: 100px;
     height: 100px;
+    background: linear-gradient(
+        135deg, 
+        rgba(255,0,0,0.9), 
+        rgba(0,255,0,0.9), 
+        rgba(0,0,255,0.9)
+    );
     border-radius: 50%;
-    background-color: #fff;
-    opacity: 0;
-    animation: popCircle 1s ease-out forwards;
+    transform: rotateY(45deg) rotateX(20deg);
+    box-shadow: 0 0 50px rgba(0,255,0,0.5);
+}
+
+.robot-torso {
+    position: absolute;
+    top: 50px;
+    left: 25px;
+    width: 150px;
+    height: 200px;
+    background: linear-gradient(
+        135deg, 
+        rgba(100,100,255,0.9), 
+        rgba(255,100,100,0.9), 
+        rgba(100,255,100,0.9)
+    );
+    transform: rotateY(45deg) rotateX(10deg);
+    box-shadow: 0 0 50px rgba(100,100,255,0.5);
+}
+
+.robot-arm {
+    position: absolute;
+    width: 50px;
+    height: 150px;
+    background: linear-gradient(
+        135deg, 
+        rgba(200,200,255,0.9), 
+        rgba(255,200,200,0.9)
+    );
+    transform-origin: top center;
+}
+
+.robot-arm-left {
+    top: 100px;
+    left: -50px;
+    transform: rotateZ(-30deg) rotateY(45deg);
+}
+
+.robot-arm-right {
+    top: 100px;
+    right: -50px;
+    transform: rotateZ(30deg) rotateY(-45deg);
 }
 
 .text-container {
-    color: #fff;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    opacity: 0;
+    color: white;
 }
 
 .welcome-text {
-    font-size: 3rem;
+    font-size: 4rem;
     opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInSlide 1s ease-out 1s forwards;
+    transform: translateY(50px);
 }
 
 .portfolio-text {
-    font-size: 2rem;
+    font-size: 2.5rem;
     opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInSlide 1s ease-out 2s forwards;
+    transform: translateY(50px);
 }
 
-@keyframes popCircle {
+@keyframes robotMove {
     0% {
-        transform: scale(0);
-        opacity: 0;
+        bottom: -20%;
+        left: -20%;
+        transform: rotate(0deg) scale(0.5);
     }
     70% {
-        transform: scale(1.2);
-        opacity: 1;
+        transform: rotate(360deg) scale(1);
     }
     100% {
-        transform: scale(1);
-        opacity: 1;
+        bottom: 120%;
+        left: 120%;
+        transform: rotate(360deg) scale(1);
     }
 }
 
-@keyframes fadeInSlide {
+.welcome-text.animate,
+.portfolio-text.animate {
+    animation: textAppear 1s ease-out forwards;
+}
+
+@keyframes textAppear {
     0% {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(50px);
     }
     100% {
         opacity: 1;
