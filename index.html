@@ -1,71 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shahan's portfolio</title>
-    <link rel="icon" href="picture/shahan.png" type="image/png"> 
-    <link rel="stylesheet" href="css/style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Futuristic Loading</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+        }
+        .loader {
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+        .circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 4px solid transparent;
+            border-radius: 50%;
+            animation: rotate 1.5s linear infinite; /* Changed from 2s to 1.5s */
+        }
+        .circle-1 {
+            border-top-color: #0f0;
+            filter: drop-shadow(0 0 5px #0f0);
+        }
+        .circle-2 {
+            border-right-color: #0f0;
+            animation-delay: -0.5s;
+            scale: 0.8;
+        }
+        .circle-3 {
+            border-bottom-color: #0f0;
+            animation-delay: -1s;
+            scale: 0.6;
+        }
+        #counter {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            text-shadow: 0 0 10px #0f0;
+        }
+        #success {
+            display: none;
+            font-size: 48px;
+            color: #0f0;
+            text-shadow: 0 0 15px #0f0;
+            animation: pulse 1s infinite;
+        }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+    </style>
 </head>
-
 <body>
-<header class="header">
-        <a href="index.html" class="logo">Shahan.</a>
-        <nav class="navbar">
-            <a href="index.html" style="--i:1" class="active">Home</a>
-            <div class="dropdown">
-                <a href="#" style="--i:2" class="dropbtn">My Works</a>
-                <div class="dropdown-content">
-                    <a href="html/research.html" target="_blank">My Research</a>
-                    <a href="#">Projects</a>
-                </div>
-            </div>
-            <a href="html/workshop.html" style="--i:3">Workshops</a>
-            <a href="#" style="--i:4">Portfolio</a>
-            <div class="dropdown">
-            <a href="#" style="--i:5" class="dropbtn">Blog</a>
-                <div class="dropdown-content">
-                    <a href="html/techynicalBlog.html" target="_blank">Technical Blog</a>
-                    <a href="#">Non Technical Blog</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <section class="home">
-        <div class="home-content">
-        <h2>This is </h2>
-        <h1>Shahan Ahmed</h1>
-        <h2>Precise involvement noted in <span class="multiple-text"></span></h2>
-
-        <p>This is my portfolio and I will try to upload all my blogs
-            related to my Machine learning project and Research
-            Also try to explain through my experience. 
-        </p>
-<div class="social-media">
-            <a href="mailto:shahan.ahmed001@gmail.com" style="--i:6" target="_blank" title="shahan.ahmed001@gmail.com"><i class='bx bxs-envelope'></i></a>
-            <a href="https://www.linkedin.com/in/ahmedshahan/" style="--i:7" target="_blank" title="/in/ahmedshahan/"><i class='bx bxl-linkedin-square' ></i></a>
-            <a href="http://github.com/AhmedShahan" style="--i:8" target="_blank" title="/AhmedShahan"><i class='bx bxl-github' ></i></a>
-            <a href="https://www.researchgate.net/profile/Shahan-Ahmed-2" style="--i:9" target="_blank" title="Shahan Ahmed"><i class="fab fa-researchgate"></i></a>
-            <a href="https://orcid.org/0009-0006-9593-2119" style="--i:10" target="_blank" title="Shahan Ahmed"><i class="fab fa-orcid"></i></a>
+    <div class="container">
+        <div class="loader">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+            <div class="circle circle-3"></div>
+            <div id="counter">0%</div>
         </div>
+        <div id="success">SYSTEM INITIALIZED</div>
     </div>
 
-    <div class="home-image">
-        <img src="picture/shahan55.gif" alt="" width="600px" height="600px">
-    </div>
-
-    </section>
-
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script src="js/script.js"></script>
-
+    <script>
+    const counter = document.getElementById('counter');
+    const success = document.getElementById('success');
+    const loader = document.querySelector('.loader');
+    let count = 0;
+    
+    // Calculate the interval time to complete in 3 seconds (3000ms)
+    // For 100 steps, we need 3000/100 = 30ms per step
+    const interval = setInterval(() => {
+        count++;
+        counter.textContent = `${count}%`;
+        
+        // Increase frequency of glitch effect
+        if (Math.random() > 0.8) {
+            counter.style.textShadow = '2px 2px #ff0000, -2px -2px #0000ff';
+            setTimeout(() => {
+                counter.style.textShadow = '0 0 10px #0f0';
+            }, 30);
+        }
+        
+        if (count >= 100) {
+            clearInterval(interval);
+            loader.style.display = 'none';
+            success.style.display = 'block';
+            
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 500); // Reduced to 500ms to keep total time close to 3 seconds
+        }
+    }, 30); // Changed from 50ms to 30ms
+</script>
 </body>
-
 </html>
