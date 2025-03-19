@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Shahan's Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #000;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #ball {
+            width: 100px;  /* Increased from 50px */
+            height: 100px; /* Increased from 50px */
+            background: linear-gradient(45deg, #0ff, #00ffaa);
+            border-radius: 50%;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: bounce 2s ease-in-out 3;
+            box-shadow: 0 0 30px #0ff,
+                       inset 0 0 20px rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        #ball.glow {
+            background: linear-gradient(45deg, #0ff, #00ffaa);
+            box-shadow: 0 0 40px #0ff,
+                       0 0 60px #0ff,
+                       0 0 80px #0ff,
+                       inset 0 0 20px rgba(255, 255, 255, 0.8);
+            transition: all 0.5s;
+        }
+
+        #welcome-text {
+            color: #0ff;
+            font-size: 4em;
+            font-family: 'Arial', sans-serif;
+            opacity: 0;
+            text-align: center;
+            text-shadow: 0 0 10px #0ff,
+                        0 0 20px #0ff,
+                        0 0 30px #0ff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .base-line {
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #0ff, #0ff, transparent);
+            box-shadow: 0 0 20px #0ff,
+                       0 0 40px #0ff;
+            opacity: 0.8;
+        }
+
+        @keyframes bounce {
+            0%, 100% { 
+                top: 20%;
+                animation-timing-function: ease-out;
+            }
+            50% { 
+                top: calc(85% - 100px); /* Adjusted to stop at the line, accounting for ball height */
+                animation-timing-function: ease-in;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes burst {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .burst {
+            animation: burst 0.3s ease-out forwards !important;
+        }
+
+        @keyframes textGlow {
+            0% { 
+                opacity: 0; 
+                transform: translate(-50%, -50%) scale(0.5);
+                text-shadow: 0 0 10px #0ff;
+            }
+            100% { 
+                opacity: 1; 
+                transform: translate(-50%, -50%) scale(1);
+                text-shadow: 0 0 10px #0ff,
+                            0 0 20px #0ff,
+                            0 0 30px #0ff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="base-line"></div>
+    <div id="ball"></div>
+    <div id="welcome-text">Welcome to Shahan's Portfolio</div>
+
+    <script>
+        const ball = document.getElementById('ball');
+        const welcomeText = document.getElementById('welcome-text');
+        let bounceCount = 0;
+
+        ball.addEventListener('animationiteration', () => {
+            bounceCount++;
+            if (bounceCount === 3) {
+                // Store the ball's position before animation changes
+                const ballRect = ball.getBoundingClientRect();
+                const ballCenterX = ballRect.left + ballRect.width / 2;
+                const ballCenterY = ballRect.top + ballRect.height / 2;
+                
+                ball.style.animation = 'none';
+                ball.classList.add('burst');
+                
+                // Create particles from the ball's last position
+                createParticles(ballCenterX, ballCenterY);
+                
+                // Show welcome text after burst
+                setTimeout(() => {
+                    ball.style.display = 'none';
+                    welcomeText.style.animation = 'textGlow 1.5s forwards';
+                }, 300); // Reduced timing to make it more responsive
+
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 3000);
+            }
+        });
+
+        function createParticles(x, y) {
+            const particleCount = 20; // Increased number of particles
+            for(let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.style.cssText = `
+                    position: fixed;
+                    width: 8px;
+                    height: 8px;
+                    background: #0ff;
+                    border-radius: 50%;
+                    left: ${x}px;
+                    top: ${y}px;
+                    pointer-events: none;
+                    box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+                `;
+                document.body.appendChild(particle);
+
+                const angle = (i / particleCount) * Math.PI * 2;
+                const velocity = 15 + Math.random() * 10; // Randomized velocity
+                const vx = Math.cos(angle) * velocity;
+                const vy = Math.sin(angle) * velocity;
+
+                particle.animate([
+                    { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+                    { transform: `translate(${vx * 20}px, ${vy * 20}px) scale(0)`, opacity: 0 }
+                ], {
+                    duration: 800,
+                    easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                    fill: 'forwards'
+                }).onfinish = () => particle.remove();
+            }
+        }
+    </script>
+</body>
+</html>
