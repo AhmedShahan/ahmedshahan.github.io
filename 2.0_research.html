@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Research - Shahan's portfolio</title>
     <link rel="icon" href="shahan.png" type="image/png"> 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="2.1_research.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="2.1_research.css">
 </head>
 
 <body>
@@ -36,10 +35,12 @@
             <p>Exploring the frontiers of technology through innovative research in machine learning, computer vision, and human-computer interaction.</p>
         </div>
 
-        <div class="research-grid">
-            <div class="research-card">
+        <div class="research-grid" id="researchGrid">
+            <!-- Research Card 1 -->
+            <div class="research-card" data-aos="fade-up">
                 <div class="paper-image">
-                    <div class="paper-placeholder">
+                    <img src="paper1.png" alt="ASL Recognition Research Paper" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="paper-placeholder" style="display: none;">
                         <i class="fas fa-file-pdf"></i>
                         <span>Research Paper Image</span>
                     </div>
@@ -103,9 +104,11 @@
                 </div>
             </div>
 
-            <div class="research-card">
+            <!-- Research Card 2 -->
+            <div class="research-card" data-aos="fade-up">
                 <div class="paper-image">
-                    <div class="paper-placeholder">
+                    <img src="paper2.png" alt="Medical Imaging Research Paper" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="paper-placeholder" style="display: none;">
                         <i class="fas fa-file-pdf"></i>
                         <span>Research Paper Image</span>
                     </div>
@@ -169,14 +172,16 @@
                 </div>
             </div>
 
-            <div class="research-card">
+            <!-- Research Card 3 -->
+            <div class="research-card" data-aos="fade-up">
                 <div class="paper-image">
-                    <div class="paper-placeholder">
+                    <img src="paper3.png" alt="Blockchain IoT Research Paper" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="paper-placeholder" style="display: none;">
                         <i class="fas fa-file-pdf"></i>
                         <span>Research Paper Image</span>
                     </div>
                 </div>
-                <div class="status-badge status-draft">In Progress</div>
+                <div class="status-badge status-under-review">Under Review</div>
                 <div class="research-content">
                     <h3 class="research-title">Blockchain-Based Secure Data Sharing Framework for IoT Devices in Smart Cities</h3>
                     
@@ -234,29 +239,181 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Research Card 4 -->
+            <div class="research-card" data-aos="fade-up">
+                <div class="paper-image">
+                    <img src="paper4.png" alt="Quantum Computing Research Paper" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="paper-placeholder" style="display: none;">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Research Paper Image</span>
+                    </div>
+                </div>
+                <div class="status-badge status-draft">In Progress</div>
+                <div class="research-content">
+                    <h3 class="research-title">Quantum-Enhanced Machine Learning Algorithms for Optimization Problems in Finance</h3>
+                    
+                    <div class="research-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>2024</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-book"></i>
+                            <span>In Progress</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-users"></i>
+                            <span>Lead Author</span>
+                        </div>
+                    </div>
+                    
+                    <div class="research-tags">
+                        <span class="tag">Quantum Computing</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Finance</span>
+                        <span class="tag">Optimization</span>
+                    </div>
+                    
+                    <p class="research-description">
+                        Investigating the application of quantum computing principles to enhance machine learning algorithms for solving complex optimization problems in financial portfolio management and risk assessment.
+                    </p>
+                    
+                    <div class="research-actions">
+                        <a href="#" class="action-btn btn-primary">
+                            <i class="fas fa-info-circle"></i>
+                            Learn More
+                        </a>
+                        <a href="https://github.com/username/quantum-ml-finance" class="action-btn btn-secondary">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="https://arxiv.org/abs/7890.12345" class="action-btn btn-secondary">
+                            <i class="fas fa-book-open"></i>
+                            arXiv
+                        </a>
+                        <a href="https://www.researchgate.net/publication/789012345" class="action-btn btn-secondary">
+                            <i class="fab fa-researchgate"></i>
+                            ResearchGate
+                        </a>
+                        <a href="https://doi.org/10.1000/ghi012" class="action-btn btn-secondary">
+                            <i class="fas fa-link"></i>
+                            DOI
+                        </a>
+                        <a href="https://example.com/quantum-ml-research" class="action-btn btn-secondary">
+                            <i class="fas fa-globe"></i>
+                            Website
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <script>
-        // Add smooth scrolling and intersection observer for animations
+        // Enhanced animations and interactions
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.research-card');
             
+            // Intersection Observer for scroll animations
             const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
+                entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
+                        setTimeout(() => {
+                            entry.target.classList.add('animate');
+                        }, index * 100); // Staggered animation
                     }
                 });
             }, {
-                threshold: 0.1
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
             });
 
             cards.forEach(card => {
                 observer.observe(card);
             });
+
+            // Add smooth hover effects
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Handle image loading errors gracefully
+            const images = document.querySelectorAll('.paper-image img');
+            images.forEach(img => {
+                img.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    this.nextElementSibling.style.display = 'flex';
+                });
+            });
+
+            // Add loading animation for action buttons
+            const actionBtns = document.querySelectorAll('.action-btn');
+            actionBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    if (this.href === '#') {
+                        e.preventDefault();
+                        // Add loading state
+                        const originalText = this.innerHTML;
+                        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+                        this.style.pointerEvents = 'none';
+                        
+                        // Reset after 2 seconds (simulate loading)
+                        setTimeout(() => {
+                            this.innerHTML = originalText;
+                            this.style.pointerEvents = 'auto';
+                        }, 2000);
+                    }
+                });
+            });
         });
+
+        // Function to dynamically add new research cards
+        function addResearchCard(cardData) {
+            const grid = document.getElementById('researchGrid');
+            const cardHTML = `
+                <div class="research-card" data-aos="fade-up">
+                    <div class="paper-image">
+                        <img src="${cardData.image}" alt="${cardData.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="paper-placeholder" style="display: none;">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>Research Paper Image</span>
+                        </div>
+                    </div>
+                    <div class="status-badge status-${cardData.status}">${cardData.statusText}</div>
+                    <div class="research-content">
+                        <h3 class="research-title">${cardData.title}</h3>
+                        <div class="research-meta">
+                            ${cardData.meta.map(item => `
+                                <div class="meta-item">
+                                    <i class="${item.icon}"></i>
+                                    <span>${item.text}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="research-tags">
+                            ${cardData.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                        <p class="research-description">${cardData.description}</p>
+                        <div class="research-actions">
+                            ${cardData.actions.map(action => `
+                                <a href="${action.url}" class="action-btn ${action.class}">
+                                    <i class="${action.icon}"></i>
+                                    ${action.text}
+                                </a>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+            grid.insertAdjacentHTML('beforeend', cardHTML);
+        }
     </script>
 </body>
 </html>
