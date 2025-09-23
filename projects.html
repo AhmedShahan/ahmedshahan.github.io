@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Shahan's portfolio</title>
+    <link rel="icon" href="picture/shahan.png" type="image/png"> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="projects.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Same Header as main page -->
+    <header class="header">
+        <a href="1.0_first.html" class="logo">Shahan.</a>
+        <nav class="navbar">
+            <a href="1.0_first.html" style="--i:1">Home</a>
+            <div class="dropdown">
+                <a href="#" style="--i:2" class="dropbtn active">My Works</a>
+                <div class="dropdown-content">
+                    <a href="2.0_research.html" target="_blank">My Research</a>
+                    <a href="projects.html" class="active">Projects</a>
+                </div>
+            </div>
+            <a href="workshop.html" style="--i:3">Workshops</a>
+            <a href="simple-portfolio.html" style="--i:4">Portfolio</a>
+            <div class="dropdown">
+                <a href="#" style="--i:5" class="dropbtn">Blog</a>
+                <div class="dropdown-content">
+                    <a href="techynicalBlog.html" target="_blank">Technical Blog</a>
+                    <a href="#">Non Technical Blog</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="projects-section">
+        <div class="title-container">
+            <h1 class="animated-title">My Projects</h1>
+        </div>
+        
+        <div class="projects-container">
+            <!-- Project 1: Proptimize -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h2 class="project-title">Proptimize</h2>
+                    <div class="project-status">Active</div>
+                </div>
+                
+                <div class="project-content">
+                    <p class="project-description">
+                        A sophisticated interactive platform that facilitates the meticulous refinement of AI prompts through systematic iteration. 
+                        This innovative tool synthesizes intelligent scoring algorithms, contextual suggestions, and instantaneous feedback to 
+                        transform rudimentary concepts into precise, efficacious prompts optimized for diverse applications.
+                    </p>
+                    
+                    <div class="project-features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Real-time experimentation environment</li>
+                            <li>Cogent optimization recommendations</li>
+                            <li>Expeditious iteration capabilities</li>
+                            <li>Enhanced prompt efficacy across domains</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Gemini-1.5 Flash</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="#" class="btn-primary">
+                            <i class="fab fa-github"></i> GitHub Repository
+                        </a>
+                        <a href="#" class="btn-secondary">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Email2Product Insights -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <h2 class="project-title">Email2Product Insights</h2>
+                    <div class="project-status">Completed</div>
+                </div>
+                
+                <div class="project-content">
+                    <p class="project-description">
+                        An autonomous email processing system that methodically analyzes inbound correspondence to discern business-pertinent 
+                        product inquiries and extract salient information. This robust solution mitigates the laborious process of manual 
+                        email categorization and data compilation.
+                    </p>
+                    
+                    <div class="project-features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Customer demographics extraction</li>
+                            <li>Corporate affiliations identification</li>
+                            <li>Product specifications analysis</li>
+                            <li>Quantity requisitions processing</li>
+                            <li>Logistics methodologies preferences</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Gemini</span>
+                        <span class="tech-tag">Pydantic</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="#" class="btn-primary">
+                            <i class="fab fa-github"></i> GitHub Repository
+                        </a>
+                        <a href="#" class="btn-secondary">
+                            <i class="fas fa-info-circle"></i> Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: IntelliDoc RAG Assistant -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-file-search"></i>
+                    </div>
+                    <h2 class="project-title">IntelliDoc RAG Assistant</h2>
+                    <div class="project-status">Active</div>
+                </div>
+                
+                <div class="project-content">
+                    <p class="project-description">
+                        A sophisticated enterprise-grade Retrieval Augmented Generation (RAG) system meticulously engineered for comprehensive 
+                        document intelligence. This innovative platform seamlessly processes multiple document formats simultaneously, leveraging 
+                        advanced algorithms to analyze content and deliver precise, contextually relevant answers.
+                    </p>
+                    
+                    <div class="project-features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Multi-document processing capabilities</li>
+                            <li>Hybrid retrieval engine (Vector + Keyword + TF-IDF)</li>
+                            <li>Adaptive intelligence features</li>
+                            <li>Chrome extension integration</li>
+                            <li>Comprehensive result visualization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">Ollama</span>
+                        <span class="tech-tag">RoBERTa</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="#" class="btn-primary">
+                            <i class="fab fa-github"></i> GitHub Repository
+                        </a>
+                        <a href="#" class="btn-secondary">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: MediCore AI -->
+            <div class="project-card featured">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h2 class="project-title">AI-Powered Medical Diagnostic System</h2>
+                    <div class="project-status featured-status">Featured</div>
+                </div>
+                
+                <div class="project-content">
+                    <p class="project-description">
+                        MediCore AI is an advanced end-to-end medical consultation platform that revolutionizes healthcare delivery through 
+                        cutting-edge artificial intelligence and comprehensive patient management capabilities. This sophisticated system 
+                        seamlessly integrates real-time audio processing with speaker diarization, automated transcription, and intelligent 
+                        medical analysis.
+                    </p>
+                    
+                    <div class="project-features">
+                        <h4>Key Features:</h4>
+                        <ul>
+                            <li>Real-time audio processing with speaker diarization</li>
+                            <li>Automated SOAP note generation with PHI de-identification</li>
+                            <li>Multi-modal AI engine with Gemini-1.5-Flash</li>
+                            <li>FDA OpenFDA and RxNorm APIs integration</li>
+                            <li>Drug interaction analysis and allergy conflict detection</li>
+                            <li>HIPAA compliance with BERT-based NER models</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-stack">
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">PyAnnote</span>
+                        <span class="tech-tag">Google Gemini</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">BERT-NER</span>
+                        <span class="tech-tag">RxNorm API</span>
+                        <span class="tech-tag">OpenFDA</span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="#" class="btn-primary">
+                            <i class="fab fa-github"></i> GitHub Repository
+                        </a>
+                        <a href="#" class="btn-secondary">
+                            <i class="fas fa-play-circle"></i> Watch Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Additional Projects Section -->
+        <div class="more-projects">
+            <h2 class="section-subtitle">More Projects Coming Soon...</h2>
+            <p class="section-description">
+                I'm constantly working on new innovative projects in AI, Machine Learning, and Data Science. 
+                Check back regularly for updates!
+            </p>
+            <a href="2.0_research.html" class="btn-outline">
+                <i class="fas fa-flask"></i> View My Research
+            </a>
+        </div>
+    </section>
+</body>
+</html>

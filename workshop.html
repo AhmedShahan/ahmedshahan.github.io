@@ -5,31 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workshop - Shahan's portfolio</title>
-    <link rel="icon" href="../picture/shahan.png" type="image/png"> 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/workshop.css">
+    <link rel="icon" href="picture/shahan.png" type="image/png"> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="workshop.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Same Header as main page -->
     <header class="header">
-        <a href="../index.html" class="logo">Shahan.</a>
+        <a href="1.0_first.html" class="logo">Shahan.</a>
         <nav class="navbar">
-            <a href="../index.html" style="--i:1">Home</a>
+            <a href="1.0_first.html" style="--i:1">Home</a>
             <div class="dropdown">
                 <a href="#" style="--i:2" class="dropbtn">My Works</a>
                 <div class="dropdown-content">
-                    <a href="research.html">My Research</a>
-                    <a href="#">Projects</a>
+                    <a href="2.0_research.html" target="_blank">My Research</a>
+                    <a href="projects.html">Projects</a>
                 </div>
             </div>
             <a href="workshop.html" style="--i:3" class="active">Workshops</a>
-            <a href="#" style="--i:4">Portfolio</a>
+            <a href="simple-portfolio.html" style="--i:4">Portfolio</a>
             <div class="dropdown">
                 <a href="#" style="--i:5" class="dropbtn">Blog</a>
                 <div class="dropdown-content">
-                    <a href="#">Technical Blog</a>
+                    <a href="techynicalBlog.html" target="_blank">Technical Blog</a>
                     <a href="#">Non Technical Blog</a>
                 </div>
             </div>
@@ -43,22 +43,28 @@
     </div>
         <div class="card-container">
             <!-- Workshop Card 1 -->
-            <div class="card">
-                <img src="../picture/pic1.jpg" alt="Workshop 1">
+            <div class="card featured">
+                <img src="https://i.imgur.com/FHKhKPm.jpeg" alt="GitHub Workshop">
                 <div class="card-content">
-                    <h3>Machine Learning Workshop</h3>
-                    <p>Introduction to ML algorithms and practical implementations</p>
-                    <button class="see-more">See More</button>
+                    <h3>GitHub Basic 2.0: Building Your Coding Portfolio</h3>
+                    <p class="workshop-date">📅 Sunday, 8th October 2023</p>
+                    <p class="workshop-org">🏢 IEEE North South University Student Branch, IEEE NSU Industry Application Society</p>
+                    <p>Advanced workshop on Version Control System (VCS), Terminal Commands, Git, GitHub and Portfolio Building Operations</p>
+                    <a href="git1.html">
+                        <button class="see-more">See More</button>
+                    </a>
                 </div>
             </div>
 
             <!-- Workshop Card 2 -->
             <div class="card">
-                <img src="https://i.imgur.com/FHKhKPm.jpeg" alt="Workshop 2">
+                <img src="picture/pic1.jpg" alt="GitHub Basic Workshop">
                 <div class="card-content">
                     <h3>GitHub Basic: Building Your Coding Portfolio</h3>
-                    <p>Introduction to Version Control System (VCS), Ternimal Comand,Git, GHitHub and Basic Operations</p>
-                    <a href="../html/git1.html">
+                    <p class="workshop-date">📅 Sunday, 24th September 2023</p>
+                    <p class="workshop-org">🏢 IEEE North South University Student Branch, IEEE NSU Industry Application Society</p>
+                    <p>Introduction to Version Control System (VCS), Terminal Commands, Git, GitHub and Basic Operations for beginners</p>
+                    <a href="git2.html">
                         <button class="see-more">See More</button>
                     </a>
                 </div>
@@ -66,11 +72,59 @@
 
             <!-- Workshop Card 3 -->
             <div class="card">
-                <img src="../picture/" alt="Workshop 3">
+                <img src="picture/pic2.jpg" alt="Home Security Workshop">
                 <div class="card-content">
-                    <h3>GitHub Basic: Building Your Coding Portfolio</h3>
-                    <p>Introduction to Version Control System (VCS), Ternimal Comand,Git, GHitHub and Basic Operations</p>
+                    <h3>Workshop on Basic Home Security</h3>
+                    <p class="workshop-date">📅 Friday, 8th September 2023</p>
+                    <p class="workshop-org">🏢 IEEE North South University Student Branch, IEEE NSU Robotics & Automation Society</p>
+                    <p>Comprehensive workshop covering home security systems, IoT devices, and automation for enhanced safety</p>
                     <button class="see-more">See More</button>
+                </div>
+            </div>
+
+            <!-- Workshop Card 4 -->
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200/0abde3/ffffff?text=Flood+Detection" alt="Flood Detection Workshop">
+                <div class="card-content">
+                    <h3>Extending Flood Detection for a Sustainable Future</h3>
+                    <p class="workshop-date">📅 24th September 2023</p>
+                    <p class="workshop-org">🏢 IEEE North South University Student Branch, IEEE NSU Robotics & Automation Society</p>
+                    <p>Technical workshop on AI-based flood detection systems, environmental monitoring, and sustainable technology solutions</p>
+                    <button class="see-more">See More</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leadership Activities Section -->
+        <div class="leadership-section">
+            <h2 class="section-title">Leadership & Conference Activities</h2>
+            <div class="leadership-container">
+                <!-- SPAC Conference -->
+                <div class="leadership-card">
+                    <div class="leadership-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="leadership-content">
+                        <h3>Student Profession Awareness Conference (SPAC)</h3>
+                        <p class="leadership-role">🎯 Lead Ambassador | Conference</p>
+                        <p class="leadership-date">📅 15th May 2023 – 30th October 2023</p>
+                        <p class="leadership-org">🏢 IEEE North South University Student Branch</p>
+                        <p>Led the organization and coordination of a major student conference focused on professional development and career guidance</p>
+                    </div>
+                </div>
+
+                <!-- IEEE Xtreme -->
+                <div class="leadership-card">
+                    <div class="leadership-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="leadership-content">
+                        <h3>IEEE Xtreme Programming Competition 17.0</h3>
+                        <p class="leadership-role">🎯 Ambassador | Programming Contest</p>
+                        <p class="leadership-date">📅 October 2023</p>
+                        <p class="leadership-org">🏢 IEEE Global</p>
+                        <p>Served as ambassador for the global IEEE Xtreme programming competition, promoting participation and supporting contestants</p>
+                    </div>
                 </div>
             </div>
         </div>

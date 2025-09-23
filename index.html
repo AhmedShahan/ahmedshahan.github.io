@@ -5,25 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome - Portfolio</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+        
         body {
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: radial-gradient(ellipse at center, #001100 0%, #000 70%);
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at center, #001100 0%, #000 70%);
             color: #0f0;
-            font-family: 'Courier New', monospace;
+            font-family: 'Orbitron', 'Courier New', monospace;
             overflow: hidden;
             animation: backgroundPulse 8s ease-in-out infinite;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(90deg, transparent 79px, rgba(0, 255, 0, 0.03) 81px, transparent 82px),
+                linear-gradient(rgba(0, 255, 0, 0.03) 50%, transparent 50%);
+            background-size: 82px 4px, 100% 4px;
+            pointer-events: none;
+            animation: scanLines 0.1s linear infinite;
+        }
+        
+        @keyframes scanLines {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(4px); }
         }
 
         @keyframes backgroundPulse {
             0%, 100% { 
-                background: radial-gradient(ellipse at center, #001100 0%, #000 70%);
+                background: 
+                    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%),
+                    radial-gradient(ellipse at center, #001100 0%, #000 70%);
             }
             50% { 
-                background: radial-gradient(ellipse at center, #002200 0%, #000 60%);
+                background: 
+                    radial-gradient(circle at 30% 60%, rgba(120, 119, 198, 0.4) 0%, transparent 50%),
+                    radial-gradient(circle at 70% 30%, rgba(255, 119, 198, 0.4) 0%, transparent 50%),
+                    radial-gradient(circle at 50% 70%, rgba(120, 219, 255, 0.4) 0%, transparent 50%),
+                    radial-gradient(ellipse at center, #002200 0%, #000 60%);
             }
         }
 
@@ -43,10 +78,51 @@
             transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
             box-shadow: 
                 0 0 20px rgba(0, 255, 0, 0.4),
-                inset 0 0 20px rgba(0, 255, 0, 0.1);
+                inset 0 0 20px rgba(0, 255, 0, 0.1),
+                0 0 40px rgba(0, 255, 0, 0.2),
+                0 0 80px rgba(0, 255, 0, 0.1);
             backdrop-filter: blur(10px);
             transform: scale(0.9);
-            animation: initialGlow 2s ease-out forwards;
+            animation: initialGlow 2s ease-out forwards, borderPulse 3s ease-in-out infinite;
+        }
+        
+        .rounded-rect::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, #0f0, #00ff88, #0f0, #88ff00, #0f0);
+            background-size: 400% 400%;
+            border-radius: 25px;
+            z-index: -1;
+            animation: gradientShift 4s ease infinite;
+            opacity: 0.6;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes borderPulse {
+            0%, 100% { 
+                border-color: #0f0;
+                box-shadow: 
+                    0 0 20px rgba(0, 255, 0, 0.4),
+                    inset 0 0 20px rgba(0, 255, 0, 0.1),
+                    0 0 40px rgba(0, 255, 0, 0.2),
+                    0 0 80px rgba(0, 255, 0, 0.1);
+            }
+            50% { 
+                border-color: #00ff88;
+                box-shadow: 
+                    0 0 30px rgba(0, 255, 136, 0.6),
+                    inset 0 0 30px rgba(0, 255, 136, 0.2),
+                    0 0 60px rgba(0, 255, 136, 0.3),
+                    0 0 120px rgba(0, 255, 136, 0.2);
+            }
         }
 
         @keyframes initialGlow {
@@ -82,48 +158,104 @@
         }
 
         .text {
-            font-size: 24px;
-            font-weight: bold;
-            text-shadow: 0 0 10px #0f0;
+            font-size: 28px;
+            font-weight: 900;
+            text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
             opacity: 0;
             animation: 
                 fadeIn 0.8s ease-out 0.5s forwards,
-                textGlow 3s ease-in-out infinite;
+                textGlow 3s ease-in-out infinite,
+                textFloat 4s ease-in-out infinite;
+            letter-spacing: 2px;
+        }
+        
+        @keyframes textFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
         }
 
         .typing-text {
-            font-size: 40px;
-            font-weight: bold;
-            text-shadow: 0 0 15px #0f0;
+            font-size: 42px;
+            font-weight: 900;
+            text-shadow: 
+                0 0 15px #0f0, 
+                0 0 25px #0f0, 
+                0 0 35px #0f0,
+                0 0 45px #00ff88;
             opacity: 0;
             white-space: nowrap;
             overflow: hidden;
-            border-right: 3px solid #0f0;
+            border-right: 4px solid #0f0;
             animation: 
                 typing 3.5s steps(40, end) 0.3s forwards, 
                 blink 1s infinite,
-                textGlow 2s ease-in-out infinite;
+                textGlow 2s ease-in-out infinite,
+                textWave 3s ease-in-out infinite;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, #0f0, #00ff88, #0f0);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        @keyframes textWave {
+            0%, 100% { 
+                background-position: 0% 50%;
+                transform: scale(1);
+            }
+            50% { 
+                background-position: 100% 50%;
+                transform: scale(1.02);
+            }
         }
 
         .continue-text {
-            font-size: 18px;
-            font-weight: bold;
-            text-shadow: 0 0 8px #0f0;
+            font-size: 20px;
+            font-weight: 900;
+            text-shadow: 
+                0 0 8px #0f0,
+                0 0 16px #0f0,
+                0 0 24px #00ff88;
             opacity: 0;
             animation: 
                 fadeIn 0.8s ease-out forwards, 
-                pulse 2s ease-in-out infinite;
+                pulse 2s ease-in-out infinite,
+                rainbow 4s linear infinite;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
+            background: linear-gradient(45deg, #0f0, #00ff88, #88ff00, #0f0);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+        
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .continue-text:hover {
-            transform: scale(1.15);
-            text-shadow: 0 0 20px #0f0;
+            transform: scale(1.2) rotate(2deg);
+            text-shadow: 
+                0 0 20px #0f0,
+                0 0 30px #00ff88,
+                0 0 40px #88ff00;
             animation: 
                 fadeIn 0.8s ease-out forwards, 
-                pulse 1s ease-in-out infinite;
+                pulse 0.5s ease-in-out infinite,
+                rainbow 2s linear infinite,
+                shake 0.5s ease-in-out infinite;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: scale(1.2) rotate(2deg) translateX(0); }
+            25% { transform: scale(1.2) rotate(2deg) translateX(-2px); }
+            75% { transform: scale(1.2) rotate(2deg) translateX(2px); }
         }
 
         .continue-text::before {
@@ -250,12 +382,60 @@
 
         .particle {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #0f0;
+            width: 3px;
+            height: 3px;
+            background: radial-gradient(circle, #0f0 0%, transparent 70%);
             border-radius: 50%;
             opacity: 0;
             animation: particle-float 3s ease-in-out infinite;
+            box-shadow: 0 0 6px #0f0;
+        }
+        
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 255, 0, 0.3) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        .orb-1 {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .orb-2 {
+            width: 60px;
+            height: 60px;
+            top: 70%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+        
+        .orb-3 {
+            width: 100px;
+            height: 100px;
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px) scale(1);
+                opacity: 0.3;
+            }
+            33% {
+                transform: translateY(-20px) translateX(10px) scale(1.1);
+                opacity: 0.6;
+            }
+            66% {
+                transform: translateY(10px) translateX(-15px) scale(0.9);
+                opacity: 0.4;
+            }
         }
 
         @keyframes particle-float {
@@ -317,6 +497,12 @@
 <body>
     <div class="particles"></div>
     <div class="matrix-rain"></div>
+    
+    <!-- Floating Orbs -->
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+    <div class="floating-orb orb-3"></div>
+    
     <div class="container">
         <div class="rounded-rect phase-1" id="mainRect">
             <div class="text" id="mainText">Welcome</div>
@@ -331,14 +517,68 @@
         // Create floating particles
         function createParticles() {
             const particles = document.querySelector('.particles');
-            for (let i = 0; i < 80; i++) {
+            for (let i = 0; i < 120; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.animationDelay = Math.random() * 3 + 's';
                 particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                
+                // Add random colors
+                const colors = ['#0f0', '#00ff88', '#88ff00', '#00ffff'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = `radial-gradient(circle, ${randomColor} 0%, transparent 70%)`;
+                particle.style.boxShadow = `0 0 6px ${randomColor}`;
+                
                 particles.appendChild(particle);
             }
+        }
+        
+        // Mouse interaction effects
+        function addMouseEffects() {
+            document.addEventListener('mousemove', (e) => {
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+                
+                // Move floating orbs slightly based on mouse position
+                const orbs = document.querySelectorAll('.floating-orb');
+                orbs.forEach((orb, index) => {
+                    const speed = (index + 1) * 0.02;
+                    const x = (mouseX - 0.5) * 20 * speed;
+                    const y = (mouseY - 0.5) * 20 * speed;
+                    orb.style.transform += ` translate(${x}px, ${y}px)`;
+                });
+                
+                // Create temporary mouse trail particles
+                if (Math.random() > 0.8) {
+                    createMouseParticle(e.clientX, e.clientY);
+                }
+            });
+        }
+        
+        // Create mouse trail particle
+        function createMouseParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = '#0f0';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '1000';
+            particle.style.boxShadow = '0 0 10px #0f0';
+            document.body.appendChild(particle);
+            
+            // Animate and remove
+            particle.animate([
+                { opacity: 1, transform: 'scale(1)' },
+                { opacity: 0, transform: 'scale(0) translateY(-20px)' }
+            ], {
+                duration: 1000,
+                easing: 'ease-out'
+            }).onfinish = () => particle.remove();
         }
 
         // Create matrix rain effect
@@ -457,10 +697,19 @@
         // Initialize
         createParticles();
         createMatrixRain();
+        addMouseEffects();
         
         // Add periodic effects
         setInterval(addGlitchEffect, 1500);
         setInterval(addScreenShake, 5000);
+        
+        // Add dynamic color changes to main rect
+        setInterval(() => {
+            const mainRect = document.getElementById('mainRect');
+            const colors = ['#0f0', '#00ff88', '#88ff00', '#00ffff'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            mainRect.style.borderColor = randomColor;
+        }, 3000);
         
         // Start the sequence
         setTimeout(() => {
