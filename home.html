@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shahan's Portfolio</title>
+  <link rel="icon" href="picture/shahan55.gif" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="profile.css">
+  <link rel="stylesheet" href="skills_v2.css">
+  <link rel="stylesheet" href="workshop.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Background GIF with dark overlay -->
+  <div class="bg-gif"></div>
+
+  <!-- GLASS NAVBAR (pill style) -->
+  <header class="header">
+    <nav class="navbar-pill">
+      <a href="home.html" class="logo">Shahan<span>.</span></a>
+
+      <div class="nav-links">
+        <div class="nav-indicator" id="navIndicator"></div>
+        <a href="home.html" class="nav-link active">Home</a>
+        <a href="#profile" class="nav-link">Profile</a>
+        <a href="#skills" class="nav-link">Skills</a>
+
+        <div class="dropdown">
+          <a href="#" class="nav-link dropbtn">My Works <i class='bx bx-chevron-down'></i></a>
+          <div class="dropdown-content">
+            <a href="2.0_research.html" target="_blank">My Research</a>
+            <a href="projects.html">Projects</a>
+          </div>
+        </div>
+
+        <a href="#workshop" class="nav-link">Workshops</a>
+        <a href="simple-portfolio.html" class="nav-link">Portfolio</a>
+
+        <div class="dropdown">
+          <a href="#" class="nav-link dropbtn">Blog <i class='bx bx-chevron-down'></i></a>
+          <div class="dropdown-content">
+            <a href="html/techynicalBlog.html" target="_blank">Technical Blog</a>
+            <a href="#">Non Technical Blog</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="mailto:shahan.ahmed001@gmail.com" class="contact-btn">Contact Me <i
+          class='bx bx-arrow-back bx-rotate-180'></i></a>
+
+      <!-- Hamburger for mobile -->
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="home.html" class="active">Home</a>
+    <a href="#profile">Profile</a>
+    <a href="#skills">Skills</a>
+    <a href="#workshop">Workshops</a>
+    <a href="2.0_research.html" target="_blank">My Research</a>
+    <a href="projects.html">Projects</a>
+    <a href="simple-portfolio.html">Portfolio</a>
+    <a href="html/techynicalBlog.html" target="_blank">Technical Blog</a>
+    <a href="#">Non Technical Blog</a>
+  </div>
+
+  <!-- HOME SECTION -->
+  <section id="home" class="home">
+
+    <!-- Glass card behind content -->
+    <div class="glass-card">
+      <div class="home-content">
+        <h2 class="greeting">This is</h2>
+        <h1 class="name">Shahan Ahmed</h1>
+        <h2 class="role">Precise involvement noted in
+          <span class="multiple-text"></span>
+        </h2>
+        <p class="bio">
+          This is my portfolio and I will try to upload all my blogs
+          related to my Machine learning project and Research.
+          Also try to explain through my experience.
+        </p>
+
+        <div class="social-media">
+          <a href="mailto:shahan.ahmed001@gmail.com" target="_blank" title="shahan.ahmed001@gmail.com">
+            <i class='bx bxs-envelope'></i>
+          </a>
+          <a href="https://www.linkedin.com/in/ahmed-shahan/" target="_blank" title="/in/ahmedshahan/">
+            <i class='bx bxl-linkedin-square'></i>
+          </a>
+          <a href="http://github.com/AhmedShahan" target="_blank" title="/AhmedShahan">
+            <i class='bx bxl-github'></i>
+          </a>
+          <a href="https://www.researchgate.net/profile/Shahan-Ahmed-2" target="_blank" title="Shahan Ahmed">
+            <i class="fab fa-researchgate"></i>
+          </a>
+          <a href="https://orcid.org/0009-0006-9593-2119" target="_blank" title="Shahan Ahmed">
+            <i class="fab fa-orcid"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="home-image">
+        <div class="hologram-container">
+          <img src="picture/img1.png" alt="Shahan Ahmed" class="img-mobile">
+          <img src="picture/img4.png" alt="Shahan Ahmed" class="img-desktop">
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PROFILE SECTION -->
+  <section id="profile" class="profile">
+    <div class="profile-glass-card">
+
+      <!-- Main Content (Timeline) -->
+      <div class="profile-main">
+        <div class="timeline">
+          <div class="timeline-line"></div>
+          <div class="timeline-columns">
+
+            <!-- ACADEMIC JOURNEY (LEFT) -->
+            <div class="timeline-col left-col">
+              <h3 class="timeline-heading-left scroll-anim">Academic Journey</h3>
+
+              <div class="timeline-item left scroll-anim">
+                <div class="timeline-content">
+                  <h3 class="timeline-year">2024</h3>
+                  <h4 class="timeline-title">B.Sc. in Computer Science &amp; Engineering</h4>
+                  <p class="timeline-desc">North South University, Dhaka, Bangladesh</p>
+                </div>
+                <div class="timeline-glowing-dot"></div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-center-dot"></div>
+              </div>
+
+              <div class="timeline-item left scroll-anim">
+                <div class="timeline-content">
+                  <h3 class="timeline-year">2018</h3>
+                  <h4 class="timeline-title">Higher Secondary School Certificate</h4>
+                  <p class="timeline-desc">Jalalabad Cantonment Public School &amp; College, Sylhet</p>
+                </div>
+                <div class="timeline-glowing-dot"></div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-center-dot"></div>
+              </div>
+
+              <div class="timeline-item left scroll-anim">
+                <div class="timeline-content">
+                  <h3 class="timeline-year">2016</h3>
+                  <h4 class="timeline-title">Secondary School Certificate</h4>
+                  <p class="timeline-desc">Jalalabad Cantonment Public School &amp; College, Sylhet</p>
+                </div>
+                <div class="timeline-glowing-dot"></div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-center-dot"></div>
+              </div>
+            </div>
+
+            <!-- PROFESSIONAL JOURNEY (RIGHT) -->
+            <div class="timeline-col right-col">
+              <h3 class="timeline-heading-right scroll-anim">Professional Journey</h3>
+
+              <div class="timeline-item right scroll-anim present-item">
+                <div class="timeline-content">
+                  <h3 class="timeline-year">Present</h3>
+                  <h4 class="timeline-title">AI Engineer</h4>
+                  <p class="timeline-desc">SOFOF Tech</p>
+                </div>
+                <div class="timeline-glowing-dot"></div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-center-dot"></div>
+              </div>
+
+              <div class="timeline-item right scroll-anim">
+                <div class="timeline-content">
+                  <h3 class="timeline-year">2024-2025</h3>
+                  <h4 class="timeline-title">Jr. Data Analyst</h4>
+                  <p class="timeline-desc">Startsmartz Technologies<br>On-site, Dhaka, Bangladesh<br>Shahid Abdul Aziz
+                    Road,Jogonathpur, Vatara, Dhaka-1229.</p>
+                </div>
+                <div class="timeline-glowing-dot"></div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-center-dot"></div>
+              </div>
+
+              <div class="timeline-item right scroll-anim">
+                <div class="timeline-content">
+                  <h3 class="timeline-year">2023-2025</h3>
+                  <h4 class="timeline-title">Jr. ML Engineer Fimic Engineer</h4>
+                  <p class="timeline-desc">Terolab LLC<br>Remote</p>
+                </div>
+                <div class="timeline-glowing-dot"></div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-center-dot"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar (Image & Button) -->
+      <div class="profile-sidebar scroll-anim">
+        <div class="profile-image-wrapper">
+          <img src="picture/img1.png" alt="Shahan Ahmed Profile">
+        </div>
+        <a href="#" class="resume-btn">DOWNLOAD FULL RESUME (PDF)</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="skills-page">
+    <div class="skills-hero">
+      <div class="skills-hero-inner">
+        <p class="skills-eyebrow scroll-anim">Technical Arsenal</p>
+        <h1 class="skills-title scroll-anim">Skills & <span>Expertise</span></h1>
+        <p class="skills-desc scroll-anim">2 years building end-to-end AI systems — from raw data pipelines to billion-parameter model deployment in production.</p>
+        <div class="stats-row scroll-anim">
+          <div class="stat-item"><div class="stat-top"><span class="stat-num" data-target="2">0</span><span class="stat-plus">+</span></div><span class="stat-label">Years Experience</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat-item"><div class="stat-top"><span class="stat-num" data-target="6">0</span><span class="stat-plus">+</span></div><span class="stat-label">Key Projects</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat-item"><div class="stat-top"><span class="stat-num" data-target="3">0</span></div><span class="stat-label">Publications</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat-item"><div class="stat-top"><span class="stat-num" data-target="30">0</span><span class="stat-plus">+</span></div><span class="stat-label">Tools & Frameworks</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stack-bar scroll-anim"><div class="stack-inner">
+      <span class="stack-label">Primary Stack</span><div class="stack-sep"></div>
+      <span class="stack-primary"><span>Python</span> · <span>PyTorch</span> · <span>LangChain</span> · <span>LangGraph</span> · <span>FastAPI</span> · <span>Docker</span></span>
+      <div class="stack-sep"></div>
+      <span class="stack-secondary">Also: TensorFlow · AWS SageMaker · Tableau · Streamlit · MLflow</span>
+    </div></div>
+
+    <div class="marquee-wrap"><div class="marquee-track" id="marqueeTrack"></div></div>
+
+    <div class="filter-row scroll-anim">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="ml">ML</button>
+      <button class="filter-btn" data-filter="nlp">NLP & Gen AI</button>
+      <button class="filter-btn" data-filter="vision">Computer Vision</button>
+      <button class="filter-btn" data-filter="deploy">Deployment</button>
+      <button class="filter-btn" data-filter="data">Data</button>
+    </div>
+
+    <div class="skills-grid-section">
+      <p class="section-eyebrow scroll-anim">Core Competencies</p>
+      <h2 class="section-heading scroll-anim">Skill Categories</h2>
+      <div class="skills-grid" id="skillsGrid">
+        <div class="skill-card scroll-anim" data-cat="data"><div class="card-accent"></div><div class="card-icon-wrap"><i class='bx bx-code-alt'></i></div>
+          <h3 class="card-title">Languages & Data</h3><p class="card-sub">Core programming & preprocessing</p>
+          <div class="prof-row"><span class="prof-label">Proficiency</span><div class="prof-track"><div class="prof-fill" data-width="92"></div></div><span class="prof-pct">92%</span></div>
+          <div class="tag-group"><span class="tag hot" data-tip="Primary language for all AI work">Python</span><span class="tag">C++</span><span class="tag">C</span><span class="tag hot" data-tip="Data manipulation & analysis">Pandas</span><span class="tag hot" data-tip="Numerical computing">NumPy</span><span class="tag">Scikit-learn</span><span class="tag">NLTK</span><span class="tag">SpaCy</span><span class="tag">Imbalanced-learn</span></div>
+          <div class="used-in"><span class="used-label">Used in →</span><span class="used-chip">All Projects</span></div>
+        </div>
+        <div class="skill-card scroll-anim" data-cat="ml"><div class="card-accent"></div><div class="card-icon-wrap"><i class='bx bx-brain'></i></div>
+          <h3 class="card-title">Machine Learning</h3><p class="card-sub">Supervised & unsupervised methods</p>
+          <div class="prof-row"><span class="prof-label">Proficiency</span><div class="prof-track"><div class="prof-fill" data-width="85"></div></div><span class="prof-pct">85%</span></div>
+          <div class="tag-group"><span class="tag hot" data-tip="Gradient boosted trees — high accuracy on tabular data">XGBoost</span><span class="tag hot" data-tip="Faster gradient boosting alternative">LightGBM</span><span class="tag">Random Forest</span><span class="tag">SVM</span><span class="tag">KNN</span><span class="tag">Decision Tree</span><span class="tag">K-Means</span><span class="tag">HMM</span><span class="tag hot" data-tip="Bayesian hyperparameter optimisation">Optuna</span><span class="tag">PCA / t-SNE / UMAP</span></div>
+          <div class="used-in"><span class="used-label">Used in →</span><span class="used-chip">MediCore AI</span><span class="used-chip">IntelliDoc RAG</span></div>
+        </div>
+        <div class="skill-card teal scroll-anim" data-cat="ml"><div class="card-accent teal"></div><div class="card-icon-wrap teal"><i class='bx bx-chip'></i></div>
+          <h3 class="card-title">Deep Learning</h3><p class="card-sub">Neural architectures & frameworks</p>
+          <div class="prof-row"><span class="prof-label">Proficiency</span><div class="prof-track"><div class="prof-fill teal" data-width="88"></div></div><span class="prof-pct">88%</span></div>
+          <div class="tag-group"><span class="tag hot" data-tip="Primary deep learning framework">PyTorch</span><span class="tag">TensorFlow</span><span class="tag hot" data-tip="Attention-based sequence models">Transformers</span><span class="tag">CNN</span><span class="tag">LSTM / GRU</span><span class="tag">RNN</span><span class="tag hot" data-tip="Bidirectional encoder representations">BERT</span><span class="tag">RoBERTa</span><span class="tag">GPT variants</span></div>
+          <div class="used-in"><span class="used-label">Used in →</span><span class="used-chip">ASL Research</span><span class="used-chip">MediCore AI</span></div>
+        </div>
+        <div class="skill-card teal scroll-anim" data-cat="nlp"><div class="card-accent teal"></div><div class="card-icon-wrap teal"><i class='bx bx-bot'></i></div>
+          <h3 class="card-title">NLP & Generative AI</h3><p class="card-sub">Agentic & orchestration stack</p>
+          <div class="prof-row"><span class="prof-label">Proficiency</span><div class="prof-track"><div class="prof-fill teal" data-width="90"></div></div><span class="prof-pct">90%</span></div>
+          <div class="tag-group"><span class="tag hot" data-tip="LLM chain orchestration framework">LangChain</span><span class="tag hot" data-tip="Stateful multi-agent workflow graphs">LangGraph</span><span class="tag" data-tip="LLM observability & tracing">LangSmith</span><span class="tag hot" data-tip="Retrieval Augmented Generation">RAG</span><span class="tag hot" data-tip="Open-source model hub & pipelines">HuggingFace</span><span class="tag hot" data-tip="Local LLM runtime for dev & testing">Ollama</span><span class="tag">Pinecone</span><span class="tag">FAISS</span><span class="tag">Chroma</span><span class="tag">Weaviate</span><span class="tag">Sentence-Transformers</span></div>
+          <div class="used-in"><span class="used-label">Used in →</span><span class="used-chip">MediAssist AI</span><span class="used-chip">Q/A Chatbot</span><span class="used-chip">IntelliDoc RAG</span></div>
+        </div>
+        <div class="skill-card scroll-anim" data-cat="vision"><div class="card-accent"></div><div class="card-icon-wrap"><i class='bx bx-camera'></i></div>
+          <h3 class="card-title">Computer Vision</h3><p class="card-sub">Detection, classification & segmentation</p>
+          <div class="prof-row"><span class="prof-label">Proficiency</span><div class="prof-track"><div class="prof-fill" data-width="82"></div></div><span class="prof-pct">82%</span></div>
+          <div class="tag-group"><span class="tag hot" data-tip="Real-time object detection at scale">YOLO</span><span class="tag hot" data-tip="Deep residual networks">ResNet</span><span class="tag">EfficientNet</span><span class="tag">UNet</span><span class="tag">VGG</span><span class="tag">LeNet</span><span class="tag hot" data-tip="Computer vision library">OpenCV</span></div>
+          <div class="used-in"><span class="used-label">Used in →</span><span class="used-chip">ASL Research</span><span class="used-chip">SOFOF Tech</span></div>
+        </div>
+        <div class="skill-card scroll-anim" data-cat="deploy"><div class="card-accent"></div><div class="card-icon-wrap"><i class='bx bx-server'></i></div>
+          <h3 class="card-title">Deployment & DevOps</h3><p class="card-sub">Production infrastructure & pipelines</p>
+          <div class="prof-row"><span class="prof-label">Proficiency</span><div class="prof-track"><div class="prof-fill" data-width="80"></div></div><span class="prof-pct">80%</span></div>
+          <div class="tag-group"><span class="tag hot" data-tip="Containerisation for reproducible deployments">Docker</span><span class="tag">Kubernetes</span><span class="tag hot" data-tip="High-performance Python API framework">FastAPI</span><span class="tag">Streamlit</span><span class="tag">AWS SageMaker</span><span class="tag">MLflow</span><span class="tag">Apache Airflow</span><span class="tag">Apache Spark</span><span class="tag hot">Git / GitHub</span></div>
+          <div class="used-in"><span class="used-label">Used in →</span><span class="used-chip">MediAssist AI</span><span class="used-chip">Proptimize</span><span class="used-chip">Email2Product</span></div>
+        </div>
+        <div class="skill-card teal scroll-anim" data-cat="nlp"><div class="card-accent teal"></div><div class="card-icon-wrap teal"><i class='bx bx-network-chart'></i></div>
+          <h3 class="card-title">Agentic AI</h3><p class="card-sub">Autonomous agents & multi-agent systems</p>
+          <div class="prof-row"><span class="prof-label">Proficiency</span><div class="prof-track"><div class="prof-fill teal" data-width="87"></div></div><span class="prof-pct">87%</span></div>
+          <div class="tag-group"><span class="tag hot" data-tip="Stateful multi-agent workflow orchestration">LangGraph</span><span class="tag hot" data-tip="Reasoning + Acting paradigm for tool-using agents">ReAct</span><span class="tag hot" data-tip="Role-based multi-agent collaboration framework">CrewAI</span><span class="tag" data-tip="Microsoft's multi-agent conversation framework">AutoGen</span><span class="tag hot" data-tip="Google's Agent-to-Agent communication protocol">A2A Protocol</span><span class="tag hot" data-tip="Model Context Protocol for tool integration">MCP</span><span class="tag" data-tip="Function calling & external API integration">Tool Use</span><span class="tag" data-tip="Short & long-term memory for stateful agents">Memory Systems</span><span class="tag" data-tip="Orchestrating multiple specialised agents">Multi-Agent Orchestration</span></div>
+          <div class="used-in"><span class="used-label">Used in →</span><span class="used-chip">MediAssist AI</span><span class="used-chip">Q/A Chatbot</span><span class="used-chip">Startsmartz</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="infra-section">
+      <p class="section-eyebrow scroll-anim">Highlighted Platforms</p>
+      <h2 class="section-heading scroll-anim">LLM Infrastructure & Cloud</h2>
+      <p class="section-desc scroll-anim">Platforms used for large-scale model serving, research and production deployment of billion-parameter models.</p>
+      <div class="infra-grid">
+        <div class="infra-card scroll-anim"><div class="infra-badge library">Library</div><div class="infra-icon"><i class="fa-brands fa-hubspot"></i></div><h3 class="infra-name">HuggingFace</h3><p class="infra-desc">Model hub, pipelines, tokenizers and hosted inference endpoints.</p><div class="infra-tags"><span>Transformers</span><span>Pipelines</span><span>Datasets</span></div></div>
+        <div class="infra-card scroll-anim"><div class="infra-badge local">Local Serving</div><div class="infra-icon"><i class='bx bx-terminal'></i></div><h3 class="infra-name">Ollama</h3><p class="infra-desc">Local LLM runtime for on-device model testing and dev workflows.</p><div class="infra-tags"><span>Local Inference</span><span>Dev & Testing</span></div></div>
+        <div class="infra-card featured scroll-anim"><div class="infra-badge platform">Cloud Platform</div><div class="infra-icon"><i class='bx bx-cloud'></i></div><h3 class="infra-name">Modal</h3><p class="infra-desc">Serverless GPU cloud for production LLM deployment — instant autoscaling.</p><div class="infra-tags"><span>Serverless GPU</span><span>Production</span><span>Autoscaling</span></div></div>
+        <div class="infra-card featured scroll-anim"><div class="infra-badge rd">R&D Platform</div><div class="infra-icon"><i class='bx bx-analyse'></i></div><h3 class="infra-name">Thunder Compute</h3><p class="infra-desc">GPU cloud for research and testing billion-parameter models at scale.</p><div class="infra-tags"><span>Billion-param Models</span><span>Research</span><span>GPU Cloud</span></div></div>
+      </div>
+    </div>
+
+    <div class="learning-section">
+      <p class="section-eyebrow scroll-anim">Forward Momentum</p>
+      <h2 class="section-heading scroll-anim">Currently Learning</h2>
+      <p class="section-desc scroll-anim">Active areas of exploration — tools and techniques I am working with right now.</p>
+      <div class="learn-grid">
+        <div class="learn-card scroll-anim"><div class="learn-pulse"></div><div class="learn-info"><h4>Mixture of Experts (MoE)</h4><p>Sinthiya research — small model ensembling to surpass large benchmark LLMs</p></div></div>
+        <div class="learn-card scroll-anim"><div class="learn-pulse"></div><div class="learn-info"><h4>Multi-Agent Orchestration</h4><p>Advanced LangGraph stateful agent patterns for autonomous workflows</p></div></div>
+        <div class="learn-card scroll-anim"><div class="learn-pulse"></div><div class="learn-info"><h4>Speaker Diarization</h4><p>PyAnnote embeddings for real-time speaker identification in MediCore AI</p></div></div>
+      </div>
+    </div>
+
+    <div class="metrics-section">
+      <p class="section-eyebrow scroll-anim">Engineering Maturity</p>
+      <h2 class="section-heading scroll-anim">How I Measure Results</h2>
+      <p class="section-desc scroll-anim">Evaluation frameworks applied across classification, generation, retrieval and clustering tasks.</p>
+      <div class="metrics-grid scroll-anim">
+        <div class="metric-card"><div class="metric-cat">Classification</div><div class="metric-tags"><span>Accuracy</span><span>Precision</span><span>Recall</span><span>F1-Score</span><span>ROC-AUC</span></div></div>
+        <div class="metric-card"><div class="metric-cat">Regression</div><div class="metric-tags"><span>MSE</span><span>RMSE</span><span>R-squared</span><span>MAE</span></div></div>
+        <div class="metric-card"><div class="metric-cat">NLP & Generation</div><div class="metric-tags"><span>BLEU</span><span>ROUGE</span><span>Perplexity</span><span>BERTScore</span></div></div>
+        <div class="metric-card"><div class="metric-cat">Clustering</div><div class="metric-tags"><span>Silhouette Score</span><span>Davies-Bouldin</span><span>Inertia</span></div></div>
+      </div>
+    </div>
+
+    <div class="dataviz-section">
+      <p class="section-eyebrow scroll-anim">Data Communication</p>
+      <h2 class="section-heading scroll-anim">Data Visualization</h2>
+      <div class="dataviz-row scroll-anim">
+        <div class="dataviz-card"><i class='bx bx-bar-chart-alt-2'></i><span>Tableau</span></div>
+        <div class="dataviz-card"><i class='bx bx-line-chart'></i><span>Matplotlib</span></div>
+        <div class="dataviz-card"><i class='bx bx-scatter-chart'></i><span>Seaborn</span></div>
+        <div class="dataviz-card"><i class='bx bx-spreadsheet'></i><span>Excel</span></div>
+      </div>
+    </div>
+
+    <div class="soft-section">
+      <p class="section-eyebrow scroll-anim">Beyond the Code</p>
+      <h2 class="section-heading scroll-anim">Non-Technical Skills</h2>
+      <div class="soft-grid scroll-anim">
+        <div class="soft-card"><div class="soft-icon"><i class='bx bx-pen'></i></div><h4>Technical Writing</h4><p>Proficient in LaTeX for professional documentation and academic papers.</p></div>
+        <div class="soft-card"><div class="soft-icon"><i class='bx bx-file'></i></div><h4>Documentation</h4><p>Skilled in SRS, PRD, FRD and Use Case documentation for complex systems.</p></div>
+        <div class="soft-card"><div class="soft-icon"><i class='bx bx-group'></i></div><h4>Collaboration</h4><p>Experienced working in cross-functional teams with developers, analysts and stakeholders.</p></div>
+        <div class="soft-card"><div class="soft-icon"><i class='bx bx-shield-alt-2'></i></div><h4>Ethical AI</h4><p>Understanding of ethical implications in data usage and AI model deployment.</p></div>
+        <div class="soft-card"><div class="soft-icon"><i class='bx bx-task'></i></div><h4>Project Management</h4><p>Managing timelines, milestones and deliverables across multi-stage AI projects.</p></div>
+        <div class="soft-card"><div class="soft-icon"><i class='bx bx-globe'></i></div><h4>Language Proficiency</h4><p>Fluent in English and Bangla — written and spoken communication.</p></div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== WORKSHOP SECTION ===== -->
+  <section class="workshop-page" id="workshop">
+
+    <!-- HERO -->
+    <section class="workshop-hero">
+      <div class="workshop-hero-inner">
+        <p class="ws-eyebrow scroll-anim">Teaching &amp; Community</p>
+        <h1 class="ws-title scroll-anim">Workshops &amp; <span>Events</span></h1>
+        <p class="ws-desc scroll-anim">
+          Sessions I've conducted, organized, and led — covering version control, IoT, AI, and sustainability.
+          Each one built to spark curiosity and develop real hands-on skills.
+        </p>
+
+        <div class="ws-stats-row scroll-anim">
+          <div class="ws-stat-item"><div class="ws-stat-top"><span class="ws-stat-num" data-target="6">0</span></div><span class="ws-stat-label">Workshops Led</span></div>
+          <div class="ws-stat-divider"></div>
+          <div class="ws-stat-item"><div class="ws-stat-top"><span class="ws-stat-num" data-target="2">0</span></div><span class="ws-stat-label">Conferences</span></div>
+          <div class="ws-stat-divider"></div>
+          <div class="ws-stat-item"><div class="ws-stat-top"><span class="ws-stat-num" data-target="3">0</span></div><span class="ws-stat-label">Volunteer Roles</span></div>
+          <div class="ws-stat-divider"></div>
+          <div class="ws-stat-item"><div class="ws-stat-top"><span class="ws-stat-num" data-target="200">0</span><span class="ws-stat-plus">+</span></div><span class="ws-stat-label">Attendees Reached</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <div class="ws-timeline-wrap scroll-anim">
+      <div class="ws-timeline">
+        <div class="timeline-dot" data-date="Apr 4, 2014" data-id="wsScout1"></div>
+        <div class="timeline-dot" data-date="July 28, 2015" data-id="wsScout2"></div>
+        <div class="timeline-dot" data-date="Jan 26, 2017" data-id="wsScout3"></div>
+        <div class="timeline-dot" data-date="Sep 8, 2023" data-id="ws3"></div>
+        <div class="timeline-dot" data-date="Sep 24, 2023" data-id="ws2"></div>
+        <div class="timeline-dot" data-date="Sep 24, 2023" data-id="ws4"></div>
+        <div class="timeline-dot" data-date="Oct 8, 2023" data-id="ws1"></div>
+        <div class="timeline-dot active" data-date="Oct 12, 2025" data-id="ws0"></div>
+        <div class="timeline-dot" data-date="Nov 16, 2025" data-id="wsChatbot"></div>
+      </div>
+      <p class="ws-timeline-label">Event Timeline — Click a dot to highlight</p>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="ws-filters scroll-anim">
+      <span class="ws-filter-label">FILTER:</span>
+      <div class="ws-filter-indicator" id="wsFilterIndicator"></div>
+      <button class="ws-filter-btn active" data-filter="all">All (9)</button>
+      <button class="ws-filter-btn" data-filter="genai">Gen & Agentic AI</button>
+      <button class="ws-filter-btn" data-filter="github">GitHub</button>
+      <button class="ws-filter-btn" data-filter="iot">IoT & Security</button>
+      <button class="ws-filter-btn" data-filter="ai">AI & Deep Learning</button>
+      <button class="ws-filter-btn" data-filter="conference">Conference</button>
+      <button class="ws-filter-btn" data-filter="volunteer">Social Volunteering</button>
+    </div>
+
+    <!-- WORKSHOP CARDS -->
+    <section class="ws-cards-section">
+      <div class="ws-grid" id="wsGrid">
+
+        <div class="ws-card featured scroll-anim" id="ws0" data-cat="genai">
+          <div class="ws-card-bg" style="background-image: url('https://media.licdn.com/dms/image/v2/D5622AQE0bqLs0TH9Rw/feedshare-image-high-res/B56ZnCKIX0I0Ao-/0/1759899060237?e=1779321600&v=beta&t=rLPBnvuSIfyT30TXf-vgP5231xZyLShY8d_NbSIkxZQ');"></div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bx-bot'></i></div>
+            <span class="latest-badge">LATEST</span>
+          </div>
+          <div class="org-badge-v3">EduSpark IT</div>
+          <h3 class="ws-card-title">Agent Vs Agent: Where AI Minds debate Autonomously</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> Sunday, 12th October 2025 · Deep Dive</p>
+          <p class="ws-card-desc">An iconic night exploring the leap from task-tuned NLP to autonomous agentic loops. We built a conversational chatbot using LangChain + Gemini 2.5 Flash and explored multi-agent reasoning frameworks.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">Generative AI</span><span class="ws-card-tag">Agentic AI</span>
+            <span class="ws-card-tag">LangChain</span><span class="ws-card-tag">Gemini 2.5</span><span class="ws-card-tag">Multi-Agent</span>
+          </div>
+          <a href="#" class="ws-view-btn">View Summary →</a>
+        </div>
+
+        <div class="ws-card gold scroll-anim" id="wsChatbot" data-cat="genai">
+          <div class="ws-card-bg" style="background-image: url('https://media.licdn.com/dms/image/v2/D4E22AQFXulJB1p3PLQ/feedshare-image-high-res/B4EZp3GgZWJ0Ao-/0/1762934786603?e=1779321600&v=beta&t=Y1wReyjJSkzi1kz9nTL0QZSuvXWgAq8bSYLHczC0_lc');"></div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bx-message-square-dots'></i></div>
+          </div>
+          <div class="org-badge-v3">EduSpark IT</div>
+          <h3 class="ws-card-title">Build Your Own Website Chatbot</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> 16th November · Live Workshop</p>
+          <p class="ws-card-desc">End-to-end development of an AI chatbot for real websites. Deep dive into Retrieval-Augmented Generation (RAG), context retention, and memory fundamentals.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">RAG</span><span class="ws-card-tag">Chatbot</span>
+            <span class="ws-card-tag">Gen AI</span><span class="ws-card-tag">Memory</span><span class="ws-card-tag">Integration</span>
+          </div>
+          <a href="#" class="ws-view-btn">View Summary →</a>
+        </div>
+
+        <div class="ws-card scroll-anim" id="wsScout2" data-cat="volunteer">
+          <div class="ws-card-bg" style="background-image: url('https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?q=80&w=1000&auto=format&fit=crop');"></div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bx-globe'></i></div>
+          </div>
+          <div class="org-badge-v3">WORLD SCOUT</div>
+          <h3 class="ws-card-title">23rd World Scout Jamboree</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> 2015 · Kirgraham, Japan</p>
+          <p class="ws-card-desc">Represented Bangladesh as a Delegate in Yamaguchi, Japan. Engaged in global dialogue on sustainability and cross-cultural peace-building.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">International</span><span class="ws-card-tag">Delegate</span>
+            <span class="ws-card-tag">Japan</span><span class="ws-card-tag">Scout</span>
+          </div>
+          <a href="#" class="ws-view-btn">View Details →</a>
+        </div>
+
+        <div class="ws-card scroll-anim" id="wsScout3" data-cat="volunteer">
+          <div class="ws-card-bg" style="background-image: url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=1000&auto=format&fit=crop');"></div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bx-group'></i></div>
+          </div>
+          <div class="org-badge-v3">BANGLADESH SCOUTS</div>
+          <h3 class="ws-card-title">11th National Rover Moot 2017</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> 2017 · Tungipara, Bangladesh</p>
+          <p class="ws-card-desc">Served as Senior Rover Mate, leading a team through high-intensity skill challenges and community service operations.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">Leadership</span><span class="ws-card-tag">Rover Mate</span>
+            <span class="ws-card-tag">Bangladesh</span><span class="ws-card-tag">Service</span>
+          </div>
+          <a href="#" class="ws-view-btn">View Details →</a>
+        </div>
+
+        <div class="ws-card scroll-anim" id="wsScout1" data-cat="volunteer">
+          <div class="ws-card-bg" style="background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1000&auto=format&fit=crop');"></div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bx-compass'></i></div>
+          </div>
+          <div class="org-badge-v3">SAANSO</div>
+          <h3 class="ws-card-title">9th BD & 1st SAANSO Scout Jamboree</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> 2014 · Gazipur, Bangladesh</p>
+          <p class="ws-card-desc">Participated in the inaugural SAANSO Jamboree. Mastered survival skills, pioneering, and regional cultural exchange.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">SAANSO</span><span class="ws-card-tag">Scout</span>
+            <span class="ws-card-tag">Survival</span><span class="ws-card-tag">Regional</span>
+          </div>
+          <a href="#" class="ws-view-btn">View Details →</a>
+        </div>
+
+        <!-- Card 1 -->
+        <div class="ws-card featured scroll-anim" id="ws1" data-cat="github">
+          <div class="ws-card-bg" style="background-image: url('pictrure/git2.jpg');"></div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bxl-github'></i></div>
+            <span class="latest-badge">LATEST</span>
+          </div>
+          <div class="org-badge-v3">IEEE NSU IAS</div>
+          <h3 class="ws-card-title">GitHub Basic 2.0: Building Your Coding Portfolio</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> Sunday, 8th October 2023 · Advanced Level</p>
+          <p class="ws-card-desc">Advanced workshop on VCS, terminal commands, Git, GitHub and portfolio building operations for intermediate learners.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">Git</span><span class="ws-card-tag">GitHub</span>
+            <span class="ws-card-tag">VCS</span><span class="ws-card-tag">Portfolio</span><span class="ws-card-tag">CI/CD</span>
+          </div>
+          <a href="git1.html" class="ws-view-btn">View Details →</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="ws-card gold scroll-anim" id="ws2" data-cat="github">
+          <div class="ws-card-bg" style="background-image: url('pictrure/git1.jpg');"></div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bxl-git'></i></div>
+          </div>
+          <div class="org-badge-v3">IEEE NSU IAS</div>
+          <h3 class="ws-card-title">GitHub Basic: Building Your Coding Portfolio</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> Sunday, 24th September 2023 · Beginner Level</p>
+          <p class="ws-card-desc">Beginner-friendly introduction to VCS, terminal commands, Git and GitHub for students with zero prior experience.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">Git</span><span class="ws-card-tag">GitHub</span><span class="ws-card-tag">Terminal</span><span class="ws-card-tag">Beginner</span><span class="ws-card-tag">Open Source</span>
+          </div>
+          <a href="git2.html" class="ws-view-btn">View Details →</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="ws-card gold scroll-anim" id="ws3" data-cat="iot">
+          <div class="ws-card-bg" style="background-image: url('pictrure/home_security.jpg');"></div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bx-home-alt'></i></div>
+          </div>
+          <div class="org-badge-v3">IEEE NSU RAS</div>
+          <h3 class="ws-card-title">Workshop on Basic Home Security</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> Friday, 8th September 2023 · Intermediate Level</p>
+          <p class="ws-card-desc">Home security systems, IoT devices and smart automation. Participants built a live motion-detection alert system using Arduino.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">IoT</span><span class="ws-card-tag">Arduino</span><span class="ws-card-tag">Security</span><span class="ws-card-tag">MQTT</span><span class="ws-card-tag">Automation</span>
+          </div>
+          <a href="#" class="ws-view-btn">View Details →</a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="ws-card gold scroll-anim" id="ws4" data-cat="iot">
+          <div class="ws-card-bg" style="background-image: url('pictrure/flood_ddetection.jpg');"></div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bx-water'></i></div>
+          </div>
+          <div class="org-badge-v3">IEEE NSU RAS</div>
+          <h3 class="ws-card-title">Extending Flood Detection for a Sustainable Future</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> 24th September 2023 · Advanced Level</p>
+          <p class="ws-card-desc">AI-based flood detection using CNN and satellite imagery, environmental monitoring and sustainable tech deployment pipelines.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">AI</span><span class="ws-card-tag">CNN</span><span class="ws-card-tag">OpenCV</span><span class="ws-card-tag">Deep Learning</span><span class="ws-card-tag">Sustainability</span>
+          </div>
+          <a href="#" class="ws-view-btn">View Details →</a>
+        </div>
+
+        <!-- Coming Soon -->
+        <div class="ws-coming-soon scroll-anim">
+          <h3 class="coming-soon-title">More workshops on the way</h3>
+          <p class="coming-soon-desc">Actively planning sessions on LangGraph, Multi-Agent Systems, and RAG pipelines. Stay tuned.</p>
+          <span class="coming-soon-btn">Coming Soon</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section class="ws-leadership-section">
+      <p class="section-eyebrow scroll-anim">Beyond the Classroom</p>
+      <h2 class="section-heading scroll-anim">Leadership &amp; Conference Roles</h2>
+      <p class="section-desc scroll-anim">Conference organizing, ambassador duties, and community leadership alongside hands-on teaching under IEEE NSU Student Branch.</p>
+
+      <div class="ws-leader-grid">
+
+        <div class="ws-leader-card scroll-anim" data-cat="conference">
+          <div class="ws-leader-icon-wrap"><i class='bx bx-group'></i></div>
+          <div class="ws-leader-body">
+            <span class="ws-leader-role-badge">LEAD AMBASSADOR</span>
+            <h3 class="ws-leader-title">Student Profession Awareness Conference (SPAC)</h3>
+            <p class="ws-leader-meta">📅 15th May – 30th October 2023 · IEEE NSU Student Branch</p>
+            <p class="ws-leader-desc">Led the full organization and coordination of a major student conference focused on professional development, career guidance, and industry awareness for engineering students across NSU departments.</p>
+            <div class="ws-card-tags" style="margin-top:14px">
+              <span class="ws-card-tag">Conference</span><span class="ws-card-tag">Leadership</span><span class="ws-card-tag">Event Mgmt</span><span class="ws-card-tag">Career Dev</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ws-leader-card scroll-anim" data-cat="conference">
+          <div class="ws-leader-icon-wrap"><i class='bx bx-code-alt'></i></div>
+          <div class="ws-leader-body">
+            <span class="ws-leader-role-badge">AMBASSADOR</span>
+            <h3 class="ws-leader-title">IEEE Xtreme Programming Competition 17.0</h3>
+            <p class="ws-leader-meta">📅 October 2023 · IEEE Global</p>
+            <p class="ws-leader-desc">Served as official ambassador for the global IEEE Xtreme 24-hour programming competition, promoting participation across the university campus and actively supporting and mentoring contestants throughout the event.</p>
+            <div class="ws-card-tags" style="margin-top:14px">
+              <span class="ws-card-tag">Programming</span><span class="ws-card-tag">Ambassador</span><span class="ws-card-tag">Global</span><span class="ws-card-tag">IEEE</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </section>
+
+
+  <!-- Background orbs for glass effect depth -->
+  <div class="bg-orb orb1"></div>
+  <div class="bg-orb orb2"></div>
+  <div class="bg-orb orb3"></div>
+
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="home.js"></script>
+  <script src="profile.js"></script>
+  <script src="skills_v2.js"></script>
+  <script src="workshop.js"></script>
+</body>
+
+</html>

@@ -1,133 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workshop - Shahan's portfolio</title>
-    <link rel="icon" href="picture/shahan.png" type="image/png"> 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="workshop.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshops — Shahan Ahmed</title>
+  <link rel="icon" href="picture/shahan55.gif" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="workshop.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-    <!-- Same Header as main page -->
-    <header class="header">
-        <a href="1.0_first.html" class="logo">Shahan.</a>
-        <nav class="navbar">
-            <a href="1.0_first.html" style="--i:1">Home</a>
-            <div class="dropdown">
-                <a href="#" style="--i:2" class="dropbtn">My Works</a>
-                <div class="dropdown-content">
-                    <a href="2.0_research.html" target="_blank">My Research</a>
-                    <a href="projects.html">Projects</a>
-                </div>
-            </div>
-            <a href="workshop.html" style="--i:3" class="active">Workshops</a>
-            <a href="simple-portfolio.html" style="--i:4">Portfolio</a>
-            <div class="dropdown">
-                <a href="#" style="--i:5" class="dropbtn">Blog</a>
-                <div class="dropdown-content">
-                    <a href="techynicalBlog.html" target="_blank">Technical Blog</a>
-                    <a href="#">Non Technical Blog</a>
-                </div>
-            </div>
-        </nav>
-    </header>
 
-    <section class="workshop-section">
-        <!-- <h1 class="animated-title" data-text="Wor7kshop Section">Workshop Section</h1> -->
-            <div class="title-container">
-        <h1 class="animated-title">Workshop Section</h1>
-    </div>
-        <div class="card-container">
-            <!-- Workshop Card 1 -->
-            <div class="card featured">
-                <img src="https://i.imgur.com/FHKhKPm.jpeg" alt="GitHub Workshop">
-                <div class="card-content">
-                    <h3>GitHub Basic 2.0: Building Your Coding Portfolio</h3>
-                    <p class="workshop-date">📅 Sunday, 8th October 2023</p>
-                    <p class="workshop-org">🏢 IEEE North South University Student Branch, IEEE NSU Industry Application Society</p>
-                    <p>Advanced workshop on Version Control System (VCS), Terminal Commands, Git, GitHub and Portfolio Building Operations</p>
-                    <a href="git1.html">
-                        <button class="see-more">See More</button>
-                    </a>
-                </div>
-            </div>
+  <!-- Background -->
+  <div class="bg-gif"></div>
+  <div class="bg-orb orb1"></div>
+  <div class="bg-orb orb2"></div>
+  <div class="bg-orb orb3"></div>
 
-            <!-- Workshop Card 2 -->
-            <div class="card">
-                <img src="picture/pic1.jpg" alt="GitHub Basic Workshop">
-                <div class="card-content">
-                    <h3>GitHub Basic: Building Your Coding Portfolio</h3>
-                    <p class="workshop-date">📅 Sunday, 24th September 2023</p>
-                    <p class="workshop-org">🏢 IEEE North South University Student Branch, IEEE NSU Industry Application Society</p>
-                    <p>Introduction to Version Control System (VCS), Terminal Commands, Git, GitHub and Basic Operations for beginners</p>
-                    <a href="git2.html">
-                        <button class="see-more">See More</button>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Workshop Card 3 -->
-            <div class="card">
-                <img src="picture/pic2.jpg" alt="Home Security Workshop">
-                <div class="card-content">
-                    <h3>Workshop on Basic Home Security</h3>
-                    <p class="workshop-date">📅 Friday, 8th September 2023</p>
-                    <p class="workshop-org">🏢 IEEE North South University Student Branch, IEEE NSU Robotics & Automation Society</p>
-                    <p>Comprehensive workshop covering home security systems, IoT devices, and automation for enhanced safety</p>
-                    <button class="see-more">See More</button>
-                </div>
-            </div>
-
-            <!-- Workshop Card 4 -->
-            <div class="card">
-                <img src="https://via.placeholder.com/300x200/0abde3/ffffff?text=Flood+Detection" alt="Flood Detection Workshop">
-                <div class="card-content">
-                    <h3>Extending Flood Detection for a Sustainable Future</h3>
-                    <p class="workshop-date">📅 24th September 2023</p>
-                    <p class="workshop-org">🏢 IEEE North South University Student Branch, IEEE NSU Robotics & Automation Society</p>
-                    <p>Technical workshop on AI-based flood detection systems, environmental monitoring, and sustainable technology solutions</p>
-                    <button class="see-more">See More</button>
-                </div>
-            </div>
+  <!-- NAVBAR -->
+  <header class="header">
+    <nav class="navbar-pill">
+      <a href="home.html" class="logo">Shahan<span>.</span></a>
+      <div class="nav-links">
+        <div class="nav-indicator" id="navIndicator"></div>
+        <a href="home.html" class="nav-link">Home</a>
+        <a href="home.html#profile" class="nav-link">Profile</a>
+        <a href="home.html#skills" class="nav-link">Skills</a>
+        <div class="dropdown">
+          <a href="#" class="nav-link dropbtn">My Works <i class='bx bx-chevron-down'></i></a>
+          <div class="dropdown-content">
+            <a href="2.0_research.html" target="_blank">My Research</a>
+            <a href="projects.html">Projects</a>
+          </div>
         </div>
-
-        <!-- Leadership Activities Section -->
-        <div class="leadership-section">
-            <h2 class="section-title">Leadership & Conference Activities</h2>
-            <div class="leadership-container">
-                <!-- SPAC Conference -->
-                <div class="leadership-card">
-                    <div class="leadership-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="leadership-content">
-                        <h3>Student Profession Awareness Conference (SPAC)</h3>
-                        <p class="leadership-role">🎯 Lead Ambassador | Conference</p>
-                        <p class="leadership-date">📅 15th May 2023 – 30th October 2023</p>
-                        <p class="leadership-org">🏢 IEEE North South University Student Branch</p>
-                        <p>Led the organization and coordination of a major student conference focused on professional development and career guidance</p>
-                    </div>
-                </div>
-
-                <!-- IEEE Xtreme -->
-                <div class="leadership-card">
-                    <div class="leadership-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="leadership-content">
-                        <h3>IEEE Xtreme Programming Competition 17.0</h3>
-                        <p class="leadership-role">🎯 Ambassador | Programming Contest</p>
-                        <p class="leadership-date">📅 October 2023</p>
-                        <p class="leadership-org">🏢 IEEE Global</p>
-                        <p>Served as ambassador for the global IEEE Xtreme programming competition, promoting participation and supporting contestants</p>
-                    </div>
-                </div>
-            </div>
+        <a href="workshop.html" class="nav-link active">Workshops</a>
+        <a href="simple-portfolio.html" class="nav-link">Portfolio</a>
+        <div class="dropdown">
+          <a href="#" class="nav-link dropbtn">Blog <i class='bx bx-chevron-down'></i></a>
+          <div class="dropdown-content">
+            <a href="html/techynicalBlog.html" target="_blank">Technical Blog</a>
+            <a href="#">Non Technical Blog</a>
+          </div>
         </div>
+      </div>
+      <a href="mailto:shahan.ahmed001@gmail.com" class="contact-btn">Contact Me <i
+          class='bx bx-arrow-back bx-rotate-180'></i></a>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="home.html">Home</a>
+    <a href="home.html#profile">Profile</a>
+    <a href="home.html#skills">Skills</a>
+    <a href="2.0_research.html" target="_blank">My Research</a>
+    <a href="projects.html">Projects</a>
+    <a href="workshop.html" class="active">Workshops</a>
+    <a href="simple-portfolio.html">Portfolio</a>
+    <a href="html/techynicalBlog.html" target="_blank">Technical Blog</a>
+    <a href="#">Non Technical Blog</a>
+  </div>
+
+  <!-- ===== WORKSHOP SECTION ===== -->
+  <section class="workshop-page" id="workshop">
+
+    <!-- HERO -->
+    <section class="workshop-hero">
+      <div class="workshop-hero-inner">
+        <p class="ws-eyebrow scroll-anim">Teaching &amp; Community</p>
+        <h1 class="ws-title scroll-anim">Workshops &amp; <span>Events</span></h1>
+        <p class="ws-desc scroll-anim">
+          Sessions I've conducted, organized, and led — covering version control, IoT, AI, and sustainability.
+          Each one built to spark curiosity and develop real hands-on skills.
+        </p>
+
+        <div class="ws-stats-row scroll-anim">
+          <div class="ws-stat-item">
+            <div class="ws-stat-top"><span class="ws-stat-num" data-target="6">0</span></div><span
+              class="ws-stat-label">Workshops Led</span>
+          </div>
+          <div class="ws-stat-divider"></div>
+          <div class="ws-stat-item">
+            <div class="ws-stat-top"><span class="ws-stat-num" data-target="2">0</span></div><span
+              class="ws-stat-label">Conferences</span>
+          </div>
+          <div class="ws-stat-divider"></div>
+          <div class="ws-stat-item">
+            <div class="ws-stat-top"><span class="ws-stat-num" data-target="3">0</span></div><span
+              class="ws-stat-label">Volunteer Roles</span>
+          </div>
+          <div class="ws-stat-divider"></div>
+          <div class="ws-stat-item">
+            <div class="ws-stat-top"><span class="ws-stat-num" data-target="200">0</span><span
+                class="ws-stat-plus">+</span></div><span class="ws-stat-label">Attendees Reached</span>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- TIMELINE -->
+    <div class="ws-timeline-wrap scroll-anim">
+      <div class="ws-timeline">
+        <div class="timeline-dot" data-date="Apr 4, 2014" data-id="wsScout1"></div>
+        <div class="timeline-dot" data-date="July 28, 2015" data-id="wsScout2"></div>
+        <div class="timeline-dot" data-date="Jan 26, 2017" data-id="wsScout3"></div>
+        <div class="timeline-dot" data-date="Sep 8, 2023" data-id="ws3"></div>
+        <div class="timeline-dot" data-date="Sep 24, 2023" data-id="ws2"></div>
+        <div class="timeline-dot" data-date="Sep 24, 2023" data-id="ws4"></div>
+        <div class="timeline-dot" data-date="Oct 8, 2023" data-id="ws1"></div>
+        <div class="timeline-dot active" data-date="Oct 12, 2025" data-id="ws0"></div>
+        <div class="timeline-dot" data-date="Nov 16, 2025" data-id="wsChatbot"></div>
+      </div>
+      <p class="ws-timeline-label">Event Timeline — Click a dot to highlight</p>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="ws-filters scroll-anim">
+      <span class="ws-filter-label">FILTER:</span>
+      <div class="ws-filter-indicator" id="wsFilterIndicator"></div>
+      <button class="ws-filter-btn active" data-filter="all">All (9)</button>
+      <button class="ws-filter-btn" data-filter="genai">Gen & Agentic AI</button>
+      <button class="ws-filter-btn" data-filter="github">GitHub</button>
+      <button class="ws-filter-btn" data-filter="iot">IoT & Security</button>
+      <button class="ws-filter-btn" data-filter="ai">AI & Deep Learning</button>
+      <button class="ws-filter-btn" data-filter="conference">Conference</button>
+      <button class="ws-filter-btn" data-filter="volunteer">Social Volunteering</button>
+    </div>
+
+    <!-- WORKSHOP CARDS -->
+    <section class="ws-cards-section">
+      <div class="ws-grid" id="wsGrid">
+
+        <div class="ws-card featured scroll-anim" id="ws0" data-cat="genai">
+          <div class="ws-card-bg"
+            style="background-image: url('https://media.licdn.com/dms/image/v2/D5622AQE0bqLs0TH9Rw/feedshare-image-high-res/B56ZnCKIX0I0Ao-/0/1759899060237?e=1779321600&v=beta&t=rLPBnvuSIfyT30TXf-vgP5231xZyLShY8d_NbSIkxZQ');">
+          </div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bx-bot'></i></div>
+            <span class="latest-badge">LATEST</span>
+          </div>
+          <div class="org-badge-v3">EduSpark IT</div>
+          <h3 class="ws-card-title">Agent Vs Agent: Where AI Minds debate Autonomously</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> Sunday, 12th October 2025 · Deep Dive</p>
+          <p class="ws-card-desc">An iconic night exploring the leap from task-tuned NLP to autonomous agentic loops. We
+            built a conversational chatbot using LangChain + Gemini 2.5 Flash and explored multi-agent reasoning
+            frameworks.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">Generative AI</span><span class="ws-card-tag">Agentic AI</span>
+            <span class="ws-card-tag">LangChain</span><span class="ws-card-tag">Gemini 2.5</span><span
+              class="ws-card-tag">Multi-Agent</span>
+          </div>
+          <a href="#" class="ws-view-btn">View Summary →</a>
+        </div>
+
+        <div class="ws-card gold scroll-anim" id="wsChatbot" data-cat="genai">
+          <div class="ws-card-bg"
+            style="background-image: url('https://media.licdn.com/dms/image/v2/D4E22AQFXulJB1p3PLQ/feedshare-image-high-res/B4EZp3GgZWJ0Ao-/0/1762934786603?e=1779321600&v=beta&t=Y1wReyjJSkzi1kz9nTL0QZSuvXWgAq8bSYLHczC0_lc');">
+          </div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bx-message-square-dots'></i></div>
+          </div>
+          <div class="org-badge-v3">EduSpark IT</div>
+          <h3 class="ws-card-title">Build Your Own Website Chatbot</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> 16th November · Live Workshop</p>
+          <p class="ws-card-desc">End-to-end development of an AI chatbot for real websites. Deep dive into
+            Retrieval-Augmented Generation (RAG), context retention, and memory fundamentals.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">RAG</span><span class="ws-card-tag">Chatbot</span>
+            <span class="ws-card-tag">Gen AI</span><span class="ws-card-tag">Memory</span><span
+              class="ws-card-tag">Integration</span>
+          </div>
+          <a href="#" class="ws-view-btn">View Summary →</a>
+        </div>
+
+        <!-- Card: World Scout Jamboree -->
+        <div class="ws-card scroll-anim" id="wsScout2" data-cat="volunteer">
+          <div class="ws-card-bg"
+            style="background-image: url('https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?q=80&w=1000&auto=format&fit=crop');">
+          </div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bx-globe'></i></div>
+          </div>
+          <div class="org-badge-v3">WORLD SCOUT</div>
+          <h3 class="ws-card-title">23rd World Scout Jamboree</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> 2015 · Kirgraham, Japan</p>
+          <p class="ws-card-desc">Represented Bangladesh as a Delegate in Yamaguchi, Japan. Engaged in global dialogue
+            on sustainability and cross-cultural peace-building.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">International</span><span class="ws-card-tag">Delegate</span>
+            <span class="ws-card-tag">Japan</span><span class="ws-card-tag">Scout</span>
+          </div>
+          <a href="#" class="ws-view-btn">View Details →</a>
+        </div>
+
+        <!-- Card: National Rover Moot -->
+        <div class="ws-card scroll-anim" id="wsScout3" data-cat="volunteer">
+          <div class="ws-card-bg"
+            style="background-image: url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=1000&auto=format&fit=crop');">
+          </div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bx-group'></i></div>
+          </div>
+          <div class="org-badge-v3">BANGLADESH SCOUTS</div>
+          <h3 class="ws-card-title">11th National Rover Moot 2017</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> 2017 · Tungipara, Bangladesh</p>
+          <p class="ws-card-desc">Served as Senior Rover Mate, leading a team through high-intensity skill challenges
+            and community service operations.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">Leadership</span><span class="ws-card-tag">Rover Mate</span>
+            <span class="ws-card-tag">Bangladesh</span><span class="ws-card-tag">Service</span>
+          </div>
+          <a href="#" class="ws-view-btn">View Details →</a>
+        </div>
+
+        <!-- Card: SAANSO Jamboree -->
+        <div class="ws-card scroll-anim" id="wsScout1" data-cat="volunteer">
+          <div class="ws-card-bg"
+            style="background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1000&auto=format&fit=crop');">
+          </div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bx-compass'></i></div>
+          </div>
+          <div class="org-badge-v3">SAANSO</div>
+          <h3 class="ws-card-title">9th BD & 1st SAANSO Scout Jamboree</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> 2014 · Gazipur, Bangladesh</p>
+          <p class="ws-card-desc">Participated in the inaugural SAANSO Jamboree. Mastered survival skills, pioneering,
+            and regional cultural exchange.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">SAANSO</span><span class="ws-card-tag">Scout</span>
+            <span class="ws-card-tag">Survival</span><span class="ws-card-tag">Regional</span>
+          </div>
+          <a href="#" class="ws-view-btn">View Details →</a>
+        </div>
+
+        <div class="ws-card featured scroll-anim" id="ws1" data-cat="github">
+          <div class="ws-card-bg" style="background-image: url('picture/git2.jpg');"></div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bxl-github'></i></div>
+            <span class="latest-badge">LATEST</span>
+          </div>
+          <div class="org-badge-v3">IEEE NSU IAS</div>
+          <h3 class="ws-card-title">GitHub Basic 2.0: Building Your Coding Portfolio</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> Sunday, 8th October 2023 · Advanced Level</p>
+          <p class="ws-card-desc">Advanced workshop on VCS, terminal commands, Git, GitHub and portfolio building
+            operations for intermediate learners.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">Git</span><span class="ws-card-tag">GitHub</span>
+            <span class="ws-card-tag">VCS</span><span class="ws-card-tag">Portfolio</span><span
+              class="ws-card-tag">CI/CD</span>
+          </div>
+          <a href="git1.html" class="ws-view-btn">View Details →</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="ws-card gold scroll-anim" id="ws2" data-cat="github">
+          <div class="ws-card-bg" style="background-image: url('picture/git1.jpg');"></div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bxl-git'></i></div>
+          </div>
+          <div class="org-badge-v3">IEEE NSU IAS</div>
+          <h3 class="ws-card-title">GitHub Basic: Building Your Coding Portfolio</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> Sunday, 24th September 2023 · Beginner Level</p>
+          <p class="ws-card-desc">Beginner-friendly introduction to VCS, terminal commands, Git and GitHub for students
+            with zero prior experience.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">Git</span><span class="ws-card-tag">GitHub</span><span
+              class="ws-card-tag">Terminal</span><span class="ws-card-tag">Beginner</span><span class="ws-card-tag">Open
+              Source</span>
+          </div>
+          <a href="git2.html" class="ws-view-btn">View Details →</a>
+        </div>
+
+        <div class="ws-card gold scroll-anim" id="ws3" data-cat="iot">
+          <div class="ws-card-bg" style="background-image: url('picture/home_security.jpg');"></div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bx-home-alt'></i></div>
+          </div>
+          <div class="org-badge-v3">IEEE NSU RAS</div>
+          <h3 class="ws-card-title">Workshop on Basic Home Security</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> Friday, 8th September 2023 · Intermediate Level</p>
+          <p class="ws-card-desc">Home security systems, IoT devices and smart automation. Participants built a live
+            motion-detection alert system using Arduino.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">IoT</span><span class="ws-card-tag">Arduino</span><span
+              class="ws-card-tag">Security</span><span class="ws-card-tag">MQTT</span><span
+              class="ws-card-tag">Automation</span>
+          </div>
+          <a href="#" class="ws-view-btn">View Details →</a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="ws-card gold scroll-anim" id="ws4" data-cat="iot">
+          <div class="ws-card-bg" style="background-image: url('picture/flood_ddetection.jpg');"></div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bx-water'></i></div>
+          </div>
+          <div class="org-badge-v3">IEEE NSU RAS</div>
+          <h3 class="ws-card-title">Extending Flood Detection for a Sustainable Future</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> 24th September 2023 · Advanced Level</p>
+          <p class="ws-card-desc">AI-based flood detection using CNN and satellite imagery, environmental monitoring and
+            sustainable tech deployment pipelines.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">AI</span><span class="ws-card-tag">CNN</span><span
+              class="ws-card-tag">OpenCV</span><span class="ws-card-tag">Deep Learning</span><span
+              class="ws-card-tag">Sustainability</span>
+          </div>
+          <a href="#" class="ws-view-btn">View Details →</a>
+        </div>
+
+        <!-- Coming Soon -->
+        <div class="ws-coming-soon scroll-anim">
+          <h3 class="coming-soon-title">More workshops on the way</h3>
+          <p class="coming-soon-desc">Actively planning sessions on LangGraph, Multi-Agent Systems, and RAG pipelines.
+            Stay tuned.</p>
+          <span class="coming-soon-btn">Coming Soon</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section class="ws-leadership-section">
+      <p class="section-eyebrow scroll-anim">Beyond the Classroom</p>
+      <h2 class="section-heading scroll-anim">Leadership &amp; Conference Roles</h2>
+      <p class="section-desc scroll-anim">Conference organizing, ambassador duties, and community leadership alongside
+        hands-on teaching under IEEE NSU Student Branch.</p>
+
+      <div class="ws-leader-grid">
+
+        <div class="ws-leader-card scroll-anim" data-cat="conference">
+          <div class="ws-leader-icon-wrap"><i class='bx bx-group'></i></div>
+          <div class="ws-leader-body">
+            <span class="ws-leader-role-badge">LEAD AMBASSADOR</span>
+            <h3 class="ws-leader-title">Student Profession Awareness Conference (SPAC)</h3>
+            <p class="ws-leader-meta">📅 15th May – 30th October 2023 · IEEE NSU Student Branch</p>
+            <p class="ws-leader-desc">Led the full organization and coordination of a major student conference focused
+              on professional development, career guidance, and industry awareness for engineering students across NSU
+              departments.</p>
+            <div class="ws-card-tags" style="margin-top:14px">
+              <span class="ws-card-tag">Conference</span><span class="ws-card-tag">Leadership</span><span
+                class="ws-card-tag">Event Mgmt</span><span class="ws-card-tag">Career Dev</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ws-leader-card scroll-anim" data-cat="conference">
+          <div class="ws-leader-icon-wrap"><i class='bx bx-code-alt'></i></div>
+          <div class="ws-leader-body">
+            <span class="ws-leader-role-badge">AMBASSADOR</span>
+            <h3 class="ws-leader-title">IEEE Xtreme Programming Competition 17.0</h3>
+            <p class="ws-leader-meta">📅 October 2023 · IEEE Global</p>
+            <p class="ws-leader-desc">Served as official ambassador for the global IEEE Xtreme 24-hour programming
+              competition, promoting participation across the university campus and actively supporting and mentoring
+              contestants throughout the event.</p>
+            <div class="ws-card-tags" style="margin-top:14px">
+              <span class="ws-card-tag">Programming</span><span class="ws-card-tag">Ambassador</span><span
+                class="ws-card-tag">Global</span><span class="ws-card-tag">IEEE</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </section>
+
+  <script src="workshop.js"></script>
 </body>
+
 </html>
