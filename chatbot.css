@@ -189,16 +189,17 @@
 }
 
 .message {
-  max-width: 85%;
+  max-width: 88%;
   padding: 14px 18px;
   border-radius: 20px;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.6;
   word-wrap: break-word;
   animation: messageAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   opacity: 0;
   transform: translateY(15px) scale(0.95);
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: left;
 }
 
 @keyframes messageAppear {
@@ -210,10 +211,29 @@
 
 .message.bot {
   align-self: flex-start;
-  background: rgba(255, 255, 255, 0.08);
-  color: #f1f5f9;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(30, 41, 59, 0.8);
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-bottom-left-radius: 4px;
+  font-family: 'Inter', sans-serif;
+}
+
+.message.bot p {
+  margin: 0 0 8px 0;
+}
+.message.bot p:last-child {
+  margin-bottom: 0;
+}
+.message.bot ul, .message.bot ol {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+.message.bot li {
+  margin-bottom: 4px;
+}
+.message.bot strong {
+  color: #00d2ff;
+  font-weight: 600;
 }
 
 .message.user {
@@ -251,7 +271,7 @@
 
 .chatbot-input-container {
   padding: 15px 20px 20px 20px;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   gap: 12px;
@@ -260,12 +280,12 @@
 
 .chatbot-input {
   flex: 1;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 24px;
   padding: 14px 20px;
   color: white;
-  font-size: 15px;
+  font-size: 14px;
   font-family: 'Inter', sans-serif;
   outline: none;
   transition: all 0.3s;
@@ -273,12 +293,12 @@
 }
 
 .chatbot-input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .chatbot-input:focus {
   border-color: #00d2ff;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   box-shadow: 0 0 15px rgba(0, 210, 255, 0.2), inset 0 2px 5px rgba(0,0,0,0.2);
 }
 
@@ -316,10 +336,10 @@
   }
   #chatbot-window {
     width: calc(100vw - 40px);
-    height: 70vh;
+    height: 75vh;
     margin-bottom: 15px;
   }
   .message {
-    max-width: 90%;
+    max-width: 92%;
   }
 }

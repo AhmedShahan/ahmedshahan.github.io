@@ -14,6 +14,13 @@
     document.head.appendChild(boxicons);
   }
 
+  // Load Marked.js for perfect markdown rendering
+  if (typeof marked === 'undefined') {
+    const markedScript = document.createElement('script');
+    markedScript.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+    document.head.appendChild(markedScript);
+  }
+
   // Inject Widget HTML
   const widgetContainer = document.createElement('div');
   widgetContainer.id = 'chatbot-widget';
@@ -48,6 +55,7 @@
   const messagesContainer = document.getElementById('chatbot-messages');
 
   let isWindowOpen = false;
+  let isTyping = false;
 
   toggleBtn.addEventListener('click', () => {
     isWindowOpen = !isWindowOpen;
@@ -63,26 +71,47 @@
     }
   });
 
-  // Simple markdown parser for bold, lists, and newlines
-  const formatText = (text) => {
-    let formatted = text.replace(/\\n/g, '\n');
-    formatted = formatted.replace(/\n/g, '<br>');
-    formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    return formatted;
-  };
-
-  const appendMessage = (text, sender) => {
+  const appendUserMessage = (text) => {
     const msgDiv = document.createElement('div');
-    msgDiv.classList.add('message', sender);
-    
-    if (sender === 'bot') {
-      msgDiv.innerHTML = formatText(text);
-    } else {
-      msgDiv.textContent = text;
-    }
-    
+    msgDiv.classList.add('message', 'user');
+    msgDiv.textContent = text;
     messagesContainer.appendChild(msgDiv);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  };
+
+  const createBotMessageNode = () => {
+    const msgDiv = document.createElement('div');
+    msgDiv.classList.add('message', 'bot');
+    messagesContainer.appendChild(msgDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    return msgDiv;
+  };
+
+  // Simulate streaming by typing out the Markdown source, then rendering
+  // Or stream raw markdown out and render on every step
+  const typeWriterEffect = async (node, text, speed = 15) => {
+    let currentText = "";
+    isTyping = true;
+    for (let i = 0; i < text.length; i++) {
+      currentText += text.charAt(i);
+      
+      // If marked is loaded, parse the partial text to HTML
+      if (typeof marked !== 'undefined') {
+        node.innerHTML = marked.parse(currentText);
+      } else {
+        // Fallback formatting
+        let formatted = currentText.replace(/\\n/g, '\n');
+        formatted = formatted.replace(/\n/g, '<br>');
+        formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        node.innerHTML = formatted;
+      }
+
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      
+      // Randomize speed slightly for realistic typing
+      await new Promise(r => setTimeout(r, speed + Math.random() * 10));
+    }
+    isTyping = false;
   };
 
   const showTypingIndicator = () => {
@@ -102,15 +131,18 @@
   };
 
   const handleSend = async () => {
+    if (isTyping) return; // Prevent sending while typing response
+    
     const text = inputField.value.trim();
     if (!text) return;
 
-    appendMessage(text, 'user');
+    appendUserMessage(text);
     inputField.value = '';
     
     showTypingIndicator();
 
     try {
+      // POST request to backend
       const response = await fetch("https://ahmedshahan-portfolio-knowledge-base.hf.space/query", {
         method: "POST",
         headers: {
@@ -127,12 +159,15 @@
       removeTypingIndicator();
       
       const botReply = data.answer || data.response || data.text || "I received a response, but I couldn't understand it.";
-      appendMessage(botReply, 'bot');
+      
+      const botNode = createBotMessageNode();
+      await typeWriterEffect(botNode, botReply, 10);
       
     } catch (error) {
       console.error('Chatbot API Error:', error);
       removeTypingIndicator();
-      appendMessage("Sorry, I am having trouble connecting to my knowledge base right now. Please try again later.", 'bot');
+      const errNode = createBotMessageNode();
+      errNode.textContent = "Sorry, I am having trouble connecting to my knowledge base right now. Please try again later.";
     }
   };
 
