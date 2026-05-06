@@ -42,7 +42,10 @@
         <button id="chatbot-send-btn" class="chatbot-send-btn"><i class='bx bx-send'></i></button>
       </div>
     </div>
-    <button id="chatbot-toggle-btn"><i class='bx bx-message-rounded-dots'></i></button>
+    <button id="chatbot-toggle-btn">
+      <span style="margin-right:5px;">CHATBOT</span>
+      <i class='bx bx-support' style="font-size:24px;"></i>
+    </button>
   `;
   
   document.body.appendChild(widgetContainer);
@@ -62,12 +65,12 @@
     if (isWindowOpen) {
       chatWindow.classList.add('active');
       toggleBtn.classList.add('open');
-      toggleBtn.innerHTML = "<i class='bx bx-x'></i>";
+      toggleBtn.innerHTML = "<span style='margin-right:5px;'>CLOSE</span><i class='bx bx-x' style='font-size:24px;'></i>";
       setTimeout(() => inputField.focus(), 300);
     } else {
       chatWindow.classList.remove('active');
       toggleBtn.classList.remove('open');
-      toggleBtn.innerHTML = "<i class='bx bx-message-rounded-dots'></i>";
+      toggleBtn.innerHTML = "<span style='margin-right:5px;'>CHATBOT</span><i class='bx bx-support' style='font-size:24px;'></i>";
     }
   });
 
@@ -118,7 +121,7 @@
     const typingDiv = document.createElement('div');
     typingDiv.classList.add('message', 'bot', 'message-typing');
     typingDiv.id = 'typing-indicator';
-    typingDiv.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+    typingDiv.innerHTML = '<div class="chatbot-loader"><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div></div>';
     messagesContainer.appendChild(typingDiv);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
   };
