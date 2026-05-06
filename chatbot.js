@@ -80,17 +80,60 @@
   let isWindowOpen = false;
   let isTyping = false;
 
+  const saveState = () => {
+    const messages = [];
+    document.querySelectorAll('.chatbot-messages .message').forEach(msg => {
+      if (msg.id === 'typing-indicator') return;
+      const role = msg.classList.contains('user') ? 'user' : 'bot';
+      messages.push({ role, html: msg.innerHTML });
+    });
+    sessionStorage.setItem('chatbot-messages', JSON.stringify(messages));
+    sessionStorage.setItem('chatbot-isOpen', isWindowOpen.toString());
+  };
+
+  const loadState = () => {
+    const savedMessages = sessionStorage.getItem('chatbot-messages');
+    const savedIsOpen = sessionStorage.getItem('chatbot-isOpen');
+
+    if (savedMessages) {
+      try {
+        const parsed = JSON.parse(savedMessages);
+        if (parsed.length > 0) {
+          messagesContainer.innerHTML = '';
+          parsed.forEach(msgData => {
+            const msgDiv = document.createElement('div');
+            msgDiv.classList.add('message', msgData.role);
+            msgDiv.innerHTML = msgData.html;
+            messagesContainer.appendChild(msgDiv);
+          });
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+      } catch (e) {
+        console.error("Failed to parse chatbot history", e);
+      }
+    }
+
+    if (savedIsOpen === 'true') {
+      isWindowOpen = true;
+      chatWindow.classList.add('active');
+      toggleBtn.classList.add('hidden');
+      setTimeout(() => inputField.focus(), 300);
+    }
+  };
+
   const openChat = () => {
     isWindowOpen = true;
     chatWindow.classList.add('active');
     toggleBtn.classList.add('hidden'); // Hide the pill button when chat is open
     setTimeout(() => inputField.focus(), 300);
+    saveState();
   };
 
   const minimizeChat = () => {
     isWindowOpen = false;
     chatWindow.classList.remove('active');
     toggleBtn.classList.remove('hidden'); // Bring back the pill button
+    saveState();
   };
 
   // Event Listeners for Opening/Closing
@@ -112,6 +155,7 @@
     confirmPopup.classList.remove('active');
     messagesContainer.innerHTML = '<div class="message bot">Hello! I am Ahmed\'s AI Assistant. Ask me anything about Ahmed\'s skills, projects, or background!</div>';
     minimizeChat();
+    sessionStorage.removeItem('chatbot-messages');
   });
 
   const appendUserMessage = (text) => {
@@ -120,6 +164,7 @@
     msgDiv.textContent = text;
     messagesContainer.appendChild(msgDiv);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    saveState();
   };
 
   const createBotMessageNode = () => {
@@ -149,6 +194,7 @@
       await new Promise(r => setTimeout(r, speed + Math.random() * 10));
     }
     isTyping = false;
+    saveState();
   };
 
   const showTypingIndicator = () => {
@@ -204,6 +250,7 @@
       removeTypingIndicator();
       const errNode = createBotMessageNode();
       errNode.textContent = "Sorry, I am having trouble connecting to my knowledge base right now. Please try again later.";
+      saveState();
     }
   };
 
@@ -213,5 +260,8 @@
       handleSend();
     }
   });
+
+  // Initialize state from session storage
+  loadState();
 
 })();
