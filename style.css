@@ -42,6 +42,7 @@ body {
   gap: 14px;
   position: relative;
   z-index: 1;
+  margin-top: -60px;
 }
 
 /* ===== MOVING GLASS BAR EFFECT ===== */
@@ -276,6 +277,7 @@ body {
 @media (min-width: 768px) {
   .loading-content {
     gap: 20px;
+    margin-top: 0;
   }
 
   .loading-rings {
