@@ -20,7 +20,7 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100vh;
   font-family: 'Playfair Display', Georgia, serif;
   background: transparent;
   color: var(--text);
