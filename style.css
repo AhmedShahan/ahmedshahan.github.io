@@ -42,7 +42,6 @@ body {
   gap: 14px;
   position: relative;
   z-index: 1;
-  margin-top: -60px;
 }
 
 /* ===== MOVING GLASS BAR EFFECT ===== */
@@ -202,6 +201,8 @@ body {
   justify-content: center;
   align-items: center;
   transition: opacity 0.5s ease, transform 0.5s ease;
+  position: relative;
+  z-index: 100001;
 }
 
 .continue-btn-wrap.hidden {
