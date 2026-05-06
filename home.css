@@ -534,11 +534,17 @@ body {
     background-position: center;
   }
 
+  .home {
+    padding-top: 80px;
+    padding-bottom: 120px;
+  }
+
   .glass-card {
+    margin-top: -60px;
     flex-direction: column-reverse;
     padding: 40px 28px;
     text-align: center;
-    background: rgba(8, 27, 41, -10);
+    background: rgba(8, 27, 41, 0.45);
     /* Reduced transparency for mobile readability */
   }
 

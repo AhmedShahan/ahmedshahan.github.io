@@ -433,15 +433,27 @@
 /* Media Query for mobile */
 @media (max-width: 480px) {
   #chatbot-widget {
-    bottom: 20px;
-    right: 20px;
+    bottom: 15px;
+    right: 15px;
   }
   #chatbot-window {
-    width: calc(100vw - 40px);
-    height: 75vh;
-    margin-bottom: 15px;
+    width: calc(100vw - 30px);
+    height: 55vh;
+    max-height: 420px;
+    margin-bottom: 10px;
+  }
+  .chatbot-header {
+    padding: 12px 15px;
+  }
+  .chatbot-messages {
+    padding: 15px;
+    gap: 12px;
+  }
+  .chatbot-input-container {
+    padding: 10px 15px 15px 15px;
   }
   .message {
-    max-width: 92%;
+    max-width: 95%;
+    padding: 12px 16px;
   }
 }
