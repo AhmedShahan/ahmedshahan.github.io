@@ -33,6 +33,10 @@
           <h3 class="chatbot-title">AI Assistant</h3>
           <p class="chatbot-status">Online</p>
         </div>
+        <div class="chatbot-header-actions">
+          <button id="chatbot-minimize-btn" title="Minimize"><i class='bx bx-minus'></i></button>
+          <button id="chatbot-close-btn" title="Close"><i class='bx bx-x'></i></button>
+        </div>
       </div>
       <div class="chatbot-messages" id="chatbot-messages">
         <div class="message bot">Hello! I am Ahmed's AI Assistant. Ask me anything about Ahmed's skills, projects, or background!</div>
@@ -41,7 +45,17 @@
         <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Ask me something..." autocomplete="off">
         <button id="chatbot-send-btn" class="chatbot-send-btn"><i class='bx bx-send'></i></button>
       </div>
+
+      <!-- Confirmation Popup -->
+      <div id="chatbot-confirm-popup" class="chatbot-popup">
+        <p>Closing the chat will erase all text history. Are you sure?</p>
+        <div class="chatbot-popup-actions">
+          <button id="chatbot-popup-cancel">Cancel</button>
+          <button id="chatbot-popup-confirm">Close & Erase</button>
+        </div>
+      </div>
     </div>
+    
     <button id="chatbot-toggle-btn">
       <span style="margin-right:5px;">CHATBOT</span>
       <i class='bx bx-support' style="font-size:24px;"></i>
@@ -50,28 +64,54 @@
   
   document.body.appendChild(widgetContainer);
 
-  // Widget Logic
+  // Widget Elements
   const toggleBtn = document.getElementById('chatbot-toggle-btn');
   const chatWindow = document.getElementById('chatbot-window');
   const sendBtn = document.getElementById('chatbot-send-btn');
   const inputField = document.getElementById('chatbot-input');
   const messagesContainer = document.getElementById('chatbot-messages');
+  
+  const minimizeBtn = document.getElementById('chatbot-minimize-btn');
+  const closeBtn = document.getElementById('chatbot-close-btn');
+  const confirmPopup = document.getElementById('chatbot-confirm-popup');
+  const cancelCloseBtn = document.getElementById('chatbot-popup-cancel');
+  const confirmCloseBtn = document.getElementById('chatbot-popup-confirm');
 
   let isWindowOpen = false;
   let isTyping = false;
 
-  toggleBtn.addEventListener('click', () => {
-    isWindowOpen = !isWindowOpen;
-    if (isWindowOpen) {
-      chatWindow.classList.add('active');
-      toggleBtn.classList.add('open');
-      toggleBtn.innerHTML = "<span style='margin-right:5px;'>CLOSE</span><i class='bx bx-x' style='font-size:24px;'></i>";
-      setTimeout(() => inputField.focus(), 300);
-    } else {
-      chatWindow.classList.remove('active');
-      toggleBtn.classList.remove('open');
-      toggleBtn.innerHTML = "<span style='margin-right:5px;'>CHATBOT</span><i class='bx bx-support' style='font-size:24px;'></i>";
-    }
+  const openChat = () => {
+    isWindowOpen = true;
+    chatWindow.classList.add('active');
+    toggleBtn.classList.add('hidden'); // Hide the pill button when chat is open
+    setTimeout(() => inputField.focus(), 300);
+  };
+
+  const minimizeChat = () => {
+    isWindowOpen = false;
+    chatWindow.classList.remove('active');
+    toggleBtn.classList.remove('hidden'); // Bring back the pill button
+  };
+
+  // Event Listeners for Opening/Closing
+  toggleBtn.addEventListener('click', openChat);
+  minimizeBtn.addEventListener('click', minimizeChat);
+
+  closeBtn.addEventListener('click', () => {
+    // Show confirmation popup
+    confirmPopup.classList.add('active');
+  });
+
+  cancelCloseBtn.addEventListener('click', () => {
+    // Hide popup
+    confirmPopup.classList.remove('active');
+  });
+
+  confirmCloseBtn.addEventListener('click', () => {
+    // Erase text history and close
+    confirmPopup.classList.remove('active');
+    messagesContainer.innerHTML = '<div class="message bot">Hello! I am Ahmed\'s AI Assistant. Ask me anything about Ahmed\'s skills, projects, or background!</div>';
+    minimizeChat();
   });
 
   const appendUserMessage = (text) => {
@@ -90,19 +130,15 @@
     return msgDiv;
   };
 
-  // Simulate streaming by typing out the Markdown source, then rendering
-  // Or stream raw markdown out and render on every step
   const typeWriterEffect = async (node, text, speed = 15) => {
     let currentText = "";
     isTyping = true;
     for (let i = 0; i < text.length; i++) {
       currentText += text.charAt(i);
       
-      // If marked is loaded, parse the partial text to HTML
       if (typeof marked !== 'undefined') {
         node.innerHTML = marked.parse(currentText);
       } else {
-        // Fallback formatting
         let formatted = currentText.replace(/\\n/g, '\n');
         formatted = formatted.replace(/\n/g, '<br>');
         formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
@@ -110,8 +146,6 @@
       }
 
       messagesContainer.scrollTop = messagesContainer.scrollHeight;
-      
-      // Randomize speed slightly for realistic typing
       await new Promise(r => setTimeout(r, speed + Math.random() * 10));
     }
     isTyping = false;
@@ -145,7 +179,6 @@
     showTypingIndicator();
 
     try {
-      // POST request to backend
       const response = await fetch("https://ahmedshahan-portfolio-knowledge-base.hf.space/query", {
         method: "POST",
         headers: {
