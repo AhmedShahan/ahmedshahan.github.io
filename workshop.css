@@ -9,7 +9,7 @@
   -webkit-backdrop-filter: blur(25px);
   border-top: 1px solid rgba(0, 255, 238, 0.15); /* Glowing cyan top border */
   box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.3); /* Subtle top shadow for depth */
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* Background Watermark */
@@ -324,7 +324,7 @@
 .workshop-page {
   position: relative;
   z-index: 1;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .workshop-page::before {
@@ -680,4 +680,14 @@
 @media (max-width: 900px) {
   .ws-grid { grid-template-columns: 1fr; }
   .ws-timeline { overflow-x: auto; justify-content: flex-start; gap: 60px; padding-bottom: 40px; }
+}
+
+/* Helper for single cards in grid */
+.full-width-card {
+  grid-column: 1 / -1;
+}
+
+.ws-centered-head {
+  text-align: center;
+  margin-bottom: 50px;
 }
