@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conferences — Shahan Ahmed</title>
+  <link rel="icon" href="picture/shahan55.gif" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="workshop.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Background -->
+  <div class="bg-gif"></div>
+  <div class="bg-orb orb1"></div>
+  <div class="bg-orb orb2"></div>
+  <div class="bg-orb orb3"></div>
+
+  <!-- NAVBAR -->
+  <header class="header">
+    <nav class="navbar-pill">
+      <a href="home.html" class="logo">Shahan<span>.</span></a>
+      <div class="nav-links">
+        <div class="nav-indicator" id="navIndicator"></div>
+        <a href="home.html" class="nav-link">Home</a>
+        <a href="home.html#profile" class="nav-link">Profile</a>
+        <a href="home.html#skills" class="nav-link">Skills</a>
+        <div class="dropdown">
+          <a href="#" class="nav-link dropbtn">My Works <i class='bx bx-chevron-down'></i></a>
+          <div class="dropdown-content">
+            <a href="2.0_research.html" target="_blank">My Research</a>
+            <a href="projects.html">Projects</a>
+          </div>
+        </div>
+        <a href="workshop.html" class="nav-link">Workshops</a>
+        <a href="conference.html" class="nav-link active">Conference</a>
+        <a href="simple-portfolio.html" class="nav-link">Portfolio</a>
+        <div class="dropdown">
+          <a href="#" class="nav-link dropbtn">Blog <i class='bx bx-chevron-down'></i></a>
+          <div class="dropdown-content">
+            <a href="html/techynicalBlog.html" target="_blank">Technical Blog</a>
+            <a href="#">Non Technical Blog</a>
+          </div>
+        </div>
+      </div>
+      <a href="mailto:shahan.ahmed001@gmail.com" class="contact-btn">Contact Me <i
+          class='bx bx-arrow-back bx-rotate-180'></i></a>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="home.html">Home</a>
+    <a href="home.html#profile">Profile</a>
+    <a href="home.html#skills">Skills</a>
+    <a href="2.0_research.html" target="_blank">My Research</a>
+    <a href="projects.html">Projects</a>
+    <a href="workshop.html">Workshops</a>
+    <a href="conference.html" class="active">Conference</a>
+    <a href="simple-portfolio.html">Portfolio</a>
+    <a href="html/techynicalBlog.html" target="_blank">Technical Blog</a>
+    <a href="#">Non Technical Blog</a>
+  </div>
+
+  <!-- ===== CONFERENCE SECTION ===== -->
+  <section class="workshop-page" id="conference">
+
+    <!-- HERO -->
+    <section class="workshop-hero">
+      <div class="workshop-hero-inner">
+        <p class="ws-eyebrow scroll-anim">Research &amp; Publications</p>
+        <h1 class="ws-title scroll-anim">Conferences &amp; <span>Papers</span></h1>
+        <p class="ws-desc scroll-anim">
+          Academic conferences attended and research papers presented globally — focusing on Computer Vision, Sign Language Recognition, and Machine Learning.
+        </p>
+
+        <div class="ws-stats-row scroll-anim">
+          <div class="ws-stat-item">
+            <div class="ws-stat-top"><span class="ws-stat-num" data-target="1">0</span></div><span
+              class="ws-stat-label">Conference Papers</span>
+          </div>
+          <div class="ws-stat-divider"></div>
+          <div class="ws-stat-item">
+            <div class="ws-stat-top"><span class="ws-stat-num" data-target="1">0</span></div><span
+              class="ws-stat-label">International Conferences</span>
+          </div>
+          <div class="ws-stat-divider"></div>
+          <div class="ws-stat-item">
+            <div class="ws-stat-top"><span class="ws-stat-num" data-target="1">0</span></div><span
+              class="ws-stat-label">IEEE Publications</span>
+          </div>
+          <div class="ws-stat-divider"></div>
+          <div class="ws-stat-item">
+            <div class="ws-stat-top"><span class="ws-stat-num" data-target="2023">0</span></div><span class="ws-stat-label">Starting Year</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <div class="ws-timeline-wrap scroll-anim">
+      <div class="ws-timeline">
+        <div class="timeline-dot active" data-date="Nov 25, 2023" data-id="conf1"></div>
+      </div>
+      <p class="ws-timeline-label">Conference Timeline — Click a dot to highlight</p>
+    </div>
+
+    <!-- CONFERENCE CARDS -->
+    <section class="ws-cards-section">
+      <div class="ws-grid" id="wsGrid">
+
+        <div class="ws-card featured scroll-anim" id="conf1">
+          <div class="ws-card-bg"
+            style="background-image: url('https://ieeexplore.ieee.org/assets/img/ieee-logo.svg'); background-size: contain; background-repeat: no-repeat; background-color: rgba(255,255,255,0.05);">
+          </div>
+          <div class="ws-card-header">
+            <div class="ws-card-thumb"><i class='bx bx-file'></i></div>
+            <span class="latest-badge">PRESENTED</span>
+          </div>
+          <div class="org-badge-v3">IEEE WIECON-ECE 2023</div>
+          <h3 class="ws-card-title">A Novel Approach for Recognizing Real-Time American Sign Language (ASL) Using the Hand Landmark Distance and Machine Learning Algorithms</h3>
+          <p class="ws-card-meta"><i class='bx bx-calendar'></i> 25-26 November 2023 · Thiruvananthapuram, India (Virtual)</p>
+          <p class="ws-card-meta"><i class='bx bx-check-shield'></i> Publisher: IEEE · Added to Xplore: 26 March 2024</p>
+          <p class="ws-card-desc">Presented research on ASL recognition using Mediapipe hand landmarks and ML classifiers. The paper was published in the 2023 IEEE 9th International Women in Engineering (WIE) Conference on Electrical and Computer Engineering.</p>
+          <div class="ws-card-tags">
+            <span class="ws-card-tag">IEEE</span><span class="ws-card-tag">ASL</span>
+            <span class="ws-card-tag">Machine Learning</span><span class="ws-card-tag">Computer Vision</span><span
+              class="ws-card-tag">Hand Landmarks</span>
+          </div>
+          <a href="https://ieeexplore.ieee.org/document/10456414" target="_blank" class="ws-view-btn">View on IEEE Xplore →</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LEADERSHIP & ROLES -->
+    <section class="ws-leadership-section">
+      <p class="section-eyebrow scroll-anim">Conference Involvement</p>
+      <h2 class="section-heading scroll-anim">Leadership &amp; Organizer Roles</h2>
+      <p class="section-desc scroll-anim">Roles in organizing and promoting international and student conferences.</p>
+
+      <div class="ws-leader-grid">
+
+        <div class="ws-leader-card scroll-anim" id="conf2">
+          <div class="ws-leader-icon-wrap"><i class='bx bx-group'></i></div>
+          <div class="ws-leader-body">
+            <span class="ws-leader-role-badge">LEAD AMBASSADOR</span>
+            <h3 class="ws-leader-title">Student Profession Awareness Conference (SPAC)</h3>
+            <p class="ws-leader-meta">📅 15th May – 30th October 2023 · IEEE NSU Student Branch</p>
+            <p class="ws-leader-desc">Led the full organization and coordination of a major student conference focused
+              on professional development, career guidance, and industry awareness for engineering students across NSU
+              departments.</p>
+            <div class="ws-card-tags" style="margin-top:14px">
+              <span class="ws-card-tag">Conference</span><span class="ws-card-tag">Leadership</span><span
+                class="ws-card-tag">Event Mgmt</span><span class="ws-card-tag">Career Dev</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ws-leader-card scroll-anim" id="conf3">
+          <div class="ws-leader-icon-wrap"><i class='bx bx-code-alt'></i></div>
+          <div class="ws-leader-body">
+            <span class="ws-leader-role-badge">AMBASSADOR</span>
+            <h3 class="ws-leader-title">IEEE Xtreme Programming Competition 17.0</h3>
+            <p class="ws-leader-meta">📅 October 2023 · IEEE Global</p>
+            <p class="ws-leader-desc">Served as official ambassador for the global IEEE Xtreme 24-hour programming
+              competition, promoting participation across the university campus and actively supporting and mentoring
+              contestants throughout the event.</p>
+            <div class="ws-card-tags" style="margin-top:14px">
+              <span class="ws-card-tag">Programming</span><span class="ws-card-tag">Ambassador</span><span
+                class="ws-card-tag">Global</span><span class="ws-card-tag">IEEE</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </section>
+
+  <script src="workshop.js"></script>
+  <script src="chatbot.js"></script>
+</body>
+
+</html>

@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let inactivityTimeout;
 
   function updateFilterIndicator() {
+    if (filterBtns.length === 0) return;
     const activeBtn = document.querySelector('.ws-filter-btn.active');
     if (activeBtn && wsFilterIndicator) {
       const rect = activeBtn.getBoundingClientRect();
@@ -64,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function setActiveFilter(index) {
+    if (filterBtns.length === 0) return;
     const btn = filterBtns[index];
     if (!btn) return;
 
@@ -125,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function startFilterAutoPlay() {
+    if (filterBtns.length === 0) return;
     stopFilterAutoPlay();
     // Cycle every 5 seconds once started
     filterInterval = setInterval(() => {
@@ -141,28 +144,31 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function handleActivity() {
+    if (filterBtns.length === 0) return;
     stopFilterAutoPlay();
     clearTimeout(inactivityTimeout);
     // Wait for 5 seconds of no activity before starting auto-play
     inactivityTimeout = setTimeout(startFilterAutoPlay, 5000);
   }
 
-  // Listen for various user activities
-  ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart'].forEach(name => {
-    document.addEventListener(name, handleActivity, { passive: true });
-  });
-
-  filterBtns.forEach((btn, idx) => {
-    btn.addEventListener('click', () => {
-      handleActivity(); // Reset the timer on manual click
-      setActiveFilter(idx);
+  if (filterBtns.length > 0) {
+    // Listen for various user activities
+    ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart'].forEach(name => {
+      document.addEventListener(name, handleActivity, { passive: true });
     });
-  });
 
-  window.addEventListener('resize', updateFilterIndicator);
-  // Start the initial inactivity timer
-  handleActivity();
-  setTimeout(updateFilterIndicator, 500);
+    filterBtns.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        handleActivity(); // Reset the timer on manual click
+        setActiveFilter(idx);
+      });
+    });
+
+    window.addEventListener('resize', updateFilterIndicator);
+    // Start the initial inactivity timer
+    handleActivity();
+    setTimeout(updateFilterIndicator, 500);
+  }
 
   // 4. TIMELINE INTERACTION & SCROLL SPY
   const timelineDots = document.querySelectorAll('.timeline-dot');
