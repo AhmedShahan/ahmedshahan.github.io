@@ -33,20 +33,16 @@
         <a href="home.html" class="nav-link">Home</a>
         <a href="home.html#profile" class="nav-link">Profile</a>
         <a href="home.html#skills" class="nav-link">Skills</a>
-        <div class="dropdown">
-          <a href="#" class="nav-link dropbtn">My Works <i class='bx bx-chevron-down'></i></a>
-          <div class="dropdown-content">
-            <a href="2.0_research.html" target="_blank">My Research</a>
-            <a href="projects.html">Projects</a>
-          </div>
-        </div>
+        <a href="2.0_research.html" target="_blank" class="nav-link">Research</a>
+        <a href="projects.html" class="nav-link">Projects</a>
         <a href="workshop.html" class="nav-link active">Workshops</a>
         <a href="workshop.html#conference" class="nav-link">Conference</a>
-        <a href="simple-portfolio.html" class="nav-link">Portfolio</a>
+        <a href="volunteering.html" class="nav-link">Social Volunteering</a>
+        <a href="portfollio.html" class="nav-link">Portfolio</a>
         <div class="dropdown">
           <a href="#" class="nav-link dropbtn">Blog <i class='bx bx-chevron-down'></i></a>
           <div class="dropdown-content">
-            <a href="html/techynicalBlog.html" target="_blank">Technical Blog</a>
+            <a href="techynicalBlog.html" target="_blank">Technical Blog</a>
             <a href="#">Non Technical Blog</a>
           </div>
         </div>
@@ -62,12 +58,13 @@
     <a href="home.html">Home</a>
     <a href="home.html#profile">Profile</a>
     <a href="home.html#skills">Skills</a>
-    <a href="2.0_research.html" target="_blank">My Research</a>
+    <a href="2.0_research.html" target="_blank">Research</a>
     <a href="projects.html">Projects</a>
     <a href="workshop.html" class="active">Workshops</a>
     <a href="workshop.html#conference">Conference</a>
-    <a href="simple-portfolio.html">Portfolio</a>
-    <a href="html/techynicalBlog.html" target="_blank">Technical Blog</a>
+    <a href="volunteering.html">Social Volunteering</a>
+    <a href="portfollio.html">Portfolio</a>
+    <a href="techynicalBlog.html" target="_blank">Technical Blog</a>
     <a href="#">Non Technical Blog</a>
   </div>
 
@@ -106,9 +103,6 @@
     <!-- TIMELINE -->
     <div class="ws-timeline-wrap scroll-anim">
       <div class="ws-timeline">
-        <div class="timeline-dot" data-date="Apr 4, 2014" data-id="wsScout1"></div>
-        <div class="timeline-dot" data-date="July 28, 2015" data-id="wsScout2"></div>
-        <div class="timeline-dot" data-date="Jan 26, 2017" data-id="wsScout3"></div>
         <div class="timeline-dot" data-date="Sep 8, 2023" data-id="ws3"></div>
         <div class="timeline-dot" data-date="Sep 24, 2023" data-id="ws2"></div>
         <div class="timeline-dot" data-date="Sep 24, 2023" data-id="ws4"></div>
@@ -125,12 +119,11 @@
     <div class="ws-filters scroll-anim">
       <span class="ws-filter-label">FILTER:</span>
       <div class="ws-filter-indicator" id="wsFilterIndicator"></div>
-      <button class="ws-filter-btn active" data-filter="all">All (9)</button>
+      <button class="ws-filter-btn active" data-filter="all">All (6)</button>
       <button class="ws-filter-btn" data-filter="genai">Gen & Agentic AI</button>
       <button class="ws-filter-btn" data-filter="github">GitHub</button>
       <button class="ws-filter-btn" data-filter="iot">IoT & Security</button>
       <button class="ws-filter-btn" data-filter="ai">AI & Deep Learning</button>
-      <button class="ws-filter-btn" data-filter="volunteer">Social Volunteering</button>
     </div>
 
     <!-- WORKSHOP CARDS -->
@@ -177,66 +170,6 @@
               class="ws-card-tag">Integration</span>
           </div>
           <a href="#" class="ws-view-btn">View Summary →</a>
-        </div>
-
-        <!-- Card: World Scout Jamboree -->
-        <div class="ws-card scroll-anim" id="wsScout2" data-cat="volunteer">
-          <div class="ws-card-bg"
-            style="background-image: url('https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?q=80&w=1000&auto=format&fit=crop');">
-          </div>
-          <div class="ws-card-header">
-            <div class="ws-card-thumb"><i class='bx bx-globe'></i></div>
-          </div>
-          <div class="org-badge-v3">WORLD SCOUT</div>
-          <h3 class="ws-card-title">23rd World Scout Jamboree</h3>
-          <p class="ws-card-meta"><i class='bx bx-calendar'></i> 2015 · Kirgraham, Japan</p>
-          <p class="ws-card-desc">Represented Bangladesh as a Delegate in Yamaguchi, Japan. Engaged in global dialogue
-            on sustainability and cross-cultural peace-building.</p>
-          <div class="ws-card-tags">
-            <span class="ws-card-tag">International</span><span class="ws-card-tag">Delegate</span>
-            <span class="ws-card-tag">Japan</span><span class="ws-card-tag">Scout</span>
-          </div>
-          <a href="#" class="ws-view-btn">View Details →</a>
-        </div>
-
-        <!-- Card: National Rover Moot -->
-        <div class="ws-card scroll-anim" id="wsScout3" data-cat="volunteer">
-          <div class="ws-card-bg"
-            style="background-image: url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=1000&auto=format&fit=crop');">
-          </div>
-          <div class="ws-card-header">
-            <div class="ws-card-thumb"><i class='bx bx-group'></i></div>
-          </div>
-          <div class="org-badge-v3">BANGLADESH SCOUTS</div>
-          <h3 class="ws-card-title">11th National Rover Moot 2017</h3>
-          <p class="ws-card-meta"><i class='bx bx-calendar'></i> 2017 · Tungipara, Bangladesh</p>
-          <p class="ws-card-desc">Served as Senior Rover Mate, leading a team through high-intensity skill challenges
-            and community service operations.</p>
-          <div class="ws-card-tags">
-            <span class="ws-card-tag">Leadership</span><span class="ws-card-tag">Rover Mate</span>
-            <span class="ws-card-tag">Bangladesh</span><span class="ws-card-tag">Service</span>
-          </div>
-          <a href="#" class="ws-view-btn">View Details →</a>
-        </div>
-
-        <!-- Card: SAANSO Jamboree -->
-        <div class="ws-card scroll-anim" id="wsScout1" data-cat="volunteer">
-          <div class="ws-card-bg"
-            style="background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1000&auto=format&fit=crop');">
-          </div>
-          <div class="ws-card-header">
-            <div class="ws-card-thumb"><i class='bx bx-compass'></i></div>
-          </div>
-          <div class="org-badge-v3">SAANSO</div>
-          <h3 class="ws-card-title">9th BD & 1st SAANSO Scout Jamboree</h3>
-          <p class="ws-card-meta"><i class='bx bx-calendar'></i> 2014 · Gazipur, Bangladesh</p>
-          <p class="ws-card-desc">Participated in the inaugural SAANSO Jamboree. Mastered survival skills, pioneering,
-            and regional cultural exchange.</p>
-          <div class="ws-card-tags">
-            <span class="ws-card-tag">SAANSO</span><span class="ws-card-tag">Scout</span>
-            <span class="ws-card-tag">Survival</span><span class="ws-card-tag">Regional</span>
-          </div>
-          <a href="#" class="ws-view-btn">View Details →</a>
         </div>
 
         <div class="ws-card featured scroll-anim" id="ws1" data-cat="github">

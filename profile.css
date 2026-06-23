@@ -93,8 +93,11 @@
 }
 
 @media (max-width: 767px) {
+  .profile::before { animation: none; display: none; }
+
   .profile-glass-card {
     flex-direction: column;
+    padding: 30px 16px;
   }
 
   .timeline-columns {
@@ -107,17 +110,189 @@
   }
 
   .profile-sidebar {
-    margin-top: 30px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .resume-btn {
+    width: 100%;
+    max-width: 320px;
+    padding: 14px 20px;
+    font-size: 0.85rem;
+    white-space: normal;
   }
 
   .timeline-col {
-    margin-bottom: 80px;
+    margin-bottom: 60px;
   }
 
   .timeline-heading-left, .timeline-heading-right {
-    padding-left: 70px;
-    font-size: 1.5rem;
+    padding-left: 60px;
+    font-size: 1.3rem;
     color: #00ffee;
+    margin-bottom: 20px;
+  }
+
+  /* Fix timeline dot positions for mobile */
+  .timeline-item {
+    padding-left: 60px;
+    margin-bottom: 20px;
+  }
+
+  .timeline-glowing-dot {
+    left: 42px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .timeline-center-dot {
+    left: 10px;
+    width: 6px;
+    height: 6px;
+  }
+
+  .timeline-connector {
+    left: 13px;
+    width: 24px;
+  }
+
+  .timeline-line {
+    left: 13px;
+  }
+
+  .timeline-year {
+    font-size: 1.1rem;
+  }
+
+  .timeline-title {
+    font-size: 1rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.85rem;
+  }
+
+  .present-item .timeline-glowing-dot::after {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* ===== SMALL PHONES (≤ 480px) ===== */
+@media (max-width: 480px) {
+  .profile {
+    padding: 60px 4% 30px;
+    min-height: auto;
+  }
+
+  .profile-glass-card {
+    padding: 24px 14px;
+    border-radius: 16px;
+    gap: 30px;
+  }
+
+  .timeline-col {
+    margin-bottom: 40px;
+  }
+
+  .timeline-heading-left, .timeline-heading-right {
+    padding-left: 50px;
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+
+  .timeline-item {
+    padding-left: 50px;
+    margin-bottom: 16px;
+  }
+
+  .timeline-glowing-dot {
+    left: 35px;
+    width: 12px;
+    height: 12px;
+    top: 5px;
+  }
+
+  .timeline-center-dot {
+    left: 8px;
+    top: 8px;
+    width: 5px;
+    height: 5px;
+  }
+
+  .timeline-connector {
+    left: 11px;
+    top: 11px;
+    width: 20px;
+  }
+
+  .timeline-line {
+    left: 10px;
+  }
+
+  .timeline-year {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  .timeline-title {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+  }
+
+  .timeline-desc {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .profile-sidebar {
+    margin-top: 10px;
+  }
+
+  .resume-btn {
+    font-size: 0.8rem;
+    padding: 12px 18px;
+  }
+}
+
+/* ===== EXTRA SMALL PHONES (≤ 360px) ===== */
+@media (max-width: 360px) {
+  .profile {
+    padding: 50px 3% 20px;
+  }
+
+  .profile-glass-card {
+    padding: 18px 10px;
+    border-radius: 14px;
+    gap: 24px;
+  }
+
+  .timeline-heading-left, .timeline-heading-right {
+    padding-left: 44px;
+    font-size: 1rem;
+  }
+
+  .timeline-item {
+    padding-left: 44px;
+  }
+
+  .timeline-glowing-dot {
+    left: 30px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .timeline-connector {
+    left: 9px;
+    width: 16px;
+  }
+
+  .timeline-line {
+    left: 8px;
+  }
+
+  .timeline-center-dot {
+    left: 6px;
   }
 }
 

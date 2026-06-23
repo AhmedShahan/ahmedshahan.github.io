@@ -274,6 +274,81 @@ body {
   }
 }
 
+/* ===== MOBILE (tiny phones ≤ 380px) ===== */
+@media (max-width: 380px) {
+  .loading-content {
+    gap: 8px;
+    padding: 0 16px;
+  }
+  .loading-rings {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+  }
+  .ring1 { width: 80px; height: 80px; }
+  .ring2 { width: 60px; height: 60px; top: 10px; left: 10px; }
+  .ring3 { width: 40px; height: 40px; top: 20px; left: 20px; }
+  .loading-portfolio { font-size: 11px; letter-spacing: 2px; margin-top: 20px; }
+  .loading-title { font-size: 20px; letter-spacing: 3px; }
+  .loading-subtitle { font-size: 10px; letter-spacing: 2px; margin-top: 2px; margin-bottom: 20px; }
+  .loading-bar-wrap { width: 160px; }
+  .loading-text { font-size: 10px; letter-spacing: 1px; }
+  .glass-btn {
+    padding: 10px 24px;
+    font-size: 12px;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+  }
+  .tap-cursor { width: 18px; height: 18px; }
+}
+
+/* ===== MOBILE PHONES (381px – 480px) ===== */
+@media (min-width: 381px) and (max-width: 480px) {
+  .loading-content {
+    gap: 10px;
+    padding: 0 20px;
+  }
+  .loading-rings {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 24px;
+  }
+  .ring1 { width: 90px; height: 90px; }
+  .ring2 { width: 68px; height: 68px; top: 11px; left: 11px; }
+  .ring3 { width: 46px; height: 46px; top: 22px; left: 22px; }
+  .loading-portfolio { font-size: 12px; letter-spacing: 2px; margin-top: 24px; margin-bottom: 3px; }
+  .loading-title { font-size: 22px; letter-spacing: 4px; }
+  .loading-subtitle { font-size: 11px; letter-spacing: 2px; margin-top: 3px; margin-bottom: 24px; }
+  .loading-bar-wrap { width: 170px; height: 3px; }
+  .loading-text { font-size: 11px; letter-spacing: 1px; }
+  .glass-btn {
+    padding: 11px 28px;
+    font-size: 13px;
+    gap: 10px;
+  }
+}
+
+/* ===== PHABLETS / SMALL TABLETS (481px – 767px) ===== */
+@media (min-width: 481px) and (max-width: 767px) {
+  .loading-content {
+    gap: 12px;
+  }
+  .loading-rings {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 28px;
+  }
+  .ring1 { width: 110px; height: 110px; }
+  .ring2 { width: 82px; height: 82px; top: 14px; left: 14px; }
+  .ring3 { width: 56px; height: 56px; top: 27px; left: 27px; }
+  .loading-portfolio { font-size: 13px; letter-spacing: 3px; margin-top: 26px; }
+  .loading-title { font-size: 26px; letter-spacing: 5px; }
+  .loading-subtitle { font-size: 12px; letter-spacing: 3px; margin-bottom: 26px; }
+  .loading-bar-wrap { width: 190px; }
+  .glass-btn { font-size: 13px; padding: 11px 30px; }
+}
+
 /* ===== DESKTOP RESPONSIVENESS ===== */
 @media (min-width: 768px) {
   .loading-content {

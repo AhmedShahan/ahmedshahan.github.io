@@ -674,12 +674,334 @@
   .ws-leader-title {
     font-size: 1.3rem;
   }
+
+  .ws-leader-icon-wrap {
+    width: 56px;
+    height: 56px;
+    font-size: 1.6rem;
+  }
+
+  .ws-leader-desc {
+    font-size: 0.88rem;
+  }
 }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .ws-grid { grid-template-columns: 1fr; }
   .ws-timeline { overflow-x: auto; justify-content: flex-start; gap: 60px; padding-bottom: 40px; }
+  .workshop-page::before, .workshop-page::after { animation: none; display: none; }
+}
+
+/* ===== SMALL PHONES (≤ 480px) ===== */
+@media (max-width: 480px) {
+  .workshop-page {
+    padding-top: 60px;
+  }
+
+  .workshop-hero {
+    min-height: auto;
+    padding: 40px 4% 20px;
+  }
+
+  .ws-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+  }
+
+  .ws-title {
+    font-size: 2rem;
+    margin-bottom: 14px;
+  }
+
+  .ws-desc {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    padding: 0 2%;
+  }
+
+  .ws-stats-row {
+    padding: 16px 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .ws-stat-item {
+    padding: 0 16px;
+  }
+
+  .ws-stat-num {
+    font-size: 2rem;
+  }
+
+  .ws-stat-plus {
+    font-size: 1.2rem;
+  }
+
+  .ws-stat-label {
+    font-size: 0.62rem;
+    letter-spacing: 1px;
+  }
+
+  .ws-stat-divider {
+    height: 30px;
+  }
+
+  .ws-timeline-wrap {
+    margin: 40px auto 20px;
+  }
+
+  .ws-timeline {
+    gap: 40px;
+    padding: 0 10px 30px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .ws-timeline::-webkit-scrollbar {
+    display: none;
+  }
+
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+  }
+
+  .timeline-dot.active {
+    transform: scale(1.4);
+  }
+
+  .timeline-dot::before {
+    font-size: 0.6rem;
+    top: -24px;
+  }
+
+  .ws-timeline-label {
+    font-size: 0.6rem;
+    margin-top: 20px;
+  }
+
+  .ws-filters {
+    margin: 30px auto 20px;
+    padding: 6px;
+    gap: 4px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    border-radius: 30px;
+    max-width: 96%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .ws-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ws-filter-label {
+    font-size: 0.65rem;
+    margin-right: 6px;
+    margin-left: 8px;
+    flex-shrink: 0;
+  }
+
+  .ws-filter-btn {
+    padding: 8px 14px;
+    font-size: 0.72rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .ws-grid {
+    gap: 18px;
+    padding: 0 4%;
+  }
+
+  .ws-card {
+    padding: 22px 18px;
+    border-radius: 14px;
+  }
+
+  .ws-card-header {
+    margin-bottom: 16px;
+  }
+
+  .ws-card-thumb {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
+  }
+
+  .latest-badge {
+    top: 14px;
+    right: 14px;
+    padding: 4px 12px;
+    font-size: 0.55rem;
+  }
+
+  .org-badge-v3 {
+    font-size: 0.58rem;
+    padding: 4px 10px;
+  }
+
+  .ws-card-title {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .ws-card-meta {
+    font-size: 0.72rem;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .ws-card-desc {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .ws-card-tags {
+    gap: 5px;
+    margin-bottom: 20px;
+  }
+
+  .ws-card-tag {
+    font-size: 0.62rem;
+    padding: 4px 10px;
+  }
+
+  .ws-view-btn {
+    padding: 8px 18px;
+    font-size: 0.72rem;
+  }
+
+  .ws-coming-soon {
+    padding: 30px 20px;
+    margin-top: 20px;
+  }
+
+  .coming-soon-title {
+    font-size: 1rem;
+  }
+
+  .coming-soon-desc {
+    font-size: 0.82rem;
+  }
+
+  .coming-soon-btn {
+    font-size: 0.6rem;
+    padding: 6px 18px;
+  }
+
+  /* Conference section on mobile */
+  .ws-leadership-section {
+    margin: 60px auto;
+    padding: 0 4%;
+  }
+
+  .ws-centered-head {
+    margin-bottom: 30px;
+  }
+
+  .ws-centered-head .ws-title {
+    font-size: 1.8rem !important;
+  }
+
+  #conference.ws-leadership-section {
+    padding-top: 40px !important;
+  }
+
+  .ws-leader-grid {
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .ws-leader-card {
+    padding: 24px 20px;
+    gap: 16px;
+  }
+
+  .ws-leader-icon-wrap {
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+  }
+
+  .ws-leader-role-badge {
+    font-size: 0.6rem;
+    padding: 4px 12px;
+  }
+
+  .ws-leader-title {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+  }
+
+  .ws-leader-meta {
+    font-size: 0.75rem;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .ws-leader-desc {
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+}
+
+/* ===== EXTRA SMALL PHONES (≤ 360px) ===== */
+@media (max-width: 360px) {
+  .ws-title {
+    font-size: 1.6rem;
+  }
+
+  .ws-desc {
+    font-size: 0.8rem;
+  }
+
+  .ws-stats-row {
+    padding: 12px 12px;
+  }
+
+  .ws-stat-item {
+    padding: 0 10px;
+  }
+
+  .ws-stat-num {
+    font-size: 1.6rem;
+  }
+
+  .ws-card {
+    padding: 18px 14px;
+  }
+
+  .ws-card-title {
+    font-size: 0.95rem;
+  }
+
+  .ws-card-desc {
+    font-size: 0.78rem;
+  }
+
+  .ws-filter-btn {
+    padding: 6px 10px;
+    font-size: 0.65rem;
+  }
+
+  .ws-leader-card {
+    padding: 20px 16px;
+  }
+
+  .ws-leader-title {
+    font-size: 1rem;
+  }
 }
 
 /* Helper for single cards in grid */

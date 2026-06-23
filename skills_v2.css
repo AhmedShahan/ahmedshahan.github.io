@@ -4,6 +4,11 @@
 .skills-page::after{content:'';position:absolute;top:0;left:-100%;width:45%;height:100%;background:linear-gradient(to right,rgba(201,168,76,0) 0%,rgba(201,168,76,.06) 50%,rgba(201,168,76,0) 100%);transform:skewX(-25deg);animation:skillsSweep 6s 3s infinite ease-in-out;pointer-events:none;z-index:0}
 @keyframes skillsSweep{0%{left:-100%}50%{left:200%}100%{left:200%}}
 
+/* Disable sweep animations on mobile for performance */
+@media(max-width:768px){
+  .skills-page::before,.skills-page::after{animation:none;display:none}
+}
+
 /* ===== HERO — compact, no wasted space ===== */
 .skills-hero{display:flex;align-items:center;justify-content:center;padding:50px 5% 30px;text-align:center;position:relative;z-index:1}
 .skills-hero-inner{max-width:800px;margin:0 auto}
@@ -185,7 +190,67 @@
   .filter-btn{padding:7px 16px;font-size:.78rem}
 }
 @media(max-width:480px){
-  .stats-row{flex-direction:column;gap:16px}
-  .stat-divider{width:60px;height:1px}
-  .skills-title{font-size:2.2rem}
+  .skills-page{padding-top:60px}
+  .skills-hero{padding:30px 4% 20px}
+  .skills-eyebrow{font-size:.75rem;letter-spacing:3px;margin-bottom:10px}
+  .skills-title{font-size:1.9rem;margin-bottom:12px}
+  .skills-title span{display:inline}
+  .skills-desc{font-size:.9rem;margin-bottom:24px;line-height:1.6}
+  .stats-row{flex-direction:column;gap:12px;padding:18px 16px}
+  .stat-item{padding:4px 0}
+  .stat-num{font-size:1.8rem}
+  .stat-plus{font-size:1.2rem}
+  .stat-label{font-size:.6rem;letter-spacing:1px}
+  .stat-divider{width:40px;height:1px}
+  .stack-inner{padding:12px 16px;gap:6px}
+  .stack-label{font-size:.65rem}
+  .stack-primary{font-size:.85rem}
+  .stack-secondary{font-size:.78rem}
+  .filter-row{gap:5px;padding:10px 3% 6px}
+  .filter-btn{padding:6px 12px;font-size:.72rem}
+  .section-eyebrow{font-size:.7rem;letter-spacing:3px;margin-bottom:8px}
+  .section-heading{font-size:1.5rem;margin-bottom:10px}
+  .section-desc{font-size:.85rem;margin-bottom:24px;padding:0 4%}
+  .skills-grid-section,.infra-section,.soft-section,.learning-section,.metrics-section,.dataviz-section{padding:30px 4% 24px}
+  .skills-grid{gap:14px}
+  .skill-card{padding:20px 18px}
+  .card-title{font-size:1.05rem}
+  .card-sub{font-size:.8rem}
+  .tag{font-size:.7rem;padding:4px 10px}
+  .used-chip{font-size:.65rem;padding:3px 9px}
+  .infra-grid{gap:12px}
+  .infra-card{padding:18px 16px}
+  .infra-name{font-size:1rem}
+  .infra-desc{font-size:.82rem}
+  .learn-grid{gap:12px}
+  .learn-card{padding:16px 18px}
+  .learn-info h4{font-size:.9rem}
+  .learn-info p{font-size:.8rem}
+  .metrics-grid{gap:10px}
+  .metric-card{padding:16px 14px}
+  .metric-cat{font-size:.68rem}
+  .metric-tags span{font-size:.65rem;padding:3px 8px}
+  .dataviz-card{padding:16px 20px;min-width:80px}
+  .dataviz-card i{font-size:1.4rem}
+  .dataviz-card span{font-size:.8rem}
+  .soft-grid{gap:12px}
+  .soft-card{padding:18px 18px}
+  .soft-icon{font-size:1.3rem;margin-bottom:8px}
+  .soft-card h4{font-size:.9rem}
+  .soft-card p{font-size:.82rem}
+  .marquee-wrap{padding:10px 0 6px}
+  .marquee-track{gap:24px;animation-duration:20s}
+  .marquee-item{font-size:.8rem}
+}
+@media(max-width:360px){
+  .skills-title{font-size:1.6rem}
+  .skills-desc{font-size:.82rem}
+  .stat-num{font-size:1.5rem}
+  .filter-btn{padding:5px 10px;font-size:.68rem}
+  .section-heading{font-size:1.3rem}
+  .skill-card{padding:16px 14px}
+  .tag{font-size:.65rem;padding:3px 8px}
+  .infra-card{padding:14px 12px}
+  .learn-card{padding:14px 14px}
+  .soft-card{padding:14px 14px}
 }
