@@ -260,11 +260,8 @@ function renderNews(rows) {
     return;
   }
 
-  // Reverse to show latest first
-  const reversed = [...rows].reverse();
-
   let html = '<div class="ai-news-list">';
-  reversed.forEach((item, idx) => {
+  rows.forEach((item, idx) => {
     const title = escapeHtml(item.title);
     const url   = escapeHtml(item.url);
     const date  = escapeHtml(item.publishedDate);
@@ -274,6 +271,10 @@ function renderNews(rows) {
     const linkTag = url
       ? `<a href="${url}" target="_blank" rel="noopener">${title}</a>`
       : title;
+
+    const linkInText = url
+      ? `<br><br><a href="${url}" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:underline;font-weight:600;">🔗 Read full article →</a>`
+      : "";
 
     html += `
       <div class="ai-news-card" data-index="${idx}">
@@ -288,7 +289,7 @@ function renderNews(rows) {
           ${score ? `<span class="ai-news-score">⭐ ${score}</span>` : ""}
         </div>
         <div class="ai-news-explanation" id="aiNewsExpl${idx}">
-          <p>${expl}</p>
+          <p>${expl}${linkInText}</p>
         </div>
       </div>
     `;
