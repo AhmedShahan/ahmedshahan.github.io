@@ -919,12 +919,40 @@
   <div class="bg-orb orb2"></div>
   <div class="bg-orb orb3"></div>
 
+  <!-- ===== AI NEWS FLOATING TRIGGER ===== -->
+  <button class="ai-news-trigger" id="aiNewsTrigger" aria-label="AI News" title="Today's AI News">
+    <i class='bx bx-newspaper'></i>
+    <span class="ai-news-badge" id="aiNewsBadge">0</span>
+  </button>
+
+  <!-- ===== AI NEWS MODAL ===== -->
+  <div class="ai-news-overlay" id="aiNewsOverlay">
+    <div class="ai-news-modal">
+      <div class="ai-news-header">
+        <h2><i class='bx bx-brain'></i> Today's AI News</h2>
+        <p class="ai-news-date" id="aiNewsDate"></p>
+        <button class="ai-news-close" id="aiNewsClose" aria-label="Close">&times;</button>
+      </div>
+      <div class="ai-news-body" id="aiNewsBody">
+        <div class="ai-news-loading">
+          <div class="ai-news-spinner"></div>
+          <p>Loading latest AI news…</p>
+        </div>
+      </div>
+      <div class="ai-news-footer">
+        <span class="ai-news-refresh" id="aiNewsRefresh">🔄 Refresh</span>
+        <span class="ai-news-updated" id="aiNewsUpdated"></span>
+      </div>
+    </div>
+  </div>
+
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   <script src="home.js"></script>
   <script src="profile.js"></script>
   <script src="skills_v2.js"></script>
   <script src="workshop.js"></script>
   <script src="chatbot.js"></script>
+  <script src="ai-news.js"></script>
 </body>
 
 </html>
