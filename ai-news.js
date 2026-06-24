@@ -38,14 +38,48 @@ const badgeEl    = document.getElementById("aiNewsBadge");
 
 // ── State ──
 let newsCache          = [];
+let allArticles        = [];   // All fetched articles (unfiltered)
 let isModalOpen        = false;
 let autoRefreshInterval = null;
+let currentFilter      = 'today'; // 'today' | '3days' | 'week' | 'month'
 
 // ── Today's date in UTC (YYYY-MM-DD) ──
 function getTodayUTC() {
   const d = new Date();
   return d.toISOString().slice(0, 10);
 }
+
+// ── Date N days ago in UTC (YYYY-MM-DD) ──
+function getDateDaysAgo(days) {
+  const d = new Date();
+  d.setUTCDate(d.getUTCDate() - days);
+  return d.toISOString().slice(0, 10);
+}
+
+// ── Filter articles by date range ──
+function filterArticles(articles, filter) {
+  const today = getTodayUTC();
+  let cutoff;
+  switch (filter) {
+    case '3days': cutoff = getDateDaysAgo(3); break;
+    case 'week':  cutoff = getDateDaysAgo(7); break;
+    case 'month': cutoff = getDateDaysAgo(30); break;
+    case 'today':
+    default:      cutoff = today; break;
+  }
+  return articles.filter(a => {
+    const date = (a.retrievedAt || "").slice(0, 10);
+    return date >= cutoff && date <= today;
+  });
+}
+
+// ── Filter title map ──
+const FILTER_TITLES = {
+  'today': "Today's",
+  '3days': "Last 3 Days'",
+  'week':  "Last Week's",
+  'month': "Last Month's"
+};
 
 // ── Parse a single CSV line (handles quoted commas and newlines) ──
 function parseCSVRow(line) {
@@ -195,14 +229,11 @@ async function fetchNews() {
     }
 
     // Convert to articles
-    const allArticles = rowsToArticles(rows);
+    allArticles = rowsToArticles(rows);
     if (allArticles.length === 0) throw new Error("No data rows in sheet");
 
-    // Filter for today's date only
-    const today = getTodayUTC();
-    const filtered = allArticles.filter(a => (a.retrievedAt || "").slice(0, 10) === today);
-
-    newsCache = filtered;
+    // Apply current date filter
+    newsCache = filterArticles(allArticles, currentFilter);
 
     updateBadge(newsCache.length);
     renderNews(newsCache);
@@ -228,11 +259,18 @@ function showLoading() {
 
 // ── Show empty state ──
 function showEmpty() {
+  const messages = {
+    'today':  ["No AI news for today yet.", "Check back later!"],
+    '3days':  ["No AI news in the last 3 days.", "Try a wider date range!"],
+    'week':   ["No AI news in the last week.", "Try a wider date range!"],
+    'month':  ["No AI news in the last month.", "Try a wider date range!"]
+  };
+  const [msg, hint] = messages[currentFilter] || messages['today'];
   bodyEl.innerHTML = `
     <div class="ai-news-empty">
       <p style="font-size:2rem;margin:0 0 8px;">📭</p>
-      <p>No AI news for today yet.</p>
-      <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);">Check back later!</p>
+      <p>${msg}</p>
+      <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);">${hint}</p>
     </div>
   `;
 }
@@ -352,6 +390,12 @@ function openModal() {
     weekday: "long", year: "numeric", month: "long", day: "numeric"
   });
 
+  // Update header title and filter button active state
+  document.getElementById("aiNewsTitle").textContent = `${FILTER_TITLES[currentFilter]} AI News`;
+  document.querySelectorAll(".ai-news-filter-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.filter === currentFilter);
+  });
+
   if (newsCache.length === 0) {
     fetchNews();
   } else {
@@ -404,6 +448,32 @@ document.addEventListener("keydown", (e) => {
 
 // Refresh button
 refreshEl.addEventListener("click", fetchNews);
+
+// ── Filter button events ──
+document.querySelectorAll(".ai-news-filter-btn").forEach(btn => {
+  btn.addEventListener("click", function () {
+    const filter = this.dataset.filter;
+    if (filter === currentFilter) return;
+
+    // Update active state
+    document.querySelectorAll(".ai-news-filter-btn").forEach(b => b.classList.remove("active"));
+    this.classList.add("active");
+
+    // Update state and title
+    currentFilter = filter;
+    document.getElementById("aiNewsTitle").textContent = `${FILTER_TITLES[filter]} AI News`;
+
+    // Re-filter from cached articles (if any)
+    if (allArticles.length > 0) {
+      newsCache = filterArticles(allArticles, currentFilter);
+      updateBadge(newsCache.length);
+      renderNews(newsCache);
+    } else {
+      // No data yet, trigger a fetch
+      fetchNews();
+    }
+  });
+});
 
 // Fetch initial data when page loads (background — fills the badge count)
 document.addEventListener("DOMContentLoaded", () => {

@@ -1196,6 +1196,38 @@ a, button, .nav-link, .filter-btn, .ws-filter-btn, .ws-view-btn, .tag {
   background: rgba(255, 255, 255, 0.06);
 }
 
+/* ── Filter buttons ── */
+.ai-news-filters {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.ai-news-filter-btn {
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: Arial, sans-serif;
+  user-select: none;
+}
+
+.ai-news-filter-btn:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.ai-news-filter-btn.active {
+  background: rgba(201, 168, 76, 0.15);
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
 /* ── Modal body ── */
 .ai-news-body {
   flex: 1;
@@ -1430,6 +1462,16 @@ a, button, .nav-link, .filter-btn, .ws-filter-btn, .ws-view-btn, .tag {
 
   .ai-news-header h2 {
     font-size: 1.1rem;
+  }
+
+  .ai-news-filters {
+    gap: 4px;
+    margin-top: 8px;
+  }
+
+  .ai-news-filter-btn {
+    padding: 3px 10px;
+    font-size: 0.68rem;
   }
 
   .ai-news-body {

@@ -929,8 +929,14 @@
   <div class="ai-news-overlay" id="aiNewsOverlay">
     <div class="ai-news-modal">
       <div class="ai-news-header">
-        <h2><i class='bx bx-brain'></i> Today's AI News</h2>
+        <h2><i class='bx bx-brain'></i> <span id="aiNewsTitle">Today's AI News</span></h2>
         <p class="ai-news-date" id="aiNewsDate"></p>
+        <div class="ai-news-filters" id="aiNewsFilters">
+          <button class="ai-news-filter-btn active" data-filter="today">Today</button>
+          <button class="ai-news-filter-btn" data-filter="3days">Last 3 Days</button>
+          <button class="ai-news-filter-btn" data-filter="week">Last Week</button>
+          <button class="ai-news-filter-btn" data-filter="month">Last Month</button>
+        </div>
         <button class="ai-news-close" id="aiNewsClose" aria-label="Close">&times;</button>
       </div>
       <div class="ai-news-body" id="aiNewsBody">
