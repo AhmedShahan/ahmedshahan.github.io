@@ -1375,23 +1375,27 @@ a, button, .nav-link, .filter-btn, .ws-filter-btn, .ws-view-btn, .tag {
 
 /* ── Modal overlay ── */
 .ai-news-overlay {
-  display: none;
   position: fixed;
   inset: 0;
   z-index: 10000;
   background: rgba(5, 13, 24, 0.7);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  visibility: hidden;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  pointer-events: none;
+  transition: opacity 0.45s cubic-bezier(0.19, 1, 0.22, 1),
+              visibility 0.45s;
 }
 
 .ai-news-overlay.open {
-  display: flex;
+  visibility: visible;
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* ── Modal container ── */
