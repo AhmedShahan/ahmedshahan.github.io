@@ -1061,7 +1061,6 @@ a, button, .nav-link, .filter-btn, .ws-filter-btn, .ws-view-btn, .tag {
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-start;
-  gap: 12px;
 }
 
 /* ── Trigger pill button ── */
@@ -1146,20 +1145,44 @@ a, button, .nav-link, .filter-btn, .ws-filter-btn, .ws-view-btn, .tag {
    TECH PLUS — Pop-up menu (the "Bar" UI)
    ════════════════════════════════════════════════════════════════ */
 
-/* ── Menu container (hidden by default) ── */
+/* ── Menu container (hidden by default, absolute above trigger) ── */
 .techplus-menu {
-  display: none;
+  position: absolute;
+  bottom: calc(100% + 12px);   /* sits right above the trigger */
+  left: 0;
+  visibility: hidden;
   opacity: 0;
-  transform: translateY(20px) scale(0.92);
+  transform: translateY(12px) scale(0.95);
   transform-origin: bottom left;
-  transition: opacity 0.35s cubic-bezier(0.19, 1, 0.22, 1),
-              transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
+  transition: opacity 0.45s cubic-bezier(0.19, 1, 0.22, 1),
+              transform 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+              visibility 0.45s;
 }
 
 .techplus-menu.open {
-  display: block;
+  visibility: visible;
   opacity: 1;
   transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* ── Staggered entrance for menu items ── */
+.techplus-menu.open .techplus-menu-item {
+  animation: techplusItemFadeIn 0.45s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.techplus-menu.open .techplus-menu-item:nth-child(1) { animation-delay: 0.04s; }
+.techplus-menu.open .techplus-menu-item:nth-child(2) { animation-delay: 0.08s; }
+.techplus-menu.open .techplus-menu-item:nth-child(3) { animation-delay: 0.12s; }
+
+@keyframes techplusItemFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ── Glassmorphism inner panel ── */
@@ -1308,7 +1331,10 @@ a, button, .nav-link, .filter-btn, .ws-filter-btn, .ws-view-btn, .tag {
   .techplus-container {
     bottom: 18px;
     left: 18px;
-    gap: 10px;
+  }
+
+  .techplus-menu {
+    bottom: calc(100% + 10px);
   }
 
   .techplus-trigger {
