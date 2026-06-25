@@ -1402,47 +1402,61 @@ a, button, .nav-link, .filter-btn, .ws-filter-btn, .ws-view-btn, .tag {
    AI NEWS — Staggered entrance animations
    ════════════════════════════════════════════════════════════════ */
 
+/* ── Default: fly in from right (cards, footer, states) ── */
 @keyframes aiSlideFadeIn {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateX(35px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
-/* ── Header title + date ── */
+/* ── Header: fly in from further right (more dynamic) ── */
+@keyframes aiFloatInRight {
+  from {
+    opacity: 0;
+    transform: translateX(55px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ── Header title — fly in from far right ── */
 .ai-news-overlay.open .ai-news-header h2 {
-  animation: aiSlideFadeIn 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  animation: aiFloatInRight 0.55s cubic-bezier(0.19, 1, 0.22, 1) forwards;
   opacity: 0;
 }
 
+/* ── Date — fly in from right, slight delay ── */
 .ai-news-overlay.open .ai-news-date {
-  animation: aiSlideFadeIn 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-  animation-delay: 0.05s;
+  animation: aiFloatInRight 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  animation-delay: 0.07s;
   opacity: 0;
 }
 
-/* ── Filter buttons (stagger) ── */
+/* ── Filter buttons — fly in from right ── */
 .ai-news-overlay.open .ai-news-filters {
-  animation: aiSlideFadeIn 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-  animation-delay: 0.1s;
+  animation: aiFloatInRight 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  animation-delay: 0.14s;
   opacity: 0;
 }
 
-/* ── Search input ── */
+/* ── Search input — fly in from right ── */
 .ai-news-overlay.open .ai-news-search {
-  animation: aiSlideFadeIn 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-  animation-delay: 0.15s;
+  animation: aiFloatInRight 0.45s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  animation-delay: 0.21s;
   opacity: 0;
 }
 
-/* ── News cards (staggered one by one) ── */
+/* ── News cards (staggered one by one, fly in from right) ── */
 .ai-news-list .ai-news-card {
   opacity: 0;
-  transform: translateY(12px);
+  transform: translateX(35px);
   animation: aiSlideFadeIn 0.45s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
