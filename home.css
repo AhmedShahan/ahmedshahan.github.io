@@ -92,17 +92,21 @@
   --accent-rgb: 74, 105, 88;
   --accent-glow: rgba(74, 105, 88, 0.5);
 
-  /* ── Secondary accent (olive green) ── */
-  --accent2: #435146;
-  --accent2-hover: #536156;
-  --accent2-rgb: 67, 81, 70;
-  --accent2-glow: rgba(67, 81, 70, 0.5);
+  /* ── Secondary accent (warm light gold for highlights) ── */
+  --accent2: #E0D5BE;
+  --accent2-hover: #EAE0CC;
+  --accent2-rgb: 224, 213, 190;
+  --accent2-glow: rgba(224, 213, 190, 0.5);
+
+  /* ── Olive accent (for badges, borders, subtle bg) ── */
+  --olive: #435146;
+  --olive-rgb: 67, 81, 70;
 
   /* ── Text (warm yellow tones for contrast on dark green) ── */
   --text-primary: #F5F5F0;
-  --text-dim: #D4CFB8;
-  --text-dimmer: #B8AD98;
-  --text-muted: rgba(192, 182, 155, 0.72);
+  --text-dim: #E0D8C8;
+  --text-dimmer: #C8C0AC;
+  --text-muted: rgba(200, 192, 172, 0.72);
 
   /* ── Glass ── */
   --glass-bg: rgba(var(--white-rgb), 0.02);
@@ -114,6 +118,33 @@
   --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.5);
   --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.6);
   --shadow-accent: 0 0 18px rgba(74, 105, 88, 0.4);
+}
+
+/* ── ReGrowth: glowing text enhancements ── */
+[data-theme="regrowth"] .section-heading,
+[data-theme="regrowth"] .skills-title,
+[data-theme="regrowth"] .timeline-title,
+[data-theme="regrowth"] .card-title,
+[data-theme="regrowth"] .infra-name,
+[data-theme="regrowth"] .soft-card h4,
+[data-theme="regrowth"] .learn-info h4 {
+  text-shadow: 0 0 20px rgba(var(--white-rgb), 0.12),
+               0 0 40px rgba(var(--white-rgb), 0.06);
+}
+
+[data-theme="regrowth"] .section-desc,
+[data-theme="regrowth"] .skills-desc,
+[data-theme="regrowth"] .card-sub,
+[data-theme="regrowth"] .infra-desc,
+[data-theme="regrowth"] .soft-card p,
+[data-theme="regrowth"] .learn-info p {
+  color: rgba(var(--white-rgb), 0.72);
+  text-shadow: 0 0 16px rgba(var(--white-rgb), 0.08);
+}
+
+[data-theme="regrowth"] .prof-label,
+[data-theme="regrowth"] .stack-secondary {
+  color: rgba(var(--white-rgb), 0.6);
 }
 
 /* ── Smooth theme transition on body ── */
