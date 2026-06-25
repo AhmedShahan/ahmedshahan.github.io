@@ -919,15 +919,51 @@
   <div class="bg-orb orb2"></div>
   <div class="bg-orb orb3"></div>
 
-  <!-- ===== AI NEWS FLOATING TRIGGER ===== -->
-  <button class="ai-news-trigger" id="aiNewsTrigger" aria-label="AI News" title="Today's AI News">
-    <i class='bx bx-newspaper'></i>
-    <span class="ai-news-badge" id="aiNewsBadge">0</span>
-  </button>
+  <!-- ===== TECH PLUS FLOATING TRIGGER (pop-up menu) ===== -->
+  <div class="techplus-container" id="techplusContainer">
+    <!-- Pop-up menu (slides up) -->
+    <div class="techplus-menu" id="techplusMenu">
+      <div class="techplus-menu-inner">
+        <!-- Option 1: AI NEWS -->
+        <div class="techplus-menu-item" data-action="ai-news">
+          <div class="techplus-item-icon"><i class='bx bx-microchip'></i></div>
+          <div class="techplus-item-content">
+            <span class="techplus-item-label">AI NEWS</span>
+            <span class="techplus-item-desc">Latest AI headlines</span>
+          </div>
+          <span class="techplus-item-badge" id="aiNewsBadgeMenu">0</span>
+        </div>
+        <!-- Option 2: RECENT PAPER -->
+        <a href="2.0_research.html" target="_blank" class="techplus-menu-item" data-action="recent-paper">
+          <div class="techplus-item-icon"><i class='bx bx-scroll'></i></div>
+          <div class="techplus-item-content">
+            <span class="techplus-item-label">RECENT PAPER</span>
+            <span class="techplus-item-desc">Latest research publications</span>
+          </div>
+          <i class='bx bx-chevron-right techplus-item-arrow'></i>
+        </a>
+        <!-- Option 3: MEDIUM ARTICLE -->
+        <a href="mlStory.html" target="_blank" class="techplus-menu-item" data-action="medium-article">
+          <div class="techplus-item-icon"><i class='bx bxl-medium'></i></div>
+          <div class="techplus-item-content">
+            <span class="techplus-item-label">MEDIUM ARTICLE</span>
+            <span class="techplus-item-desc">Read my Medium stories</span>
+          </div>
+          <i class='bx bx-chevron-right techplus-item-arrow'></i>
+        </a>
+      </div>
+    </div>
+    <!-- Trigger button -->
+    <button class="techplus-trigger" id="techplusTrigger" aria-label="Tech Plus" title="Explore more">
+      <i class='bx bx-plus techplus-plus-icon'></i>
+      <span class="techplus-label">TECH PLUS</span>
+      <span class="ai-news-badge" id="aiNewsBadge">0</span>
+    </button>
+  </div>
 
   <!-- ===== AI NEWS MODAL ===== -->
   <div class="ai-news-overlay" id="aiNewsOverlay">
-<div class="ai-news-modal">
+    <div class="ai-news-modal">
        <div class="ai-news-header">
          <h2><i class='bx bx-brain'></i> <span id="aiNewsTitle">Today's AI News</span></h2>
          <p class="ai-news-date" id="aiNewsDate"></p>
@@ -953,7 +989,7 @@
          <button class="ai-news-load-more" id="aiNewsLoadMore">Load more</button>
          <span class="ai-news-updated" id="aiNewsUpdated"></span>
        </div>
-     </div>
+    </div>
   </div>
 
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>

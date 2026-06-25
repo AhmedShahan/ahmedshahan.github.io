@@ -1048,41 +1048,76 @@ a, button, .nav-link, .filter-btn, .ws-filter-btn, .ws-view-btn, .tag {
    AI NEWS — Floating Trigger & Modal
    ============================================================ */
 
-/* ── Floating trigger button ── */
-.ai-news-trigger {
+/* ════════════════════════════════════════════════════════════════
+   TECH PLUS — Floating pill trigger + pop-up menu
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Container (trigger + menu) ── */
+.techplus-container {
   position: fixed;
   bottom: 28px;
   left: 28px;
   z-index: 9999;
-  width: 56px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* ── Trigger pill button ── */
+.techplus-trigger {
   height: 56px;
-  border-radius: 50%;
-  border: 2px solid var(--cyan);
-  background: rgba(8, 27, 41, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: var(--cyan);
-  font-size: 1.5rem;
+  width: auto;
+  padding: 0 22px 0 18px;
+  border-radius: 50px;
+  background: linear-gradient(#1a1a2e, #1a1a2e) padding-box,
+              linear-gradient(135deg, #00d4ff, #7b2ffc, #c084fc) border-box;
+  border: 3px solid transparent;
+  color: #f1f5f9;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
   cursor: pointer;
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  animation: aiNewsPulse 2.5s ease-in-out infinite;
+  gap: 10px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  animation: techplusPulse 3s ease-in-out infinite;
 }
 
-.ai-news-trigger:hover {
-  transform: scale(1.1);
-  background: var(--cyan);
-  color: var(--bg);
-  box-shadow: 0 6px 30px rgba(201, 168, 76, 0.5);
+.techplus-trigger:hover {
+  transform: scale(1.06) translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 212, 255, 0.45);
 }
 
-.ai-news-trigger:active {
-  transform: scale(0.95);
+.techplus-trigger:active {
+  transform: scale(0.96) translateY(0);
 }
 
+.techplus-trigger .techplus-plus-icon {
+  font-size: 1.3rem;
+  transition: transform 0.4s ease;
+}
+
+.techplus-trigger.open .techplus-plus-icon {
+  transform: rotate(45deg);
+}
+
+.techplus-trigger .techplus-label {
+  font-family: 'Inter', 'Arial', sans-serif;
+}
+
+/* Pulse animation for the trigger */
+@keyframes techplusPulse {
+  0%, 100% { box-shadow: 0 8px 32px rgba(0, 212, 255, 0.25); }
+  50%      { box-shadow: 0 8px 48px rgba(0, 212, 255, 0.55); }
+}
+
+/* ── Badge ── */
 .ai-news-badge {
   position: absolute;
   top: -4px;
@@ -1105,6 +1140,211 @@ a, button, .nav-link, .filter-btn, .ws-filter-btn, .ws-view-btn, .tag {
 @keyframes aiNewsPulse {
   0%, 100% { box-shadow: 0 4px 20px rgba(201, 168, 76, 0.3); }
   50%      { box-shadow: 0 4px 30px rgba(201, 168, 76, 0.6); }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   TECH PLUS — Pop-up menu (the "Bar" UI)
+   ════════════════════════════════════════════════════════════════ */
+
+/* ── Menu container (hidden by default) ── */
+.techplus-menu {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px) scale(0.92);
+  transform-origin: bottom left;
+  transition: opacity 0.35s cubic-bezier(0.19, 1, 0.22, 1),
+              transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.techplus-menu.open {
+  display: block;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ── Glassmorphism inner panel ── */
+.techplus-menu-inner {
+  background: rgba(8, 27, 41, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 20px;
+  padding: 8px;
+  min-width: 240px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ── Each menu item (bar) ── */
+.techplus-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #f1f5f9;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient overlay on hover */
+.techplus-menu-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(123, 47, 252, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.techplus-menu-item:hover::before {
+  opacity: 1;
+}
+
+.techplus-menu-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(0, 212, 255, 0.2);
+}
+
+/* ── Item icon ── */
+.techplus-item-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #00d4ff;
+  flex-shrink: 0;
+  transition: background 0.3s, transform 0.3s;
+  z-index: 1;
+}
+
+.techplus-menu-item:hover .techplus-item-icon {
+  background: rgba(0, 212, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Different icon colors per item */
+.techplus-menu-item[data-action="ai-news"] .techplus-item-icon {
+  color: #00d4ff;
+  border-color: rgba(0, 212, 255, 0.2);
+}
+
+.techplus-menu-item[data-action="recent-paper"] .techplus-item-icon {
+  color: #7b2ffc;
+  border-color: rgba(123, 47, 252, 0.2);
+}
+
+.techplus-menu-item[data-action="medium-article"] .techplus-item-icon {
+  color: #c084fc;
+  border-color: rgba(192, 132, 252, 0.2);
+}
+
+/* ── Item content (label + desc) ── */
+.techplus-item-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 1;
+}
+
+.techplus-item-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-family: 'Inter', 'Arial', sans-serif;
+}
+
+.techplus-item-desc {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: Arial, sans-serif;
+}
+
+/* ── Badge inside menu item ── */
+.techplus-item-badge {
+  min-width: 22px;
+  height: 20px;
+  border-radius: 10px;
+  background: #ff4444;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  box-shadow: 0 2px 6px rgba(255, 68, 68, 0.4);
+  z-index: 1;
+}
+
+/* ── Arrow icon for external links ── */
+.techplus-item-arrow {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.2);
+  z-index: 1;
+  transition: transform 0.3s ease, color 0.3s;
+}
+
+.techplus-menu-item:hover .techplus-item-arrow {
+  color: var(--cyan);
+  transform: translateX(3px);
+}
+
+/* ── Mobile responsive for TECH PLUS ── */
+@media (max-width: 550px) {
+  .techplus-container {
+    bottom: 18px;
+    left: 18px;
+    gap: 10px;
+  }
+
+  .techplus-trigger {
+    height: 48px;
+    padding: 0 16px 0 14px;
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .techplus-trigger .techplus-plus-icon {
+    font-size: 1.1rem;
+  }
+
+  .techplus-menu-inner {
+    min-width: 200px;
+    padding: 6px;
+  }
+
+  .techplus-menu-item {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .techplus-item-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  .techplus-item-label {
+    font-size: 0.78rem;
+  }
+
+  .techplus-item-desc {
+    font-size: 0.65rem;
+  }
 }
 
 /* ── Modal overlay ── */
@@ -1486,14 +1726,6 @@ a, button, .nav-link, .filter-btn, .ws-filter-btn, .ws-view-btn, .tag {
 
 /* ── Mobile responsive ── */
 @media (max-width: 550px) {
-  .ai-news-trigger {
-    bottom: 18px;
-    left: 18px;
-    width: 48px;
-    height: 48px;
-    font-size: 1.3rem;
-  }
-
   .ai-news-overlay {
     padding: 12px;
     align-items: flex-end;

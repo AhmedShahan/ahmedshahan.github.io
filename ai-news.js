@@ -27,16 +27,20 @@ const GVIZ_JSON_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/t
 const PUBLISHED_CSV_URL = ""; // ← Paste your "/pub?output=csv" URL here if you publish the sheet
 
 // ── DOM refs ──
-const trigger    = document.getElementById("aiNewsTrigger");
-const overlay    = document.getElementById("aiNewsOverlay");
-const closeBtn   = document.getElementById("aiNewsClose");
-const bodyEl     = document.getElementById("aiNewsBody");
-const dateEl     = document.getElementById("aiNewsDate");
-const updatedEl  = document.getElementById("aiNewsUpdated");
-const refreshEl  = document.getElementById("aiNewsRefresh");
-const badgeEl    = document.getElementById("aiNewsBadge");
-const searchInput = document.getElementById("aiNewsSearch");
-const loadMoreBtn = document.getElementById("aiNewsLoadMore");
+const techplusContainer = document.getElementById("techplusContainer");
+const trigger       = document.getElementById("techplusTrigger");
+const techplusMenu  = document.getElementById("techplusMenu");
+const overlay       = document.getElementById("aiNewsOverlay");
+const closeBtn      = document.getElementById("aiNewsClose");
+const bodyEl        = document.getElementById("aiNewsBody");
+const dateEl        = document.getElementById("aiNewsDate");
+const updatedEl     = document.getElementById("aiNewsUpdated");
+const refreshEl     = document.getElementById("aiNewsRefresh");
+const badgeEl       = document.getElementById("aiNewsBadge");
+const badgeMenuEl   = document.getElementById("aiNewsBadgeMenu");
+const searchInput   = document.getElementById("aiNewsSearch");
+const loadMoreBtn   = document.getElementById("aiNewsLoadMore");
+const aiNewsMenuItem = document.querySelector('.techplus-menu-item[data-action="ai-news"]');
 
 // ── State ――
 let newsCache          = [];
@@ -437,6 +441,10 @@ function toggleExpand(btn) {
 function updateBadge(count) {
   badgeEl.textContent = count;
   badgeEl.style.display = count > 0 ? "flex" : "none";
+  if (badgeMenuEl) {
+    badgeMenuEl.textContent = count;
+    badgeMenuEl.style.display = count > 0 ? "flex" : "none";
+  }
 }
 
 // ── Open modal ──
@@ -497,7 +505,34 @@ function escapeHtml(str) {
 //  EVENT LISTENERS
 // ════════════════════════════════════════════════════════════════
 
-trigger.addEventListener("click", openModal);
+// ── TECH PLUS trigger toggle ──
+trigger.addEventListener("click", function (e) {
+  e.stopPropagation();
+  trigger.classList.toggle("open");
+  techplusMenu.classList.toggle("open");
+});
+
+// ── AI NEWS menu item opens modal ──
+if (aiNewsMenuItem) {
+  aiNewsMenuItem.addEventListener("click", function (e) {
+    e.preventDefault();
+    // Close menu
+    trigger.classList.remove("open");
+    techplusMenu.classList.remove("open");
+    // Open modal
+    openModal();
+  });
+}
+
+// ── Close menu when clicking outside ──
+document.addEventListener("click", function (e) {
+  if (techplusMenu.classList.contains("open") &&
+      !techplusContainer.contains(e.target)) {
+    techplusMenu.classList.remove("open");
+    trigger.classList.remove("open");
+  }
+});
+
 closeBtn.addEventListener("click", closeModal);
 
 // Click overlay backdrop to close
