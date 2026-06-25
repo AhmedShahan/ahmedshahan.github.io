@@ -35,13 +35,18 @@ const dateEl     = document.getElementById("aiNewsDate");
 const updatedEl  = document.getElementById("aiNewsUpdated");
 const refreshEl  = document.getElementById("aiNewsRefresh");
 const badgeEl    = document.getElementById("aiNewsBadge");
+const searchInput = document.getElementById("aiNewsSearch");
+const loadMoreBtn = document.getElementById("aiNewsLoadMore");
 
-// ── State ──
+// ── State ――
 let newsCache          = [];
 let allArticles        = [];   // All fetched articles (unfiltered)
 let isModalOpen        = false;
 let autoRefreshInterval = null;
 let currentFilter      = 'today'; // 'today' | '3days' | 'week' | 'month'
+let searchTerm         = '';
+let displayCount       = 0;
+const PAGE_SIZE        = 10;
 
 // ── Today's date in UTC (YYYY-MM-DD) ──
 function getTodayUTC() {
@@ -80,6 +85,26 @@ const FILTER_TITLES = {
   'week':  "Last Week's",
   'month': "Last Month's"
 };
+
+// ════════════════════════════════════════════════════════════════
+//  SEARCH — matchesSearch(item, term)
+// ════════════════════════════════════════════════════════════════
+function matchesSearch(item, term) {
+  if (!term) return true;
+  const t = term.toLowerCase();
+  const title = (item.title || "").toLowerCase();
+  const explanation = (item.explanation || "").toLowerCase();
+  return title.includes(t) || explanation.includes(t);
+}
+
+// ════════════════════════════════════════════════════════════════
+//  COMBINED FILTER — getFilteredArticles()
+// ════════════════════════════════════════════════════════════════
+function getFilteredArticles() {
+  const byDate = filterArticles(allArticles, currentFilter);
+  if (!searchTerm) return byDate;
+  return byDate.filter(a => matchesSearch(a, searchTerm));
+}
 
 // ── Parse a single CSV line (handles quoted commas and newlines) ──
 function parseCSVRow(line) {
@@ -129,8 +154,6 @@ function parseCSV(csvText) {
 }
 
 // ── Convert parsed rows into article objects ──
-// Columns are positional (gviz CSV has no header):
-//   0 = RetrievedAt, 1 = Title, 2 = URL, 3 = PublishedDate, 4 = Score, 5 = Explanation
 function rowsToArticles(rows) {
   return rows.map(cols => ({
     retrievedAt:   cols[0] || "",
@@ -153,9 +176,6 @@ async function tryFetchCSV(url, label) {
 }
 
 // ── Fetch JSON from gviz and parse into row arrays ──
-// The gviz JSON endpoint returns:
-//   /*O_o*/
-//   google.visualization.Query.setResponse({...})
 async function tryFetchJSON(url, label) {
   if (!url) return null;
   const res = await fetch(url, { cache: "no-cache", mode: "cors" });
@@ -163,14 +183,12 @@ async function tryFetchJSON(url, label) {
   let text = await res.text();
   if (!text.trim()) throw new Error(`${label} — empty response`);
 
-  // Strip the /*O_o*/ prefix and extract JSON from the callback wrapper
   text = text.replace(/^\/\*O_o\*\//, "").trim();
   const match = text.match(/google\.visualization\.Query\.setResponse\((.+)\);?\s*$/s);
   if (!match) throw new Error(`${label} — unexpected JSON format`);
   const data = JSON.parse(match[1]);
   if (!data || !data.table || !data.table.rows) throw new Error(`${label} — no table data`);
 
-  // Convert gviz JSON rows to arrays matching CSV column positions
   const cols = data.table.cols || [];
   return data.table.rows.map(row => {
     const arr = [];
@@ -179,11 +197,14 @@ async function tryFetchJSON(url, label) {
         arr.push(cell && cell.v !== undefined ? String(cell.v) : "");
       });
     }
-    // Ensure at least 6 columns
     while (arr.length < 6) arr.push("");
     return arr;
   });
 }
+
+// ════════════════════════════════════════════════════════════════
+//  FETCH & RENDER PIPELINE
+// ════════════════════════════════════════════════════════════════
 
 // ── Fetch news with fallback chain ──
 async function fetchNews() {
@@ -232,11 +253,11 @@ async function fetchNews() {
     allArticles = rowsToArticles(rows);
     if (allArticles.length === 0) throw new Error("No data rows in sheet");
 
-    // Apply current date filter
-    newsCache = filterArticles(allArticles, currentFilter);
+    // Reset pagination on fresh fetch
+    displayCount = PAGE_SIZE;
 
-    updateBadge(newsCache.length);
-    renderNews(newsCache);
+    // Apply current filter + search, then render
+    applyFiltersAndRender();
     updatedEl.textContent = `Updated: ${new Date().toLocaleTimeString()} · ${usedSource}`;
   } catch (err) {
     console.error("AI News error:", err);
@@ -244,6 +265,47 @@ async function fetchNews() {
       "Could not load news. Make sure your Google Sheet is shared with " +
       "'Anyone with the link can view'. Error: " + err.message
     );
+  }
+}
+
+// ════════════════════════════════════════════════════════════════
+//  APPLY FILTERS & RENDER — applies date filter + search
+// ════════════════════════════════════════════════════════════════
+function applyFiltersAndRender() {
+  const filtered = getFilteredArticles();
+  newsCache = filtered;
+  displayCount = PAGE_SIZE;
+  renderPaginated();
+}
+
+// ════════════════════════════════════════════════════════════════
+//  PAGINATED RENDER — renderPaginated()
+// ════════════════════════════════════════════════════════════════
+function renderPaginated() {
+  const filtered = getFilteredArticles();
+  const slice = filtered.slice(0, displayCount);
+  renderNews(slice);
+
+  // Badge shows total filtered count
+  updateBadge(filtered.length);
+
+  // Show / hide "Load more" button
+  if (!loadMoreBtn) return;
+
+  if (filtered.length > displayCount) {
+    loadMoreBtn.style.display = "";
+    loadMoreBtn.disabled = false;
+    loadMoreBtn.textContent = `Load more (${slice.length} / ${filtered.length})`;
+  } else {
+    loadMoreBtn.disabled = true;
+    if (filtered.length > PAGE_SIZE) {
+      loadMoreBtn.style.display = "";
+      loadMoreBtn.textContent = `All ${filtered.length} articles loaded`;
+    } else if (filtered.length > 0) {
+      loadMoreBtn.style.display = "none";
+    } else {
+      loadMoreBtn.style.display = "none";
+    }
   }
 }
 
@@ -266,10 +328,11 @@ function showEmpty() {
     'month':  ["No AI news in the last month.", "Try a wider date range!"]
   };
   const [msg, hint] = messages[currentFilter] || messages['today'];
+  const searchHint = searchTerm ? ` No results for "${escapeHtml(searchTerm)}".` : "";
   bodyEl.innerHTML = `
     <div class="ai-news-empty">
       <p style="font-size:2rem;margin:0 0 8px;">📭</p>
-      <p>${msg}</p>
+      <p>${msg}${searchHint}</p>
       <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);">${hint}</p>
     </div>
   `;
@@ -291,7 +354,7 @@ function showError(msg) {
   `;
 }
 
-// ── Render news cards ──
+// ── Render news cards (receives a slice of articles) ──
 function renderNews(rows) {
   if (rows.length === 0) {
     showEmpty();
@@ -356,7 +419,6 @@ function toggleExpand(btn) {
     btn.classList.remove("expanded");
     btn.querySelector("i").className = "bx bx-chevron-down";
   } else {
-    // Collapse any previously expanded card
     bodyEl.querySelectorAll(".ai-news-explanation.open").forEach(el => {
       el.classList.remove("open");
     });
@@ -396,10 +458,12 @@ function openModal() {
     btn.classList.toggle("active", btn.dataset.filter === currentFilter);
   });
 
-  if (newsCache.length === 0) {
+  if (allArticles.length === 0) {
     fetchNews();
   } else {
-    renderNews(newsCache);
+    // Re-apply filters + search + pagination
+    displayCount = PAGE_SIZE;
+    renderPaginated();
     updatedEl.textContent = `Updated: ${new Date().toLocaleTimeString()}`;
   }
 
@@ -453,7 +517,7 @@ refreshEl.addEventListener("click", fetchNews);
 document.querySelectorAll(".ai-news-filter-btn").forEach(btn => {
   btn.addEventListener("click", function () {
     const filter = this.dataset.filter;
-    if (filter === currentFilter) return;
+    if (filter === currentFilter && !searchTerm) return;
 
     // Update active state
     document.querySelectorAll(".ai-news-filter-btn").forEach(b => b.classList.remove("active"));
@@ -463,17 +527,38 @@ document.querySelectorAll(".ai-news-filter-btn").forEach(btn => {
     currentFilter = filter;
     document.getElementById("aiNewsTitle").textContent = `${FILTER_TITLES[filter]} AI News`;
 
-    // Re-filter from cached articles (if any)
+    // Re-apply filters + search from cached articles
     if (allArticles.length > 0) {
-      newsCache = filterArticles(allArticles, currentFilter);
-      updateBadge(newsCache.length);
-      renderNews(newsCache);
+      displayCount = PAGE_SIZE;
+      applyFiltersAndRender();
     } else {
-      // No data yet, trigger a fetch
       fetchNews();
     }
   });
 });
+
+// ── Search input with debounce ──
+let searchDebounce = null;
+if (searchInput) {
+  searchInput.addEventListener("input", function () {
+    clearTimeout(searchDebounce);
+    searchDebounce = setTimeout(() => {
+      searchTerm = this.value.trim();
+      if (allArticles.length > 0) {
+        displayCount = PAGE_SIZE;
+        applyFiltersAndRender();
+      }
+    }, 250);
+  });
+}
+
+// ── Load more ──
+if (loadMoreBtn) {
+  loadMoreBtn.addEventListener("click", function () {
+    displayCount += PAGE_SIZE;
+    renderPaginated();
+  });
+}
 
 // Fetch initial data when page loads (background — fills the badge count)
 document.addEventListener("DOMContentLoaded", () => {

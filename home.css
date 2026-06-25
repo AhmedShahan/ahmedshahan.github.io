@@ -1431,6 +1431,59 @@ a, button, .nav-link, .filter-btn, .ws-filter-btn, .ws-view-btn, .tag {
   color: var(--cyan);
 }
 
+/* ════════════════════════════════════════════════════════════════
+   AI NEWS — Search Input & Load More Button
+   ════════════════════════════════════════════════════════════════ */
+
+/* Search input wrapper */
+.ai-news-search {
+  margin-top: 10px;
+}
+
+.ai-news-search input {
+  width: 100%;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 0.8rem;
+  font-family: Arial, sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.ai-news-search input:focus {
+  border-color: var(--cyan);
+}
+
+.ai-news-search input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Load more button */
+.ai-news-load-more {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  background: transparent;
+  color: var(--cyan);
+  font-size: 0.75rem;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ai-news-load-more:hover {
+  background: rgba(201, 168, 76, 0.1);
+  border-color: var(--cyan);
+}
+
+.ai-news-load-more:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
 /* ── Mobile responsive ── */
 @media (max-width: 550px) {
   .ai-news-trigger {
@@ -1488,5 +1541,15 @@ a, button, .nav-link, .filter-btn, .ws-filter-btn, .ws-view-btn, .tag {
 
   .ai-news-footer {
     padding: 10px 20px 14px;
+  }
+
+  .ai-news-search input {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+
+  .ai-news-load-more {
+    font-size: 0.7rem;
+    padding: 5px 12px;
   }
 }

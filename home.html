@@ -927,29 +927,33 @@
 
   <!-- ===== AI NEWS MODAL ===== -->
   <div class="ai-news-overlay" id="aiNewsOverlay">
-    <div class="ai-news-modal">
-      <div class="ai-news-header">
-        <h2><i class='bx bx-brain'></i> <span id="aiNewsTitle">Today's AI News</span></h2>
-        <p class="ai-news-date" id="aiNewsDate"></p>
-        <div class="ai-news-filters" id="aiNewsFilters">
-          <button class="ai-news-filter-btn active" data-filter="today">Today</button>
-          <button class="ai-news-filter-btn" data-filter="3days">Last 3 Days</button>
-          <button class="ai-news-filter-btn" data-filter="week">Last Week</button>
-          <button class="ai-news-filter-btn" data-filter="month">Last Month</button>
-        </div>
-        <button class="ai-news-close" id="aiNewsClose" aria-label="Close">&times;</button>
-      </div>
-      <div class="ai-news-body" id="aiNewsBody">
-        <div class="ai-news-loading">
-          <div class="ai-news-spinner"></div>
-          <p>Loading latest AI news…</p>
-        </div>
-      </div>
-      <div class="ai-news-footer">
-        <span class="ai-news-refresh" id="aiNewsRefresh">🔄 Refresh</span>
-        <span class="ai-news-updated" id="aiNewsUpdated"></span>
-      </div>
-    </div>
+<div class="ai-news-modal">
+       <div class="ai-news-header">
+         <h2><i class='bx bx-brain'></i> <span id="aiNewsTitle">Today's AI News</span></h2>
+         <p class="ai-news-date" id="aiNewsDate"></p>
+         <div class="ai-news-filters" id="aiNewsFilters">
+           <button class="ai-news-filter-btn active" data-filter="today">Today</button>
+           <button class="ai-news-filter-btn" data-filter="3days">Last 3 Days</button>
+           <button class="ai-news-filter-btn" data-filter="week">Last Week</button>
+           <button class="ai-news-filter-btn" data-filter="month">Last Month</button>
+         </div>
+         <div class="ai-news-search">
+           <input type="text" id="aiNewsSearch" placeholder="Search news..." aria-label="Search news">
+         </div>
+         <button class="ai-news-close" id="aiNewsClose" aria-label="Close">&times;</button>
+       </div>
+       <div class="ai-news-body" id="aiNewsBody">
+         <div class="ai-news-loading">
+           <div class="ai-news-spinner"></div>
+           <p>Loading latest AI news…</p>
+         </div>
+       </div>
+       <div class="ai-news-footer">
+         <span class="ai-news-refresh" id="aiNewsRefresh">🔄 Refresh</span>
+         <button class="ai-news-load-more" id="aiNewsLoadMore">Load more</button>
+         <span class="ai-news-updated" id="aiNewsUpdated"></span>
+       </div>
+     </div>
   </div>
 
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
